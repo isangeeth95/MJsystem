@@ -1,0 +1,27 @@
+if 'python' is not recognized,
+
+	[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python")
+
+install pip - 
+	copy get-pip.py file to desktop
+	
+	python get-pip.py
+
+install virtualenv -
+	
+	pip install virtualenv
+
+if 'pip' is not recognized,
+
+	set enviroment variable path...
+	https://www.youtube.com/watch?v=qgGIqRFvFFk&t=0s&list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK&index=2
+
+create virtualenv-
+	python -m virtualenv projectname
+
+activate virtualenv-
+	.\projectname\Scripts\activate
+
+if isn't activate virtualenv,
+
+	Set-ExecutionPolicy RemoteSigned
