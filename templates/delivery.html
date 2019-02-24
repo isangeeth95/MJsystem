@@ -1,0 +1,73 @@
+{%  extends 'base.html' %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+{% block dashboard-body %}
+    <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard /Delivery</a>
+          </li>
+          <li class="breadcrumb-item active">{{ dashboard_dir }}</li>
+        </ol>
+
+<div class="container">
+  <h3>Delivery Information</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Order Number</th>
+        <th>Item Code</th>
+        <th>Description</th>
+        <th>Weight</th>
+        <th>Receiver's Name</th>
+        <th>Receiver's Address</th>
+        <th>Order date</th>
+        <th>Deliver date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>0012</td>
+        <td>BA2028</td>
+        <td>22K GOLD SS L. BANGLES/15</td>
+        <td>21.910</td>
+        <td>Ms.Sandaki Dissanayake</td>
+        <td>123, Kandy</td>
+        <td>2019/02/23</td>
+        <td>2019/03/01</td>
+      </tr>
+      <tr>
+       <td>2</td>
+        <td>0015</td>
+        <td>PE6428</td>
+        <td>22K GOLD PENDENT</td>
+        <td>5.910</td>
+        <td>Ms.Nimnadi Dissanayake</td>
+        <td>251 malwaththa Rd, Kandy</td>
+        <td>2019/02/21</td>
+        <td>2019/02/030</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>0020</td>
+        <td>CH4053</td>
+        <td>22K GOLD CHAIN</td>
+        <td>29.500</td>
+        <td>Ms.Dinu Dissanayake</td>
+        <td>123, Colombo 7</td>
+        <td>2019/02/23</td>
+        <td>2019/03/01</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
