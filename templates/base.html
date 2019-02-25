@@ -170,7 +170,12 @@
 
     <div id="content-wrapper">
         <!-- Breadcrumbs-->
-
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">{{ dashboard_dir }}</li> <!-- pass your dir as context -->
+        </ol>
         <!-- end breadcrumbs-->
             {% block dashboard-body %}
             
