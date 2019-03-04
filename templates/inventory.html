@@ -1,0 +1,81 @@
+{%  extends 'base.html' %}
+
+{% block dashboard-body %}
+<center><h2 >Inventory</h2></center>
+    <div class="button-group">
+    <a href="{% url 'display_Necleces' %}" class="btn btn-primary btn-md" role="button">Necleces</a>
+    <a href="{% url 'add_Necleces' %}" class="btn btn-warning btn-sm" role="button">+</a>
+
+    <a href="{% url 'display_Ring' %}" class="btn btn-primary btn-md" role="button">Ring</a>
+    <a href="{% url 'add_Ring' %}" class="btn btn-warning btn-sm" role="button">+</a>
+
+    <a href="{% url 'display_Pendants' %}" class="btn btn-primary btn-md" role="button">Pendants</a>
+    <a href="{% url 'add_Pendant' %}" class="btn btn-warning btn-sm" role="button">+</a>
+    
+    <a href="{% url 'display_Earrings' %}" class="btn btn-primary btn-md" role="button">Earrings</a>
+    <a href="{% url 'add_Earrings' %}" class="btn btn-warning btn-sm" role="button">+</a>
+</div>
+<br>
+<center> <h4>Currently Viewing {{ header }}</h4></center>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>charges</th>
+            <th>stones</th>
+            <th>weight</th>
+            <th>qty</th>
+            <th>craft_id</th>
+            <th>Status</th>
+            <th>Issues</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.pk }}</td>
+            <td>{{ item.cat }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.charges }}</td>
+            <td>{{ item.stones }}</td>
+            <td>{{ item.weight }}</td>
+            <td>{{ item.qty }}</td>
+            <td>{{ item.craft_id }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.issues }}</td>
+            {% if header == "Necleces" %}
+                <td>
+                    <a href="{% url 'edit_Necleces' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a href="{% url 'delete_Necleces' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+                </td>
+
+            {% elif header == "Rings" %}
+                <td>
+                    <a href="{% url 'edit_Ring' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a href="{% url 'delete_Ring' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+                </td>
+            {% elif header == "Earrings" %}
+                <td>
+                    <a href="{% url 'edit_Earrings' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a href="{% url 'delete_Earrings' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+                </td>
+            {% else %}
+                <td>
+                    <a href="{% url 'edit_Pendant' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a href="{% url 'delete_Pendants' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+                </td>
+            {% endif %}
+
+        </tr>
+            {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # MJ apps
     'accounts',
+    'inventory',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
