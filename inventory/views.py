@@ -47,7 +47,7 @@ def add_Item(request, cls):
 
         if form.is_valid():
             form.save()
-            return render(request, 'inventory.html')
+            return render(request, 'inventory.html',{})
     else:
         form = cls()
         return render(request, 'add_newItem.html', {'form': form})
