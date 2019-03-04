@@ -1,7 +1,7 @@
 {%  extends 'base.html' %}
 
 {% block dashboard-body %}
-<center><h2 >Inventory</h2></center>
+<center><h2 >Inventory Management</h2><br>
     <div class="button-group">
     <a href="{% url 'display_Necleces' %}" class="btn btn-primary btn-md" role="button">Necleces</a>
     <a href="{% url 'add_Necleces' %}" class="btn btn-warning btn-sm" role="button">+</a>
@@ -14,8 +14,9 @@
     
     <a href="{% url 'display_Earrings' %}" class="btn btn-primary btn-md" role="button">Earrings</a>
     <a href="{% url 'add_Earrings' %}" class="btn btn-warning btn-sm" role="button">+</a>
-</div>
+</div></center>
 <br>
+    {% if header == "Necleces" or header == "Earrings" or header == "Pendants" or header == "Rings"%}
 <center> <h4>Currently Viewing {{ header }}</h4></center>
 <table class="table table-hover">
     <thead>
@@ -77,5 +78,11 @@
     </tbody>
 
 </table>
+    {% else %}
+        {% load staticfiles %}
+        <center><div>
+            <img style="width: 940px; height: 400px;" alt="Image description" src="{% static 'images/image.png' %}"/>
+        </div></center>
+    {% endif %}
 
 {% endblock %}
