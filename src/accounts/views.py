@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from .forms import LoginForm, SignUpForm
-from .models import Online_Customer, Customer, User
+from .models import Online_Customer, User
+from customer.models import Customer
 from django.contrib.auth import authenticate, login, logout
 
 

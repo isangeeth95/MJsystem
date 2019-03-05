@@ -6,7 +6,7 @@ def inventory(request):
     context = {
         'dashboard_dir': 'inventory'
     }
-    return render(request, 'inventory.html', context)
+    return render(request, 'inventory/inventory.html', context)
 
 def display_Earrings(request):
     items = Earrings.objects.all()
@@ -14,7 +14,7 @@ def display_Earrings(request):
         'items': items,
         'header': 'Earrings'
     }
-    return render(request, 'inventory.html', context)
+    return render(request, 'inventory/inventory.html', context)
 
 
 def display_Necleces(request):
@@ -23,7 +23,7 @@ def display_Necleces(request):
         'items':items,
         'header':'Necleces',
     }
-    return render(request, 'inventory.html', context)
+    return render(request, 'inventory/inventory.html', context)
 
 def display_Ring(request):
     items = Ring.objects.all()
@@ -31,7 +31,7 @@ def display_Ring(request):
         'items' :items,
         'header':'Rings'
     }
-    return render(request, 'inventory.html', context)
+    return render(request, 'inventory/inventory.html', context)
 
 def display_Pendants(request):
     items = Pendants.objects.all()
@@ -39,7 +39,7 @@ def display_Pendants(request):
         'items' : items,
         'header':'Pendants'
     }
-    return render(request, 'inventory.html', context)
+    return render(request, 'inventory/inventory.html', context)
 
 
 def add_Item(request, cls):
@@ -48,10 +48,10 @@ def add_Item(request, cls):
 
         if form.is_valid():
             form.save()
-            return render(request, 'inventory.html',{})
+            return render(request, 'inventory/inventory.html',{})
     else:
         form = cls()
-        return render(request, 'add_newItem.html', {'form': form})
+        return render(request, 'inventory/add_newItem.html', {'form': form})
 
 def add_Earrings(request):
     return add_Item(request, EarringForm)
@@ -73,10 +73,10 @@ def edit_Item(request, pk, model, cls):
         form = cls(request.POST, instance = item)
         if form.is_valid():
             form.save()
-            return render(request, 'inventory.html')
+            return render(request, 'inventory/inventory.html')
     else:
         form = cls(instance=item)
-        return render(request, 'edit_item.html', {'form': form})
+        return render(request, 'inventory/edit_item.html', {'form': form})
 
 def edit_Earrings(request, pk):
     return edit_Item(request, pk, Earrings, EarringForm)
@@ -100,7 +100,7 @@ def delete_Earrings(request, pk):
     context={
         'items': items
     }
-    return render(request, 'inventory.html')
+    return render(request, 'inventory/inventory.html')
 
 def delete_Necleces(request, pk):
     Necleces.objects.filter(id=pk).delete()
@@ -109,7 +109,7 @@ def delete_Necleces(request, pk):
     context={
         'items': items
     }
-    return render(request, 'inventory.html')
+    return render(request, 'inventory/inventory.html')
 
 def delete_Ring(request, pk):
     Ring.objects.filter(id=pk).delete()
@@ -118,7 +118,7 @@ def delete_Ring(request, pk):
     context={
         'items': items
     }
-    return render(request, 'inventory.html')
+    return render(request, 'inventory/inventory.html')
 
 def delete_Pendants(request, pk):
     Pendants.objects.filter(id=pk).delete()
@@ -127,5 +127,5 @@ def delete_Pendants(request, pk):
     context={
         'items': items
     }
-    return render(request, 'inventory.html')
+    return render(request, 'inventory/inventory.html')
 

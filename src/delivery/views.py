@@ -4,12 +4,12 @@ from .forms import *
 from django.http import HttpResponse
 
 def delivery(request):
-    return render(request, 'delivery.html')
+    return render(request, 'delivery/delivery.html')
 
 def deliveryInfo(request):
     info = DeliveryInfo.objects.all()
     context = {'info': info,}
-    return render(request,'deliveryfrom.html',context)
+    return render(request,'delivery/deliveryfrom.html',context)
 
 def add_deliveryform(request):
     if request.method == "POST":
@@ -21,7 +21,7 @@ def add_deliveryform(request):
 
     else:
         form = DeliveryForm()
-        return render(request,'add_delivery.html',{'form':form})
+        return render(request,'delivery/add_delivery.html',{'form':form})
 
 def edit_deliveryform(request, pk):
     item = get_object_or_404(DeliveryInfo, pk=pk)
@@ -35,7 +35,7 @@ def edit_deliveryform(request, pk):
 
     else:
         form = DeliveryForm(instance=item)
-        return render(request,'edit_delivery.html',{'form': form})
+        return render(request,'delivery/edit_delivery.html',{'form': form})
 
 
 def delete_deliveryform(request, pk):
@@ -43,4 +43,4 @@ def delete_deliveryform(request, pk):
 
     info = DeliveryInfo.objects.all()
     context = {'info': info}
-    return render(request,'deliveryfrom.html',context)
+    return render(request,'delivery/deliveryfrom.html',context)
