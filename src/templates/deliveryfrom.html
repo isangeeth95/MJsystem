@@ -1,0 +1,83 @@
+{%  extends 'base.html' %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+{% block dashboard-body %}
+    <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard /DeliveryInfo</a>
+          </li>
+          <li class="breadcrumb-item active">{{ dashboard_dir }}</li>
+        </ol>
+
+
+    <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Edit Delivery Information</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Order Number</th>
+                    <th>Item Code</th>
+                    <th>Description</th>
+                    <th>Weight</th>
+                    <th>Receiver's Name</th>
+                    <th>Receiver's Address</th>
+                    <th>Order date</th>
+                    <th>Deliver date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>No</th>
+                    <th>Order Number</th>
+                    <th>Item Code</th>
+                    <th>Description</th>
+                    <th>Weight</th>
+                    <th>Receiver's Name</th>
+                    <th>Receiver's Address</th>
+                    <th>Order date</th>
+                    <th>Deliver date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                {% for item in info %}
+                    <tr>
+
+                    <td>{{ item.pk }}</td>
+                    <td>{{ item.Order_No }}</td>
+                    <td>{{ item.Item_Code }}</td>
+                    <td>{{ item.Description }}</td>
+                    <td>{{ item.Weight }}</td>
+                    <td>{{ item.Receiver_Name }}</td>
+                    <td>{{ item.Receiver_Add }}</td>
+                    <td>{{ item.Order_date }}</td>
+                    <td>{{ item.Deliver_date }}</td>
+                    <td><a href="{% url 'edit_delivery' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                    <td><a href="{% url 'delete_delivery' item.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                  </tr>
+                       {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+
+
+{% endblock %}
