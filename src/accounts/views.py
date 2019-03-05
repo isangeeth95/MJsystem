@@ -6,11 +6,11 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
-def user(request):
-    context = {
-        'dashboard_dir': 'user'
-    }
-    return render(request, 'index.html', context)
+# def user(request):
+#     context = {
+#         'dashboard_dir': 'user'
+#     }
+#     return render(request, 'index.html', context)
 
 
 def login_page(request):
@@ -39,8 +39,8 @@ def login_page(request):
         'form': form,
         'error': error,
     }
-    return render(request, 'index.html', context)
-   # return render(request, 'accounts/login.html', context)
+    # return render(request, 'index.html', context)
+    return render(request, 'accounts/login.html', context)
 
 
 def log_out(request):
