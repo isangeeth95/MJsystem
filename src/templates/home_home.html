@@ -107,6 +107,13 @@
         <li><a href="#gallery">GALLERY</a></li>
         <li><a href="#offers">OFFERS</a></li>
         <li><a href="#contact">CONTACT</a></li>
+        {% if request.user.is_authenticated %}
+          <li><a href="#">{{ request.user.get_email }}</a></li>
+          <li><a href="/user/logout">Log out</a></li>
+        {% else %}
+          <li><a href="/user/login">Sign in</a></li>
+          <li><a href="/user/signup">Sign up</a></li>
+        {% endif%}
 
       </ul>
     </div>
