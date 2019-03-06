@@ -1,6 +1,7 @@
 import random
 import os
 from django.db import models
+from django.utils.timezone import datetime
 
 def get_filename_ext(filename):
     base_name = os.path.basename(filename)
@@ -19,8 +20,16 @@ def upload_image_path(instance, filename):
 
 
 class jewelry(models.Model):
-    cat = models.CharField(max_length=100, blank=False)#category
-    date = models.DateField()
+
+    catChoice =(
+        ('NE', 'Necklaces'),
+        ('RI', 'Ring'),
+        ('PE', 'Pendants'),
+        ('ER', 'Earrings')
+    )
+
+    category = models.CharField(max_length=100, choices=catChoice ,blank=False )#category
+    date = models.DateField(default=datetime.now, blank=True)
     description = models.CharField(max_length=500, blank=False)
     charges = models.IntegerField()
     stones = models.IntegerField()
@@ -33,10 +42,9 @@ class jewelry(models.Model):
         ('SOLD', 'Item Sold'),
         ('RESTOCKING', 'Item restocking in few days')
     )
-
     status = models.CharField(max_length=10, choices=choices, default="SOLD")
     issues = models.CharField(max_length=100, default="No issues")
-    image = models.FileField(upload_to='jewelry_image/', null=True, blank=False)
+    image = models.ImageField(upload_to='jewelry_image/', null=True, blank=False)
 
     class Meta:
         abstract = True

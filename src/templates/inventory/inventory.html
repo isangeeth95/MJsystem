@@ -1,6 +1,7 @@
 {%  extends 'base.html' %}
 
 {% block dashboard-body %}
+
     <center><h2 >Inventory Management</h2>
         {% if header != "Necklaces" and header != "Earrings" and header != "Pendants" and header != "Rings"%}
      <a href="#" class="btn btn-lg btn-block btn-success" role="button">Re Order Items</a>
@@ -23,7 +24,9 @@
 <br>
     {% if header == "Necklaces" or header == "Earrings" or header == "Pendants" or header == "Rings"%}
 <center> <h4>Currently Viewing {{ header }}</h4></center>
-<table class="table table-hover">
+<div class="card-body">
+    <div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
             <th>Id</th>
@@ -41,12 +44,30 @@
             <th></th>
         </tr>
     </thead>
+    <tfoot>
+        <tr>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>charges (Rs)</th>
+            <th>stones</th>
+            <th>weight</th>
+            <th>qty</th>
+            <th>craft_id</th>
+            <th>Status</th>
+            <th>Issues</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </tfoot>
 
     <tbody>
         {% for item in items %}
+
         <tr>
             <td>{{ item.pk }}</td>
-            <td>{{ item.cat }}</td>
+            <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
             <td>{{ item.charges }}</td>
@@ -56,26 +77,26 @@
             <td>{{ item.craft_id }}</td>
             <td>{{ item.status }}</td>
             <td>{{ item.issues }}</td>
-            <td>{{ item.image }}</td>
+            <td><img style="width: 100px; height: 100px;" alt="Image description" src="{{ item.image.url }}"/></td>
             {% if header == "Necklaces" %}
                 <td>
-                    <a href="{% url 'edit_Necklaces' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a style="margin-bottom: 10px;width: 55px" href="{% url 'edit_Necklaces' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
                     <a href="{% url 'delete_Necklaces' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
                 </td>
 
             {% elif header == "Rings" %}
                 <td>
-                    <a href="{% url 'edit_Ring' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a style="margin-bottom: 10px;width: 55px" href="{% url 'edit_Ring' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
                     <a href="{% url 'delete_Ring' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
                 </td>
             {% elif header == "Earrings" %}
                 <td>
-                    <a href="{% url 'edit_Earrings' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a style="margin-bottom: 10px;width: 55px" href="{% url 'edit_Earrings' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
                     <a href="{% url 'delete_Earrings' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
                 </td>
             {% else %}
                 <td>
-                    <a href="{% url 'edit_Pendant' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a style="margin-bottom: 10px;width: 55px" href="{% url 'edit_Pendant' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
                     <a href="{% url 'delete_Pendants' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
                 </td>
             {% endif %}
@@ -83,7 +104,6 @@
         </tr>
             {% endfor %}
     </tbody>
-
 </table>
     {% else %}
         {% load staticfiles %}
@@ -91,5 +111,6 @@
             <img style="width: 940px; height: 400px;" alt="Image description" src="{% static 'images/image.png' %}"/>
         </div></center>
     {% endif %}
-
+    </div>
+</div>
 {% endblock %}
