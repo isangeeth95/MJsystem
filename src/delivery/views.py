@@ -8,7 +8,8 @@ def delivery(request):
 
 def deliveryInfo(request):
     info = DeliveryInfo.objects.all()
-    context = {'info': info,}
+    context = {'info': info,
+               'dashboard_dir': 'DeliveryInfo'}
     return render(request,'delivery/deliveryfrom.html',context)
 
 def add_deliveryform(request):

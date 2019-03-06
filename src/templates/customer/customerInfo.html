@@ -1,0 +1,49 @@
+{%  extends 'base.html' %}
+
+{% block dashboard-body %}
+    <div class="container-fluid">
+            <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Edit Delivery Information</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Tel-Number</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                {% for cus1 in cus %}
+                    <tr>
+
+                    <td>{{ cus1.pk }}</td>
+                    <td>{{ cus1.first_name }}</td>
+                    <td>{{ cus1.last_name }}</td>
+                    <td>{{ cus1.email }}</td>
+                    <td>address</td>
+                    <td>{{ cus1.tel_number }}</td>
+                    <td><a href="#" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                    <td><a href="#" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                  </tr>
+                       {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+
+    </div>
+
+{% endblock %}
