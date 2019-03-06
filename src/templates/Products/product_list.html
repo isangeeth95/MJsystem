@@ -1,0 +1,23 @@
+{% extends "home_base.html"%}
+
+{%block page_body%}
+{%load static%}
+
+<center>
+    <img style="width: 1000px; height: 500px;" alt="Image description" src="{% static 'images/product_page_cover.jpg'%}"/>
+</center>
+
+{{qs}}
+
+{% for obj in qs %}
+
+{{obj.Order_No}}<br/>
+{{obj.Item_Code}}<br/>
+{{obj.Description}}<br/>
+{{obj.Weight}}<br/>
+{{obj.Receiver_Name}}<br/>
+{{obj.Receiver_Add}}<br/>
+
+{% endfor %}
+
+{%endblock%}

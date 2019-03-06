@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from .models import *
+from inventory.models import Necklaces, Earrings, Pendants, Ring
 from .forms import *
+
 
 def inventory(request):
     context = {
         'dashboard_dir': 'inventory'
     }
     return render(request, 'inventory/inventory.html', context)
+
 
 def display_Earrings(request):
     items = Earrings.objects.all()
@@ -25,6 +27,7 @@ def display_Necklaces(request):
     }
     return render(request, 'inventory/inventory.html', context)
 
+
 def display_Ring(request):
     items = Ring.objects.all()
     context = {
@@ -32,6 +35,7 @@ def display_Ring(request):
         'header':'Rings'
     }
     return render(request, 'inventory/inventory.html', context)
+
 
 def display_Pendants(request):
     items = Pendants.objects.all()
@@ -42,16 +46,18 @@ def display_Pendants(request):
     return render(request, 'inventory/inventory.html', context)
 
 
+
 def add_Item(request, cls):
     if request.method == "POST":
         form = cls(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
-            return render(request, 'inventory/inventory.html',{})
+            return render(request, 'inventory/inventory.html', {})
     else:
         form = cls()
         return render(request, 'inventory/add_newItem.html', {'form': form})
+
 
 def add_Earrings(request):
     return add_Item(request, EarringForm)

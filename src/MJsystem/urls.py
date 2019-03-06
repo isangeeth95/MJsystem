@@ -19,16 +19,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
-urlpatterns = [
-    path('inventory/', include('inventory.urls')),
-    path('order/', include('order.urls')),
-    path('dashboard/customer/', include('customer.urls')),
-    path('user/', include('accounts.urls')),
-    path('delivery/', include('delivery.urls')),
-    path('admin/', admin.site.urls),
-    path('home/', views.home_page, name='home_page'),  # render index.html
-    path('', views.index_page, name='index_page'),  # render index.html
-    path('dashboard/', views.dashboard, name='dashboard'),
-    path('test/', views.test_page, name='test'),
 
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = [
+                  path('inventory/', include('inventory.urls')),
+                  path('order/', include('order.urls')),
+                  path('products/', include('products.urls')),
+                  path('dashboard/customer/', include('customer.urls')),
+                  path('user/', include('accounts.urls')),
+                  path('delivery/', include('delivery.urls')),
+                  path('admin/', admin.site.urls),
+                  path('home/', views.home_page, name='home_page'),  # render index.html
+                  path('', views.home_page, name='home_page'),  # render index.html
+                  #path('', views.index_page, name='index_page'),  # render index.html
+                  path('dashboard/', views.dashboard, name='dashboard'),
+                  path('test/', views.test_page, name='test'),
+
+              ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

@@ -16,7 +16,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def login_page(request):
     if request.user.is_authenticated:
-        return redirect('/')
+        return redirect('/home/')
     form = LoginForm(request.POST or None)
     error = ' '
     print(request.user.is_authenticated)
@@ -46,7 +46,7 @@ def login_page(request):
 
 def log_out(request):
     logout(request)
-    return HttpResponseRedirect('/user/login/')
+    return HttpResponseRedirect('/home/')
 
 
 def signup(request):
