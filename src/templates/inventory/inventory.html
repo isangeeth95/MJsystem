@@ -1,22 +1,27 @@
 {%  extends 'base.html' %}
 
 {% block dashboard-body %}
-<center><h2 >Inventory Management</h2><br>
-    <div class="button-group">
-    <a href="{% url 'display_Necleces' %}" class="btn btn-primary btn-md" role="button">Necleces</a>
-    <a href="{% url 'add_Necleces' %}" class="btn btn-warning btn-sm" role="button">+</a>
+    <center><h2 >Inventory Management</h2>
+        {% if header != "Necklaces" and header != "Earrings" and header != "Pendants" and header != "Rings"%}
+     <a href="#" class="btn btn-lg btn-block btn-success" role="button">Re Order Items</a>
+    <a href="#" class="btn  btn-success btn-lg btn-block" role="button" style="background: #7ac514;border: none">Raw Materials</a>
+        {% endif %}
+
+     <br><div class="button-group">
+    <a href="{% url 'display_Necklaces' %}" class="btn btn-primary btn-md" role="button">Necklaces</a>
+    <a href="{% url 'add_Necklaces' %}" class="btn btn-warning btn-sm" role="button">+</a>
 
     <a href="{% url 'display_Ring' %}" class="btn btn-primary btn-md" role="button">Ring</a>
     <a href="{% url 'add_Ring' %}" class="btn btn-warning btn-sm" role="button">+</a>
 
     <a href="{% url 'display_Pendants' %}" class="btn btn-primary btn-md" role="button">Pendants</a>
     <a href="{% url 'add_Pendant' %}" class="btn btn-warning btn-sm" role="button">+</a>
-    
+
     <a href="{% url 'display_Earrings' %}" class="btn btn-primary btn-md" role="button">Earrings</a>
     <a href="{% url 'add_Earrings' %}" class="btn btn-warning btn-sm" role="button">+</a>
 </div></center>
 <br>
-    {% if header == "Necleces" or header == "Earrings" or header == "Pendants" or header == "Rings"%}
+    {% if header == "Necklaces" or header == "Earrings" or header == "Pendants" or header == "Rings"%}
 <center> <h4>Currently Viewing {{ header }}</h4></center>
 <table class="table table-hover">
     <thead>
@@ -25,13 +30,14 @@
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
-            <th>charges</th>
+            <th>charges (Rs)</th>
             <th>stones</th>
             <th>weight</th>
             <th>qty</th>
             <th>craft_id</th>
             <th>Status</th>
             <th>Issues</th>
+            <th>Image_Path</th>
             <th></th>
         </tr>
     </thead>
@@ -50,10 +56,11 @@
             <td>{{ item.craft_id }}</td>
             <td>{{ item.status }}</td>
             <td>{{ item.issues }}</td>
-            {% if header == "Necleces" %}
+            <td>{{ item.image }}</td>
+            {% if header == "Necklaces" %}
                 <td>
-                    <a href="{% url 'edit_Necleces' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
-                    <a href="{% url 'delete_Necleces' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+                    <a href="{% url 'edit_Necklaces' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                    <a href="{% url 'delete_Necklaces' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
                 </td>
 
             {% elif header == "Rings" %}

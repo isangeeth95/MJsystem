@@ -17,11 +17,11 @@ def display_Earrings(request):
     return render(request, 'inventory/inventory.html', context)
 
 
-def display_Necleces(request):
-    items = Necleces.objects.all()
+def display_Necklaces(request):
+    items = Necklaces.objects.all()
     context = {
         'items':items,
-        'header':'Necleces',
+        'header':'Necklaces',
     }
     return render(request, 'inventory/inventory.html', context)
 
@@ -44,7 +44,7 @@ def display_Pendants(request):
 
 def add_Item(request, cls):
     if request.method == "POST":
-        form = cls(request.POST)
+        form = cls(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
@@ -56,8 +56,8 @@ def add_Item(request, cls):
 def add_Earrings(request):
     return add_Item(request, EarringForm)
 
-def add_Necleces(request):
-    return add_Item(request, NeclecesForm)
+def add_Necklaces(request):
+    return add_Item(request, NecklacesForm)
 
 def add_Ring(request):
     return add_Item(request, RingForm)
@@ -70,7 +70,7 @@ def edit_Item(request, pk, model, cls):
     item = get_object_or_404(model, pk=pk)
 
     if request.method == "POST":
-        form = cls(request.POST, instance = item)
+        form = cls(request.POST,request.FILES, instance = item)
         if form.is_valid():
             form.save()
             return render(request, 'inventory/inventory.html')
@@ -81,8 +81,8 @@ def edit_Item(request, pk, model, cls):
 def edit_Earrings(request, pk):
     return edit_Item(request, pk, Earrings, EarringForm)
 
-def edit_Necleces(request, pk):
-    return edit_Item(request, pk, Necleces, NeclecesForm)
+def edit_Necklaces(request, pk):
+    return edit_Item(request, pk, Necklaces, NecklacesForm)
 
 def edit_Ring(request, pk):
     return edit_Item(request, pk, Ring, RingForm)
@@ -102,9 +102,9 @@ def delete_Earrings(request, pk):
     }
     return render(request, 'inventory/inventory.html')
 
-def delete_Necleces(request, pk):
-    Necleces.objects.filter(id=pk).delete()
-    items = Necleces.objects.all()
+def delete_Necklaces(request, pk):
+    Necklaces.objects.filter(id=pk).delete()
+    items = Necklaces.objects.all()
 
     context={
         'items': items
