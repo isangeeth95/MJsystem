@@ -1,14 +1,14 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>order page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+  <!--&lt;!&ndash; Theme Made By www.w3schools.com - No Copyright &ndash;&gt;-->
+  <!--<title>order page</title>-->
+  <!--<meta charset="utf-8">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
   <style>
 
   .carousel-control.right, .carousel-control.left {
@@ -40,6 +40,9 @@
   </style>
 </head>
 <body>
+{%  extends 'base.html' %}
+
+{% block dashboard-body %}
 
 
 <center><h2 >Order Management</h2><br>
@@ -133,6 +136,6 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-
+{% endblock %}
 </body>
 </html>
