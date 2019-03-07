@@ -13,8 +13,6 @@ def index_page(request):
 
 
 def home_page(request):
-    # return render(request, 'test_home_base.html', {})
-
     return render(request, 'home_home.html', {})
 
 

@@ -31,7 +31,7 @@ def login_page(request):
             if user.is_staff:
                 return redirect('dashboard')
             if user.is_customer:
-                return redirect('/')
+                return redirect('/home/')
         else:
             error = 'error'
             print('Error')
@@ -40,7 +40,6 @@ def login_page(request):
         'form': form,
         'error': error,
     }
-    # return render(request, 'index.html', context)
     return render(request, 'accounts/login.html', context)
 
 
