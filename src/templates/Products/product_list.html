@@ -4,39 +4,23 @@
 {%load static%}
 
 <center>
-    <img style="width: 1000px; height: 500px;" alt="Image description" src="{% static 'images/product_page_cover.jpg'%}"/>
+    <img style="width: 800px; height: 400px;" alt="Image description" src="{% static 'images/product_page_cover.jpg'%}"/>
 </center>
+<br/>
+<br/>
+<div class='container'>
+    <div class='row'>
 
-{{qs}}
-
-{% for obj in qs %}
-
-<!--{{obj.Order_No}}<br/>-->
-<!--{{obj.Item_Code}}<br/>-->
-<!--{{obj.Description}}<br/>-->
-<!--{{obj.Weight}}<br/>-->
-<!--{{obj.Receiver_Name}}<br/>-->
-<!--{{obj.Receiver_Add}}<br/>-->
-
-{{ obj.category }}</br>
-{{ obj.date }}</br>
-{{ obj.description }}</br>
-{{ obj.charges }}</br>
-{{ obj.stones }}</br>
-{{ obj.weight }}</br>
-{{ obj.craft_id }}</br>
-{{obj.image}}</br>
-<img style="width: 100px; height: 100px;" alt="Image description" src="{{ obj.image.url }}"/>
-
-<!--category = models.CharField(max_length=100, choices=catChoice ,blank=False )#category-->
-    <!--date = models.DateField(default=datetime.now, blank=True)-->
-    <!--description = models.CharField(max_length=500, blank=False)-->
-    <!--charges = models.IntegerField()-->
-    <!--stones = models.IntegerField()-->
-    <!--weight = models.IntegerField()-->
-    <!--qty = models.IntegerField()-->
-    <!--craft_id = models.IntegerField()-->
-
-{% endfor %}
+        {% for obj in qs %}
+        <div class='col'>
+            {{ forloop.counter}}
+            {% include 'snippets/card.html' with instance=obj %}
+            {% if forloop.counter|divisibleby:3 %}
+        </div></div> <div class='row'><div class="col-12"><hr/></div>
+    {% else %}
+</div>
+    {% endif %}
+    {% endfor %}
+</div>
 
 {%endblock%}
