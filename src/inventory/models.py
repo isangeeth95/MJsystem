@@ -50,7 +50,7 @@ class jewelry(models.Model):
         abstract = True
 
     def __str__(self):
-        return 'cat : {0} charges : {1}'.format(self.cat, self.charges)
+        return 'cat : {0} charges : {1}'.format(self.category, self.charges)
 
 class Necklaces(jewelry):
     pass

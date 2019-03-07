@@ -6,7 +6,8 @@ from delivery.models import DeliveryInfo
 # Create your views here.
 
 def Product_List_View(request):
-    querySet = DeliveryInfo.objects.all()
+    #querySet = DeliveryInfo.objects.all()
+    querySet = Necklaces.objects.all()
     context = {
         'qs': querySet
     }
