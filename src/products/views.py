@@ -6,7 +6,9 @@ from inventory.models import jewelry , Necklaces, Ring
 
 def Product_List_View(request):
     querySet = Ring.objects.all()
+    set=Necklaces.objects.all();
     context = {
-        'qs': querySet
+        'qs': querySet,
+        'qs1': set
     }
     return render(request, "Products/product_list.html", context)

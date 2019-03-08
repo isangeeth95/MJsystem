@@ -4,7 +4,7 @@
 {%load static%}
 
 <center>
-    <img style="width: 800px; height: 400px;" alt="Image description" src="{% static 'images/product_page_cover.jpg'%}"/>
+    <img style="width: 800px; height: 500px;" alt="Image description" src="{% static 'images/product_page.jpg'%}"/>
 </center>
 <br/>
 <br/>
@@ -21,6 +21,22 @@
 </div>
     {% endif %}
     {% endfor %}
+
+
+    {% for obj in qs1 %}
+        <div class='col'>
+            {{ forloop.counter}}
+            {% include 'snippets/card.html' with instance=obj %}
+            {% if forloop.counter|divisibleby:3 %}
+        </div></div> <div class='row'><div class="col-12"><hr/></div>
+    {% else %}
+</div>
+    {% endif %}
+    {% endfor %}
+
+
 </div>
 
 {%endblock%}
+
+{% block title%}Products {% endblock %}

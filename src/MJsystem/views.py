@@ -23,3 +23,8 @@ def dashboard(request):
         'user_name': request.user.get_email()
     }
     return render(request, 'dashboard.html', context)
+
+
+def contact_page(request):
+    return render(request, 'contact.html', {})
+

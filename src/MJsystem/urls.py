@@ -32,6 +32,7 @@ urlpatterns = [
                   path('', views.home_page, name='home_page'),  # render index.html
                   #path('', views.index_page, name='index_page'),  # render index.html
                   path('dashboard/', views.dashboard, name='dashboard'),
+                  path('contact/', views.contact_page, name='contact_page'),  # render index.html
                   path('test/', views.test_page, name='test'),
 
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
