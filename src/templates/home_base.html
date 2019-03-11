@@ -124,7 +124,7 @@
 
             {% if request.user.is_authenticated %}
             <li class="nav-item" style="float: right">
-                <a class="nav-link"  href="#">{{ request.user.get_email }}</a>
+                <a class="nav-link"  href="/user/profile">Hi! <b>{{ request.user.get_first_name }}</b></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link"  href="/user/logout">Log out</a>
@@ -142,10 +142,7 @@
 </nav>
 
 
-<div class="container-fluid">
-    <h1 style="font-family: 'Times New Roman'">MAJJESTIC JEWELER</h1>
-    <p>අධිෂ්ඨානය ජයග්‍රහණය නම් හැකියාව විශ්මිත විය යුතුයි.</p>
-</div>
+
 
 
 

@@ -70,3 +70,29 @@ def signup(request):
         'error': form.error,
     }
     return render(request, "accounts/register.html", context)
+
+
+def profile(request):
+    qs = Online_Customer.objects.filter(User=request.user)
+    qs1 = Customer.objects.filter(email=request.user.get_email())
+    email = ' '
+    fname = ' '
+    lname = ' '
+    address = ' '
+    tel = ' '
+    for c in qs:
+        address = c.address
+        tel = c.tel_number
+    for c1 in qs1:
+        print(c1.email)
+        email = c1.email
+        fname = c1.first_name
+        lname = c1.last_name
+    context = {
+        'username': fname + ' ' + lname,
+        'email': email,
+        'address': address,
+        'tel' : tel,
+    }
+    return render(request, "accounts/profile.html", context)
+

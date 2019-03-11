@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import ( AbstractBaseUser, BaseUserManager, PermissionsMixin)
+from customer.models import Customer
 
 
 # Create your models here.
@@ -51,6 +52,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_email(self):
         return self.email
+
+    def get_first_name(self):
+        qs1 = Customer.objects.filter(email=self.email)
+        for c in qs1:
+            return c.first_name
+
 
     @property
     def is_active(self):
