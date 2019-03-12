@@ -3,9 +3,14 @@ from django.urls import path
 from .views import *
 from django.conf.urls import url
 
-urlpatterns = [
-    url(r'^list/$', Product_List_View),
-    url(r'^list/(?P<pk>\d+)/$', Product_detail_View),
-    url(r'^list/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view())
-]
 
+
+urlpatterns = [
+
+    url(r'^list/$', Product_List_View),
+
+    url(r'^list/(?P<pk>\d+)/$', Product_detail_View),
+
+    url(r'^list/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view())
+
+]
