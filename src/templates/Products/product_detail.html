@@ -1,0 +1,62 @@
+{% extends "home_base.html"%}
+
+{%block page_body%}
+{%load static%}
+
+<!--<center>-->
+<!--<img style="width: 800px; height: 500px;" alt="Image description" src="{% static 'images/product_page.jpg'%}"/>-->
+<!--</center>-->
+<br/>
+<br/>
+<div class='container'>
+
+    <img src="{{object.image.url}}" class="img-thumbnail float-left" style="margin-right:20px; max-height: 300px; max-width: 300px"  alt="Image detail view">
+    <div class="col-100" style="margin-bottom: 200px">
+
+        <table>
+            <tr>
+                <th>category</th>
+                <th>: {{object.category}}</th>
+            </tr>
+            <tr>
+                <th>date</th>
+                <th>: {{object.date}}</th>
+            </tr>
+            <tr>
+                <th>description</th>
+                <th>: {{object.description}}</th>
+            </tr>
+            <tr>
+                <th>charges</th>
+                <th>: {{object.charges}}</th>
+            </tr>
+            <tr>
+                <th>stones</th>
+                <th>: {{object.stones}}</th>
+            </tr>
+            <tr>
+                <th>weight</th>
+                <th>: {{object.weight}}</th>
+            </tr>
+            <tr>
+                <th>qty</th>
+                <th>: {{object.qty}}</th>
+            </tr>
+
+            <tr>
+                <th>issues</th>
+                <th>: {{object.issues}}</th>
+            </tr>
+
+
+        </table>
+        <h6 style="font-weight: bold;  color: #6610f2;">{{object.status}}</h6>
+
+
+
+    </div>
+
+</div>
+{%endblock%}
+
+{% block title%}Products_details {% endblock %}
