@@ -8,12 +8,12 @@
 <!--</center>-->
 <br/>
 <br/>
-<div class='container'>
+<div class='container-fluid bg-grey'>
 
     <img src="{{object.image.url}}" class="img-thumbnail float-left" style="margin-right:20px; max-height: 300px; max-width: 300px"  alt="Image detail view">
     <div class="col-100" style="margin-bottom: 200px">
 
-        <table>
+        <table style="padding-left: 50px">
             <tr>
                 <th>category</th>
                 <th>: {{object.category}}</th>
@@ -31,8 +31,12 @@
                 <th>: {{object.charges}}</th>
             </tr>
             <tr>
+                <th>Stone Type</th>
+                <th>: {{object.stoneType}}</th>
+            </tr>
+            <tr>
                 <th>stones</th>
-                <th>: {{object.stones}}</th>
+                <th>: {{object.NoOfStones}}</th>
             </tr>
             <tr>
                 <th>weight</th>
@@ -40,7 +44,7 @@
             </tr>
             <tr>
                 <th>qty</th>
-                <th>: {{object.qty}}</th>
+                <th>: {{object.quantity}}</th>
             </tr>
 
             <tr>

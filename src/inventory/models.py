@@ -53,6 +53,10 @@ class jewelry(models.Model):
     # class Meta:
     #     abstract = True
 
+    def get_absolute_url(self):
+        return "/products/list/{slug}/".format(slug=self.slug)
+
+
     def __str__(self):
         return 'cat : {0} charges : {1}'.format(self.category, self.charges)
 
