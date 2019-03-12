@@ -4,4 +4,4 @@ from .models import *
 class DeliveryForm(forms.ModelForm):
     class Meta:
         model = DeliveryInfo
-        fields = ('Order_No','Item_Code','Description','Weight','Receiver_Name','Receiver_Add','Deliver_date')
+        fields = ('Order_No', 'UserName', 'Receiver_Name', 'Receiver_Add', 'Telephone_No', 'Deliver_date')

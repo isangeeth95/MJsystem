@@ -28,11 +28,10 @@
                   <tr>
                     <th>No</th>
                     <th>Order Number</th>
-                    <th>Item Code</th>
-                    <th>Description</th>
-                    <th>Weight</th>
+                    <th>User's Email</th>
                     <th>Receiver's Name</th>
                     <th>Receiver's Address</th>
+                    <th>Telephone Number</th>
                     <th>Order date</th>
                     <th>Deliver date</th>
                     <th>Edit</th>
@@ -43,11 +42,10 @@
                   <tr>
                     <th>No</th>
                     <th>Order Number</th>
-                    <th>Item Code</th>
-                    <th>Description</th>
-                    <th>Weight</th>
+                    <th>User's Email</th>
                     <th>Receiver's Name</th>
                     <th>Receiver's Address</th>
+                    <th>Telephone Number</th>
                     <th>Order date</th>
                     <th>Deliver date</th>
                     <th>Edit</th>
@@ -60,11 +58,10 @@
 
                     <td>{{ item.pk }}</td>
                     <td>{{ item.Order_No }}</td>
-                    <td>{{ item.Item_Code }}</td>
-                    <td>{{ item.Description }}</td>
-                    <td>{{ item.Weight }}</td>
+                    <td>{{ item.UserName }}</td>
                     <td>{{ item.Receiver_Name }}</td>
                     <td>{{ item.Receiver_Add }}</td>
+                    <td>{{ item.Telephone_No}}</td>
                     <td>{{ item.Order_date }}</td>
                     <td>{{ item.Deliver_date }}</td>
                     <td><a href="{% url 'edit_delivery' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
