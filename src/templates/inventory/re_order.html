@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block dashboard-body %}
+
+<center>
+
+    <h3>Re Order Item List</h3>
+
+    <div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>charges (Rs)</th>
+                    <th>craftsman_id</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+             <tbody>
+        {% for item in items %}
+    {% if item.quantity is 1 %}
+     <tr>
+            <td>{{ item.pk }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.charges }}</td>
+            <td>{{ item.craftsman_id}}</td>
+            <td><center><img style="width: 60px; height: 60px;" alt="Image description" src="{{ item.image.url }}"/></center></td>
+        </tr>
+    {% endif %}
+
+            {% endfor %}
+    </tbody>
+        </table>
+    </div>
+    </div>
+</center>
+
+{% endblock %}

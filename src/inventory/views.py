@@ -5,6 +5,13 @@ from .forms import *
 def inventory(request):
     return render(request, 'inventory/inventory.html', {})
 
+def re_order(request):
+    items = jewelry.objects.all()
+    context = {
+        'items': items,
+    }
+    return render(request, 'inventory/re_order.html', context)
+
 def display_Earrings(request):
     items = jewelry.objects.all()
     context = {

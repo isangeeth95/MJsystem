@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^edit_items/(?P<pk>\d+)' , views.edit_items, name='edit_items'),
     url(r'^delete_items/(?P<pk>\d+)' , views.delete_items, name='delete_items'),
 
+    url(r'^re_order$', views.re_order, name='re_order'),
+
     # url(r'^edit_Earrings/(?P<pk>\d+)$', edit_Earrings, name='edit_Earrings'),
     # url(r'^edit_Necklaces/(?P<pk>\d+)$', edit_Necklaces, name='edit_Necklaces'),
     # url(r'^edit_Ring/(?P<pk>\d+)$', edit_Ring, name='edit_Ring'),
