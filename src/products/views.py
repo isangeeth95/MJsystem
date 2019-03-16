@@ -8,10 +8,8 @@ from inventory.models import *
 
 def Product_List_View(request):
     querySet = jewelry.objects.all()
-   # set=Necklaces.objects.all()
     context = {
         'qs': querySet,
-        #'qs1': set
     }
     return render(request, "Products/product_list.html", context)
 
