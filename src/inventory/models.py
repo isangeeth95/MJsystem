@@ -34,10 +34,10 @@ class jewelry(models.Model):
     slug = models.SlugField(blank=True, unique=True)
     date = models.DateField(default=datetime.now, blank=True)
     description = models.CharField(max_length=500, blank=False)
-    charges = models.IntegerField()
+    charges = models.FloatField()
     stoneType = models.CharField(max_length=100, blank=False)
     NoOfStones = models.IntegerField()
-    weight = models.IntegerField()
+    weight = models.FloatField()
     quantity = models.IntegerField()
     craftsman_id = models.IntegerField()
 
