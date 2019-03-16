@@ -92,6 +92,10 @@
             <td>{{ item.status }}</td>
             <td>{{ item.issues }}</td>
             <td><img style="width: 100px; height: 100px;" alt="Image description" src="{{ item.image.url }}"/></td>
+            <td>
+                <a href="{% url 'edit_items' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                <a href="{% url 'delete_items' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+            </td>
         </tr>
     {% endif %}
 
