@@ -60,6 +60,16 @@
 
     </div>
 
+    <div class="col-12 col-md-6">
+        {{cart}}
+        {% if object in cart.products.all %}
+        In cart
+        {% else %}
+        ADD to cart
+        {% endif %}
+
+    </div>
+
 </div>
 {%endblock%}
 

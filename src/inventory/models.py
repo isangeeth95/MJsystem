@@ -60,10 +60,13 @@ class jewelry(models.Model):
     def __str__(self):
         return 'cat : {0} charges : {1}'.format(self.category, self.charges)
 
+
 def ring_presave_receiver(sender, instance, *args, **kwargs):
 
     if not instance.slug:
         instance.slug = 'abc'
-        pre_save.connect(ring_presave_receiver, sender=jewelry)
+
+
+pre_save.connect(ring_presave_receiver, sender=jewelry)
 
 
