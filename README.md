@@ -7,3 +7,6 @@ create user login, sign up this may destroy all superuser accounts. after pull r
 python manage.py makemigrations 
 python manage.py migrate 
 python manage.py createsuperuser
+
+
+test test
