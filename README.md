@@ -9,4 +9,4 @@ python manage.py migrate
 python manage.py createsuperuser
 
 
-test test
+test test test
