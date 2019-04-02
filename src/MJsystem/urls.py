@@ -35,6 +35,7 @@ urlpatterns = [
                   path('dashboard/', views.dashboard, name='dashboard'),
                   path('contact/', views.contact_page, name='contact_page'),  # render index.html
                   path('test/', views.test_page, name='test'),
+                  path('index/contactus.html/', views.contactus_page, name='contactus'),
 
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
