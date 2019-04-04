@@ -30,12 +30,12 @@ urlpatterns = [
                   path('delivery/', include('delivery.urls')),
                   path('admin/', admin.site.urls),
                   path('home/', views.home_page, name='home_page'),  # render index.html
-                  path('', views.home_page, name='home_page'),  # render index.html
-                  path('index/', views.index_page, name='index_page'),  # render index.html
+                  # path('', views.home_page, name='home_page'),  # render index.html
+                  path('', views.index_page, name='index_page'),  # render index.html
                   path('dashboard/', views.dashboard, name='dashboard'),
                   path('contact/', views.contact_page, name='contact_page'),  # render index.html
                   path('test/', views.test_page, name='test'),
-                  path('index/contactus.html/', views.contactus_page, name='contactus'),
+                  path('contactus.html/', views.contactus_page, name='contactus'),
 
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
