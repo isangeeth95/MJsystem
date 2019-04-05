@@ -36,6 +36,7 @@ urlpatterns = [
                   path('contact/', views.contact_page, name='contact_page'),  # render index.html
                   path('test/', views.test_page, name='test'),
                   path('contactus.html/', views.contactus_page, name='contactus'),
+                  path('hrmanage/', include('hrmanage.urls')),
 
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

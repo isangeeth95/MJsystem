@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'customer',
     'products',
     'carts',
+    'hrmanage',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
