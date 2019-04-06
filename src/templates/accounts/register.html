@@ -32,55 +32,50 @@
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-{#                  <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">#}
                     {{ form.fname }}
-                  <label for="firstName">First name</label>
+                  <label for="id_fname">First name</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-label-group">
-{#                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">#}
                     {{ form.lname }}
-                  <label for="lastName">Last name</label>
+                  <label for="id_lname">Last name</label>
                 </div>
               </div>
             </div>
           </div><!-- first & last name -->
           <div class="form-group">
             <div class="form-label-group">
-{#              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">#}
                 {{ form.email }}
-              <label for="inputEmail">Email address</label>
+              <label for="id_email">Email address</label>
             </div>
           </div><!-- email-->
           <div class="form-group">
             <div class="form-label-group">
-{#                address#}
+
                 {{ form.address }}
-              <label for="inputAddress">Address</label>
+              <label for="id_address">Address</label>
             </div>
           </div><!-- address-->
             <div class="form-group">
             <div class="form-label-group">
-{#                phone#}
+
                 {{ form.phone }}
-              <label for="inputPhone">Phone Number</label>
+              <label for="id_phone">Phone Number</label>
             </div>
           </div><!-- phone number-->
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-{#                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">#}
                     {{ form.pwd1 }}
-                  <label for="inputPassword">Password</label>
+                  <label for="id_pwd1">Password</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-label-group">
-{#                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">#}
                     {{ form.pwd2 }}
-                  <label for="confirmPassword">Confirm password</label>
+                  <label for="id_pwd2">Confirm password</label>
                 </div>
               </div>
             </div>
@@ -88,7 +83,7 @@
             <div class="form-group">
             <div class="form-label-group">
                 {{ form.user_image }}
-              <label for="inputPhone">Phone Number</label>
+              <label for="id_user_image">Upload your picture</label>
             </div>
           </div><!-- profile pic-->
           <button class="btn btn-primary btn-block" >Register</button>

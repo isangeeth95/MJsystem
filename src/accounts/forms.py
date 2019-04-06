@@ -92,10 +92,14 @@ class SignUpForm(forms.Form):
     address = forms.CharField(label='Address', widget=forms.Textarea(attrs={
                                                                 'class': 'form-control',
                                                                 'autofocus': 'autofocus',
+                                                                'style': 'padding-top: 2.375rem',
                                                             }))
     phone = forms.IntegerField(label='Phone Number', widget=forms.TextInput(attrs={
                                                                 'class': 'form-control',
                                                                 'autofocus': 'autofocus',
+
+
+
                                                             }))
     user_image = forms.ImageField(label='Upload your picture', widget=forms.FileInput(attrs={
                                                                 'class': 'form-control',
