@@ -97,6 +97,10 @@ class SignUpForm(forms.Form):
                                                                 'class': 'form-control',
                                                                 'autofocus': 'autofocus',
                                                             }))
+    user_image = forms.ImageField(label='Upload your picture', widget=forms.FileInput(attrs={
+                                                                'class': 'form-control',
+                                                                'autofocus': 'autofocus',
+                                                            }))
 
     error = ' '
 

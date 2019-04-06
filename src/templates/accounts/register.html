@@ -25,9 +25,9 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account {{ error }}</div>
+        <div class="card-header">Register an Account<br><p class="text-danger"> {{ error }}</p></div>
       <div class="card-body">
-        <form method="post"> {% csrf_token %}
+        <form method="post" enctype="multipart/form-data"> {% csrf_token %}
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -85,6 +85,12 @@
               </div>
             </div>
           </div><!--password -->
+            <div class="form-group">
+            <div class="form-label-group">
+                {{ form.user_image }}
+              <label for="inputPhone">Phone Number</label>
+            </div>
+          </div><!-- profile pic-->
           <button class="btn btn-primary btn-block" >Register</button>
         </form>
         <div class="text-center">

@@ -49,22 +49,27 @@ def log_out(request):
 
 
 def signup(request):
-    form = SignUpForm(request.POST or None)
-    context = {
-        'form': form
-    }
-    if form.is_valid():
-        print(form.cleaned_data)
-        fname = form.cleaned_data.get('fname')
-        lname = form.cleaned_data.get('lname')
-        email = form.cleaned_data.get('email')
-        password = form.cleaned_data.get('pwd1')
-        address = form.cleaned_data.get('address')
-        phone = form.cleaned_data.get('phone')
-        user1 = User.objects.create_customeruser(email, password) # create new auth user
-        Online_Customer.objects.create(User=user1,tel_number=phone,address=address) # create online customer OneToOne with auth user
-        Customer.objects.create(first_name=fname,last_name=lname,tel_number=phone,email=email)  # online customer IS-A customer, there should be validation
-        return redirect("/")
+    if request.method == 'POST':
+        form = SignUpForm(request.POST, request.FILES)
+        print('image url')
+        print(form.is_valid())
+        #print(form.cleaned_data.get('image'))
+        if form.is_valid():
+            print('in valid form')
+            print(form.cleaned_data)
+            fname = form.cleaned_data.get('fname')
+            lname = form.cleaned_data.get('lname')
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('pwd1')
+            address = form.cleaned_data.get('address')
+            phone = form.cleaned_data.get('phone')
+            image = form.cleaned_data.get('user_image')
+            user1 = User.objects.create_customeruser(email, password) # create new auth user
+            Online_Customer.objects.create(User=user1,tel_number=phone,address=address,profile_pic=image) # create online customer OneToOne with auth user
+            Customer.objects.create(first_name=fname,last_name=lname,tel_number=phone,email=email)  # online customer IS-A customer, there should be validation
+            return redirect("/")
+    else:
+        form = SignUpForm()
     context = {
         'form': form,
         'error': form.error,
@@ -83,6 +88,7 @@ def profile(request):
     for c in qs:
         address = c.address
         tel = c.tel_number
+        pic = c.profile_pic.url
     for c1 in qs1:
         print(c1.email)
         email = c1.email
@@ -93,6 +99,7 @@ def profile(request):
         'email': email,
         'address': address,
         'tel' : tel,
+        'picture' : pic,
     }
     return render(request, "accounts/profile.html", context)
 

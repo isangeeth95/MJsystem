@@ -80,7 +80,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 class Online_Customer(models.Model):
     User = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     tel_number = models.IntegerField(unique=True)
-    # profile_pic = models.ImageField()
+    profile_pic = models.ImageField(upload_to='customer_image/', null=True, blank=False)
     address = models.TextField(max_length=512)
 
 
