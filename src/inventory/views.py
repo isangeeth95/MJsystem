@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import *
+from .models import jewelry,gold
 from .forms import *
 
 def inventory(request):
@@ -83,3 +83,56 @@ def delete_items(request, pk):
     items = jewelry.objects.all()
     context = {'item': items}
     return render(request, 'inventory/inventory.html')
+
+###################################################################################
+def add_Gold(request):
+    return render(request, 'inventory/add_Gold.html')
+
+def rawMeterial(request):
+    return render(request, 'inventory/rawMeterial.html')
+
+def Gold(request):
+    items = gold.objects.all()
+    context = {
+        'items' :items,
+    }
+    return render(request, 'inventory/gold.html', context)
+
+def add_gold_submission(request):
+    print ("success submit")
+    code = request.POST['code']
+    supplier = request.POST['supplier']
+    txt = request.POST['txt']
+    R = request.POST['R']
+    Is = request.POST['Is']
+    gBal = request.POST['gBal']
+    cp = request.POST['cp']
+    cd = request.POST['cd']
+    bal = request.POST['bal']
+    gwa = request.POST['gwa']
+
+    goldInfo = gold(code=code,supplier=supplier,txt=txt,R=R,Is=Is,gBal=gBal,cp=cp,cd=cd,bal=bal,gwa=gwa)
+    goldInfo.save()
+    return render(request, 'inventory/rawMeterial.html')
+
+
+def editGoldInfo(request, pk):
+    item = get_object_or_404(gold, pk=pk)
+
+    if request.method == "POST":
+        form = editGoldInfoForm(request.POST, instance=item)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'inventory/rawMeterial.html')
+
+    else:
+        form = editGoldInfoForm(instance=item)
+        return render(request,'inventory/editGoldInfo.html',{'form': form})
+
+
+def deleteGoldInfo(request, pk):
+    gold.objects.filter(pk=pk).delete()
+
+    return render(request, 'inventory/rawMeterial.html')
+

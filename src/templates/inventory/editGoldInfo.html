@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block dashboard-body %}
+{% load staticfiles %}
+		<div class="wrapperForm" style="background-repeat:no-repeat;background-size: cover;background-image: url('{% static "images/back6.jpg"%}')">
+			<div class="innerForm">
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <h4>{{ header }}</h4>
+        <br>
+        <h3 class="IFh3"><b>Edit Gold Information</b></h3><br>
+      {% for field in form %}
+      <div class="form-group row" id="alfa">
+        <label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>
+        <div class="col-10">
+          {{ field }}
+        </div>
+      </div>
+      {% endfor %}
+
+          <button type="submit" class="iFbutton">Save Edited Info</button>
+
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}

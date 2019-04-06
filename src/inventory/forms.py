@@ -6,7 +6,16 @@ class add_ItemForm(forms.ModelForm):
         model = jewelry
         fields= ('category','slug', 'date', 'description', 'charges', 'stoneType' , 'NoOfStones', 'weight', 'quantity', 'craftsman_id', 'status', 'issues', 'image')
 
+
+
 class edit_ItemForm(forms.ModelForm):
     class Meta:
         model = jewelry
         fields= ('category','slug', 'date', 'description', 'charges', 'stoneType' , 'NoOfStones', 'weight', 'quantity', 'craftsman_id', 'status', 'issues', 'image')
+
+
+class editGoldInfoForm(forms.ModelForm):
+    class Meta:
+        model = gold
+        fields= ('code','supplier', 'txt', 'R', 'Is', 'gBal' , 'cp', 'cd', 'bal', 'gwa')
+

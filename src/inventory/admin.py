@@ -7,3 +7,4 @@ class RingAdmin(admin.ModelAdmin):
         model = jewelry
 
 admin.site.register(jewelry)
+admin.site.register(gold)

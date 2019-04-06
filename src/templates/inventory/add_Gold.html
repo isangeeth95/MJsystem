@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block dashboard-body %}
+{% load staticfiles %}
+<div class="container-contact100" style="background-repeat:no-repeat;background-size: cover;background-image: url('{% static "images/back6.jpg"%}')"><div class="wrap-contact100">
+  <br><span class="contact100-form-title">Add Gold form</span>
+<div class="container">
+  <div class="formBoxGold" >
+  <form method="post" action="{% url 'add_gold_submission' %}" class="contact100-form">
+    {% csrf_token %}
+
+    <div class="wrap-input100" data-validate="Use numbers">
+      <label class="label-input100" for="code">Code:</label>
+      <input type="number" class="input100" id="code" placeholder="Enter Code Number" name="code" required>
+      <span class="focus-input100"></span>
+    </div>
+
+
+
+    <div class="wrap-input100">
+      <label class="label-input100"  for="supplier">Supplier:</label>
+      <input type="text" class="input100" id="supplier" placeholder="Enter Supplier Name" name="supplier" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+      <label class="label-input100" for="txt">Txt (Enter the date of the purchased):</label>
+      <input type="date" name="txt" class="input100" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+      <label class="label-input100" for="R">R (recived gold weight):</label>
+      <input type="text" class="input100" id="R" placeholder="Enter recived gold weight" name="R" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+      <label class="label-input100" for="Is">Is (gold weight which issued by shop):</label>
+      <input type="text" class="input100" id="Is" placeholder="Enter gold weight which issued by shop" name="Is" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+      <label class="label-input100" for="gBal">gBal (gold weight balance):</label>
+      <input type="text" class="input100" id="gBal" placeholder="Enter gold weight balance" name="gBal" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+      <label class="label-input100" for="cp">cp (payed amount):</label>
+      <input type="text" class="input100" id="cp" placeholder="Enter payed amount" name="cp" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+      <label class="label-input100" for="cd">cd (amount to pay):</label>
+      <input type="text" class="input100" id="cd" placeholder="Enter amount to pay" name="cd" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+      <label class="label-input100" for="bal">bal (amount balance):</label>
+      <input type="text" class="input100" id="bal" placeholder="Enter amount balance" name="bal" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+      <label class="label-input100" for="gwa">gwa (gold weight amount at the year):</label>
+      <input type="text" class="input100" id="gwa" placeholder="Enter gold weight amount at the year" name="gwa" required>
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="container-contact100-form-btn">
+    <button type="submit" class="contact100-form-btn">SUBMIT</button>
+    </div>
+
+  </form>
+</div>
+</div></div></div>
+{% endblock %}

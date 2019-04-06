@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block dashboard-body %}
+{% load staticfiles %}
+<div class="rawBody" style="background-image: url('{% static "images/back2.jpg"%}')">
+<center><br>
+    <div class="Rpolaroid">
+  <a href="{% url 'gold' %}"><img style="width:100%" alt="Image description" src="{% static 'images/gold.jpg' %}"/></a>
+  <div class="TitleRaw">
+    <h5>GOLD Details</h5>
+  </div>
+</div>
+<!--<div class='container-fluid bg-grey'>-->
+    <!--<a href="{% url 'gold' %}"><img style="width: 25%; height: 25%;" alt="Image description" src="{% static 'images/gold.jpg' %}"/></a>-->
+    <!--<h4>GOLD Details</h4><br>-->
+    <!--<img  style="width: 25%; height: 25%;" alt="Image description" src="{% static 'images/stone.jpg' %}"/>-->
+    <!--<h4>STONES Details</h4></div>-->
+</center>
+    </div>
+{% endblock %}

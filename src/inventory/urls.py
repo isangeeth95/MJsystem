@@ -15,6 +15,12 @@ urlpatterns = [
     url(r'^delete_items/(?P<pk>\d+)' , views.delete_items, name='delete_items'),
 
     url(r'^re_order$', views.re_order, name='re_order'),
+    url(r'^add_Gold$', views.add_Gold, name='add_Gold'),
+    url(r'^add_gold_submission$', views.add_gold_submission, name='add_gold_submission'),
+    url(r'^rawMeterial$', views.rawMeterial, name='rawMeterial'),
+    url(r'^gold$', views.Gold, name='gold'),
+    url(r'^editGoldInfo/(?P<pk>\d+)', views.editGoldInfo, name='editGoldInfo'),
+    url(r'^deleteGoldInfo/(?P<pk>\d+)', views.deleteGoldInfo, name='deleteGoldInfo'),
 
     # url(r'^edit_Earrings/(?P<pk>\d+)$', edit_Earrings, name='edit_Earrings'),
     # url(r'^edit_Necklaces/(?P<pk>\d+)$', edit_Necklaces, name='edit_Necklaces'),

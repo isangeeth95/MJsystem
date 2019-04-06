@@ -19,8 +19,21 @@ def upload_image_path(instance, filename):
     return "jewelry_image/{new_filename}/{final_filename}".format(new_filename=new_filename,
                                                                   final_filename=final_filename)
 
+class gold(models.Model):
+
+    code = models.IntegerField()#number
+    supplier = models.CharField(max_length=500, blank=False) #name of the supplier
+    txt = models.DateField(default=datetime.now, blank=False) #date of the purchased
+    R = models.CharField(max_length=500, blank=False) #recived gold weight
+    Is = models.CharField(max_length=500, blank=False) #gold weight which issued by shop
+    gBal = models.CharField(max_length=500, blank=False) # gold weight balance
+    cp = models.FloatField() #payed amount
+    cd = models.FloatField() #amount to pay
+    bal = models.FloatField() #amount balance
+    gwa = models.CharField(max_length=500, blank=False) #gold weight amount at the year
 
 
+##########################################################################################
 class jewelry(models.Model):
 
     catChoice =(
@@ -60,13 +73,10 @@ class jewelry(models.Model):
     def __str__(self):
         return 'cat : {0} charges : {1}'.format(self.category, self.charges)
 
-
 def ring_presave_receiver(sender, instance, *args, **kwargs):
 
     if not instance.slug:
         instance.slug = 'abc'
-
-
-pre_save.connect(ring_presave_receiver, sender=jewelry)
+        pre_save.connect(ring_presave_receiver, sender=jewelry)
 
 

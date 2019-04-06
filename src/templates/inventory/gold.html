@@ -1,0 +1,54 @@
+{%  extends 'base.html' %}
+
+{% block dashboard-body %}
+{% load staticfiles %}
+<div class="mBody">
+        <br><center> <div class="slideInLeft"><h3>GOLD Details</h3></div></center>
+        <div class="slideInLeft">
+        <a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_Gold' %}" class="btn btn-warning btn-sm" role="button">+</a>
+        </div><br><br>
+        <div class="card-body">
+            <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr class="table100-head">
+                    <th>code</th>
+                    <th>supplier</th>
+                    <th>txt</th>
+                    <th>R</th>
+                    <th>Is</th>
+                    <th>gBal</th>
+                    <th>cp</th>
+                    <th>cd</th>
+                    <th>bal</th>
+                    <th>gwa</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in items %}
+             <tr>
+                    <td>{{ item.code }}</td>
+                    <td>{{ item.supplier }}</td>
+                    <td>{{ item.txt }}</td>
+                    <td>{{ item.R }}</td>
+                    <td>{{ item.Is }}</td>
+                    <td>{{ item.gBal }}</td>
+                    <td>{{ item.cp }}</td>
+                    <td>{{ item.cd }}</td>
+                    <td>{{ item.bal }}</td>
+                    <td>{{ item.gwa}}</td>
+                    <td>
+                        <a style="margin: 10px 0 10px 10px;width: 55px" href="{% url 'editGoldInfo' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                        <a style="margin-left: 15px;" href="{% url 'deleteGoldInfo' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+                    </td>
+                </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 
 {% block dashboard-body %}
-
+{% load staticfiles %}
+<div class="rawBody" style="background-image: url('{% static "images/back4.jpg"%}')">
+		<div class="wrapperForm" >
+			<div class="innerForm">
 <div class="container">
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" class="addJForm">
       {% csrf_token %}
 
       <h4>{{ header }}</h4>
-        <br>
-        <h4><b>Editing Items</b></h4><br>
+      <br>
+      <center><h3 class="IFh3"><b>Edit Jewellers Information</b></h3><br></center>
       {% for field in form %}
-      <div class="form-group row">
+      <div class="form-group row" id="alfa">
         <label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>
         <div class="col-10">
           {{ field }}
@@ -18,14 +21,9 @@
       </div>
       {% endfor %}
 
-      <div class="form-group row">
-        <div class="offset-sm-2 col-sm-6">
+         <center> <button type="submit" class="iFbutton">Save Edited Item</button></center>
 
-          <button type="submit" class="btn btn-primary">Save Edited Item</button>
-
-        </div>
-      </div>
     </form>
   </div>
-
+            </div></div>
 {% endblock %}
