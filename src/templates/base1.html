@@ -212,9 +212,32 @@
     <div class="thirteen columns nav mobile_hidden">
       <ul class="menu right">
 
-          <li class="header-account">
-            <a href="/user/login/" title="My Account ">Sign in</a>
-          </li>
+          {% if request.user.is_authenticated %}
+            <li class="sub-menu" aria-haspopup="true" aria-expanded="false">
+              <a href="#" class="dropdown-link  ">
+                  Hi! <b>{{ request.user.get_first_name }}</b> <span class="icon-arrow-down"></span></a>
+                <div class="dropdown animated fadeIn  ">
+                <div class="dropdown-links clearfix">
+                  <ul>
+                      <li><a href="/user/profile">Profile</a></li>
+                      <li><a href="#">Orders</a></li>
+                      <li><a href="#">Setting</a></li>
+                      <li><a href="/user/logout">Log out</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link"  href="/user/logout">Log out</a>-->
+            <!--</li>-->
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link"  href="/user/login">Sign in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="/user/signup">Sign up</a>
+            </li>
+            {% endif%}
 
           <li class="search">
             <a href="#" title="Search" id="search-toggle"><span class="icon-search"></span></a>
@@ -386,7 +409,7 @@
 
     <!--------------------------------------------------------------------------------------------------------->
 
-    {% block page-body %}
+    {% block page_body %}
 
             {% endblock %}
     <!---------------------------------->
