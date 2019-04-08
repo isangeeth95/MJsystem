@@ -49,4 +49,4 @@ def delete_staff(request, pk):
 
     details = Staff.objects.all()
     context = {'details': details}
-    return render(request,'staff.html',context)
+    return render(request,'hr/staff.html',context)

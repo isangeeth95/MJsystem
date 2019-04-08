@@ -38,6 +38,7 @@ urlpatterns = [
                   path('hrmanage/', include('hrmanage.urls')),
                   path('supplier/', include('supplier.urls')),
                   path('craftsmen/', include('craftsmen.urls')),
+                  path('BussinessAccounts/', include('BussinessAccounts.urls')),
 
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

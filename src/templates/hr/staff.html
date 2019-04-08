@@ -1,45 +1,84 @@
 {%  extends 'base.html' %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
 {% block dashboard-body %}
-<center><h2 >HR Management</h2><br>
-<table class="table table-hover">
-
-    <a href="{% url 'add_Staff' %}" class="btn btn-primary btn-md" role="button">add</a>
-
-    <thead>
-        <tr>
-             <th>Emp_ID</th>
-            <th>First_Name</th>
-            <th>Last_Name</th>
-            <th>Email</th>
-            <th>Phone_Number</th>
-            <th>Admission_date</th>
-            <th>Job_title</th>
-            <th>Job_level</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-
-    <tbody style="color: #000">
-        {% for details in details %}
-        <tr>
-            <td>{{ details.pk }}</td>
-            <td>{{ details.First_Name}}</td>
-            <td>{{ details.Last_Name }}</td>
-            <td>{{ details.Email }}</td>
-            <td>{{ details.Phone_Number }}</td>
-            <td>{{ details.Admission_date }}</td>
-            <td>{{ details.Job_title }}</td>
-            <td>{{ details.Job_level}}</td>
-            <td><a href="{% url 'edit_staff' details.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
-            <td><a href="{% url 'delete_staff' details.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
-
-        </tr>
-            {% endfor %}
-    </tbody>
+{% load static %}
+<center><a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_Staff' %}" class="btn btn-warning btn-sm" role="button">+</a></center>
+<br><br>
+    <!--<ol class="breadcrumb">-->
+          <!--<li class="breadcrumb-item">-->
+            <!--<a href="#">Dashboard /DeliveryInfo</a>-->
+          <!--</li>-->
+          <!--<li class="breadcrumb-item active">{{ dashboard_dir }}</li>-->
+        <!--</ol>-->
 
 
-</table>
+    <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Employee Information</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Emp_ID</th>
+                    <th>First_Name</th>
+                    <th>Last_Name</th>
+                    <th>Email</th>
+                    <th>Phone_Number</th>
+                    <th>Admission_date</th>
+                    <th>Job_title</th>
+                    <th>Job_level</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <!--<tfoot>
+                  <tr>
+                    <th>Emp_ID</th>
+                    <th>First_Name</th>
+                    <th>Last_Name</th>
+                    <th>Email</th>
+                    <th>Phone_Number</th>
+                    <th>Admission_date</th>
+                    <th>Job_title</th>
+                    <th>Job_level</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </tfoot>-->
+                <tbody>
+                 {% for details in details %}
+                    <tr>
+
+                    <td>{{ details.Emp_ID }}</td>
+                    <td>{{ details.First_Name }}</td>
+                    <td>{{ details.Last_Name }}</td>
+                    <td>{{ details.Email }}</td>
+                    <td>{{ details.Phone_Number}}</td>
+                    <td>{{ details.Admission_date}}</td>
+                    <td>{{ details.Job_title }}</td>
+                    <td>{{ details.Job_level }}</td>
+                    <td><a href="{% url 'edit_staff' details.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                    <td><a href="{% url 'delete_staff' details.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+
+                  </tr>
+                       {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+
 
 {% endblock %}

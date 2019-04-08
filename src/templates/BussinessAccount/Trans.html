@@ -1,0 +1,85 @@
+{%  extends 'base.html' %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+{% block dashboard-body %}
+{% load static %}
+<center><a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_Trans' %}" class="btn btn-warning btn-sm" role="button">+</a></center>
+<br><br>
+    <!--<ol class="breadcrumb">-->
+          <!--<li class="breadcrumb-item">-->
+            <!--<a href="#">Dashboard /DeliveryInfo</a>-->
+          <!--</li>-->
+          <!--<li class="breadcrumb-item active">{{ dashboard_dir }}</li>-->
+        <!--</ol>-->
+
+
+    <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Bank Transaction Details</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Trans_ID</th>
+                    <th>Trans_Date</th>
+                    <th>Bank_Name</th>
+                    <th>Bank_Branch</th>
+                    <th>Amount</th>
+                    <th>Withdraw/Deposit</th>
+                    <th>Trans_Type</th>
+                    <th>Transfer_Details</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <!--<tfoot>
+                  <tr>
+                    <th>Emp_ID</th>
+                    <th>First_Name</th>
+                    <th>Last_Name</th>
+                    <th>Email</th>
+                    <th>Phone_Number</th>
+                    <th>Admission_date</th>
+                    <th>Job_title</th>
+                    <th>Job_level</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </tfoot>-->
+                <tbody style="color: black">
+                 {% for details in details %}
+                    <tr>
+
+                    <td>{{ details.Trans_ID }}</td>
+                    <td>{{ details.Trans_Date }}</td>
+                    <td>{{ details.Bank_Name }}</td>
+                    <td>{{ details.Bank_Branch }}</td>
+                    <td>{{ details.Amount}}</td>
+                    <td>{{ details.Withdraw_or_Deposit}}</td>
+                    <td>{{ details.Trans_Type }}</td>
+                    <td>{{ details.Transfer_Details}}</td>
+                    <td><a href="{% url 'edit_Trans' details.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                    <td><a href="{% url 'delete_Trans' details.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+
+                  </tr>
+                       {% endfor %}
+
+                </tbody>
+              </table>
+                <a class="btn btn-info" role="button" href="{% url 'export_BussinessAccounts_csv' %}">Export Gold Info (csv)</a>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+
+
+{% endblock %}
