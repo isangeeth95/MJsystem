@@ -4,16 +4,19 @@
 {%block page_body%}
 {%load static%}
 <div class="container main content main-wrapper">
-    <div class="card mb-3">
+    <div class="eight columns">
+    <div class="card mb-3" style="align-content: center;">
           <div class="card-header">
-            <i class="fas fa-table"></i>Delivery Request</div>
-        <div class="container">
+
+              <i class="fas fa-table"></i><center><h1>Delivery Request</h1></center></div>
+              <div class="feature_divider"></div>
+
             <form method="POST">
             {% csrf_token %}
                 <br>
                 <div class="form-group">
                 <label for="Order_No" class="col-sm-2 col-form-label">Order Number:</label>
-                <input type="text" placeholder="Order Number" name="Order_No" length="3px">
+                <input type="text" placeholder="Order Number" name="Order_No" size="5">
                 </div>
 
                 <div class="form-group">
@@ -46,10 +49,11 @@
 
                <button type="submit" class="btn btn-primary" name="'button">SUBMIT</button>
             </form>
-        </div>
+
 
           </div>
    </div>
+</div>
 </div>
 
 {% endblock %}
