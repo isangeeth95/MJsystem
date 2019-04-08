@@ -103,3 +103,5 @@ def profile(request):
     }
     return render(request, "accounts/profile.html", context)
 
+def settings(request):
+    return render(request,"accounts/profile_settings.html",{})
