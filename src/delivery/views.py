@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from.models import *
 from .forms import *
 from django.http import HttpResponse
+import csv
 
 def delivery(request):
     return render(request, 'delivery/delivery.html')
@@ -45,3 +46,14 @@ def delete_deliveryform(request, pk):
     info = DeliveryInfo.objects.all()
     context = {'info': info}
     return render(request,'delivery/deliveryfrom.html',context)
+
+def export_delivery_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="delivery.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Order_No', 'UserName', 'Receiver_Name', 'Receiver_Add', 'Telephone_No','Order_date','Deliver_date'])
+    delInfo = DeliveryInfo.objects.all().values_list('Order_No', 'UserName', 'Receiver_Name', 'Receiver_Add', 'Telephone_No', 'Order_date', 'Deliver_date')
+    for info in delInfo:
+        writer.writerow(info)
+    return response

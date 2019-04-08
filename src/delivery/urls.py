@@ -8,4 +8,5 @@ path('deliveryform/', views.add_deliveryform, name='add_delivery'),
 
 url(r'^edit_delivery/(?P<pk>\d+)' , views.edit_deliveryform, name='edit_delivery'),
 url(r'^delete_delivery/(?P<pk>\d+)' , views.delete_deliveryform, name='delete_delivery'),
+url(r'^export/csv/$', views.export_delivery_csv, name='export_delivery_csv'),
 ]
