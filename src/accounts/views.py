@@ -31,7 +31,7 @@ def login_page(request):
             if user.is_staff:
                 return redirect('dashboard')
             if user.is_customer:
-                return redirect('/home/')
+                return redirect('/')
         else:
             error = 'error'
             print('Error')
@@ -45,7 +45,7 @@ def login_page(request):
 
 def log_out(request):
     logout(request)
-    return HttpResponseRedirect('/home/')
+    return HttpResponseRedirect('/')
 
 
 def signup(request):
