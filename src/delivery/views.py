@@ -57,3 +57,37 @@ def export_delivery_csv(request):
     for info in delInfo:
         writer.writerow(info)
     return response
+
+def deliprofile(request):
+    # qs = DeliveryInfo.objects.filter(UserName=request.user.get_email)
+    qs1 = DeliveryInfo.objects.filter(UserName=request.user.get_email())
+    Order_No = ' '
+    UserName = ' '
+    Receiver_Name = ' '
+    Receiver_Add = ' '
+    Telephone_No = ' '
+    Order_date = ' '
+    Deliver_date = ' '
+    # for d1 in qs:
+    #     Order_No = d1.Order_No
+        # UserName = d1.UserName
+        # Receiver_Name = d1.Receiver_Name
+
+    for d in qs1:
+        Order_No = d.Order_No
+        Receiver_Name = d.Receiver_Name
+        Receiver_Add = d.Receiver_Add
+        Telephone_No = d.Telephone_No
+        Order_date = d.Order_date
+        Deliver_date = d.Deliver_date
+
+    context = {
+        'UserName': UserName,
+        'Order_No': Order_No,
+        'Receiver_Name': Receiver_Name,
+        'Receiver_Add' : Receiver_Add,
+        'Telephone_No' : Telephone_No,
+        'Order_date' : Order_date,
+        'Deliver_date' : Deliver_date,
+    }
+    return render(request, "delivery/deliprofile.html", context)
