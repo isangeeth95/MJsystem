@@ -10,4 +10,6 @@ urlpatterns = [
     path('signup/', signup, name='signup-page'),
     path('profile/', profile, name='profile-page'),
     path('settings/', settings, name='profile-settings-page'),
+    path('delete/', delete_account, name='profile-delete-page'),
+
 ]

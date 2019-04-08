@@ -130,5 +130,5 @@ class SignUpForm(forms.Form):
 class EditProfile(forms.Form):
     fname = forms.CharField()
     lname = forms.CharField()
-    address = forms.CharField()
+    address = forms.CharField(widget=forms.Textarea())
     phone = forms.IntegerField()

@@ -139,3 +139,7 @@ def settings(request):
     }
 
     return render(request,"accounts/profile_settings.html",context)
+
+
+def delete_account(request):
+    return render(request,"accounts/delete.html",{})
