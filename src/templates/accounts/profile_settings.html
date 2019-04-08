@@ -9,7 +9,7 @@
 
         <form method="post">{% csrf_token %}
             {{form}}
-            <input type="submit">
+            <input type="submit" value="Change Details">
         </form>
 
 
@@ -20,7 +20,13 @@
         <!--<p class="lead mb-0">Mobile : {{ tel }}</p>-->
 
     </div>
+
   </div>
+    <br> <br>
+    <div class="card border-2">
+        <a href="\user\delete"><button class="button">Delete This Account</button></a>
+
+    </div>
 </div>
 </div>
 
