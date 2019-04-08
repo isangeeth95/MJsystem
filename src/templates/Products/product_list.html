@@ -1,27 +1,28 @@
-{% extends "base1.html"%}
+{% extends "home_base.html"%}
 
 {%block page_body%}
 {%load static%}
-<div style="background-size: cover;background-image: url('{% static "images/pr2.jpeg"%}')">
-<center><br><br><br><br><br><br><br>
+
+<!--<center>-->
     <!--<img style="width: 800px; height: 500px;" alt="Image description" src="{% static 'images/product_page.jpg'%}"/>-->
-</center>
+<!--</center>-->
 <br/>
 <br/>
 <div class='container'>
-    <div class='row' style="display: flex;margin-left: 10%">
+    <div class='row'>
+
         {% for obj in qs %}
-        <div class='col' style="display: flex">
+        <div class='col'>
             {{ forloop.counter}}
             {% include 'snippets/card.html' with instance=obj %}
             {% if forloop.counter|divisibleby:3 %}
-        </div></div> <div class='row' style="display: flex;;margin-left: 10%"><div class="col-12" style="display: flex;"><hr/></div>
+        </div></div> <div class='row'><div class="col-12"><hr/></div>
     {% else %}
 </div>
     {% endif %}
     {% endfor %}
 </div>
-</div>
+
 {%endblock%}
 
 {% block title%}Products {% endblock %}

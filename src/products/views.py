@@ -16,13 +16,16 @@ def Product_List_View(request):
     return render(request, "Products/product_list.html", context)
 
 
-def Product_detail_View(request, pk=None, *args, **kwargs):
-    # instance = Ring.objects.get(id=pk)
-    instance = get_object_or_404(jewelry, id=pk)
-    context = {
-        'object': instance
-    }
-    return render(request, "Products/product_detail.html", context)
+# def Product_detail_View(self, pk=None, *args, **kwargs):
+#     # instance = Ring.objects.get(id=pk)
+#     instance = get_object_or_404(jewelry, id=pk)
+#     request = self.request
+#     cart_obj, new_obj = Cart.objects.new_or_get(request)
+#     context = {
+#         'object': instance,
+#         'cart' : cart_obj,
+#     }
+#     return render(request, "Products/product_detail.html", context)
 
 
 class ProductDetailSlugView(DetailView):
@@ -35,7 +38,6 @@ class ProductDetailSlugView(DetailView):
         cart_obj, new_obj = Cart.objects.new_or_get(request)
         context['cart'] = cart_obj
         return context
-
 
     def get_object(self, *args, **kwargs):
         request = self.request

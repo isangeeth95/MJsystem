@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.db.models.signals import pre_save, post_save,m2m_changed
-from django.dispatch import receiver
+
 
 from inventory.models import jewelry
 # Create your models here.
@@ -19,11 +19,9 @@ class CartManager(models.Manager):
             if request.user.is_authenticated and cart_obj.user is None:
                 cart_obj.user = request.user
                 cart_obj.save()
-
         else:
             cart_obj = Cart.objects.new(user=request.user)
             new_obj = True
-
             request.session['cart_id'] = cart_obj.id
         return cart_obj, new_obj
 

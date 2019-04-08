@@ -2,11 +2,11 @@
 
     {% if instance.image %}
 
-  <img src="{{instance.image.url}}" class="card-img-top"  style="max-height: 250px;max-width: 250px;" alt="Card Image Cap">
+  <img src="{{instance.image.url}}" class="card-img-top"  style="max-height: 300px" alt="Card Image Cap">
 
     {% endif %}
 
-  <div class="card-body" style="font-size: large;font-weight: bold">
+  <div class="card-body" >
 
     <h5 class="card-title">Category : {{instance.category}}</h5>
 
@@ -16,7 +16,7 @@
 
     <p class="card-text">Status : {{instance.status}}</p>
 
-    <a href='{{instance.get_absolute_url}}' class="btn btn-info" style="color: #fff;background: #0f6674;padding: 10px;border-radius: 10px;">View</a>
+    <a href='{{instance.get_absolute_url}}' class="btn btn-primary">View</a>
 
   </div>
 

@@ -10,18 +10,18 @@ def cart_home(request):
 
 
 def cart_update(request):
-    jewelry_id = request.POST.get('jewelry_id')
-    if jewelry_id is not None:
+    product_id = request.POST.get('product_id')
+    if product_id is not None:
         try:
-            jewelry_obj = jewelry.objects.get(id=jewelry_id)
+            product_obj = jewelry.objects.get(id=product_id)
         except jewelry.DoesNotExist:
             print("Show message to user, product is gone")
-            return redirect('cart/home.html')
+            return redirect("home")
         cart_obj, new_obj = Cart.objects.new_or_get(request)
-        if jewelry_obj in cart_obj.inventory.all():
-            cart_obj.inventory.remove(jewelry_obj)
+        if product_obj in cart_obj.jewelries.all():
+            cart_obj.jewelries.remove(product_obj)
         else:
-            cart_obj.inventory.add(jewelry_obj)
-        request.session['cart_items'] = cart_obj.inventory.count()
-    return redirect('cart/home.html')
+            cart_obj.jewelries.add(product_obj)
+        request.session['cart_items'] = cart_obj.jewelries.count()
+    return redirect("home")
 

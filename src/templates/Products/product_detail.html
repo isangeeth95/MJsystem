@@ -1,4 +1,4 @@
-{% extends "base1.html"%}
+{% extends "home_base.html"%}
 
 {%block page_body%}
 {%load static%}
@@ -57,18 +57,13 @@
         <h6 style="font-weight: bold;  color: #6610f2;">{{object.status}}</h6>
 
 
+        <div class="col-12 col-md-6">
+            {% include 'cart/update-cart.html' with product=object cart=cart %}
+        </div>
 
     </div>
 
-    <div class="col-12 col-md-6">
-        {{cart}}
-        {% if object in cart.products.all %}
-        In cart
-        {% else %}
-        ADD to cart
-        {% endif %}
 
-    </div>
 
 </div>
 {%endblock%}
