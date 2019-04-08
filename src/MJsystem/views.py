@@ -28,5 +28,8 @@ def dashboard(request):
 def contact_page(request):
     return render(request, 'contact.html', {})
 
+def about_page(request):
+    return render(request, 'aboutus.html', {})
+
 def contactus_page(request):
     return render(request, 'contactus.html', {})

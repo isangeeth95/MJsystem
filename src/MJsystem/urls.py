@@ -34,6 +34,7 @@ urlpatterns = [
                   path('', views.index_page, name='index_page'),  # render index.html
                   path('dashboard/', views.dashboard, name='dashboard'),
                   path('contact/', views.contact_page, name='contact_page'),  # render index.html
+                  path('about/', views.about_page, name='about_page'),
                   path('test/', views.test_page, name='test'),
                   path('hrmanage/', include('hrmanage.urls')),
                   path('supplier/', include('supplier.urls')),
