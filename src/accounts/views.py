@@ -107,15 +107,35 @@ def settings(request):
     cus = get_object_or_404(Customer, email=request.user.email)
     online_cus = get_object_or_404(Online_Customer, tel_number=cus.tel_number)
 
+
+
     if request.method == "POST":
         profile_form = EditProfile(request.POST)
         if profile_form.is_valid():
             fname = profile_form.cleaned_data.get('fname')
             lname = profile_form.cleaned_data.get('lname')
-            print(fname + ' ' + lname)
+            address = profile_form.cleaned_data.get('address')
+            phone = profile_form.cleaned_data.get('phone')
+            print(fname + ' ' + lname + ' '+ address)
+            cus.first_name = fname
+            cus.last_name = lname
+            cus.tel_number = phone
+            cus.save()
+            online_cus.tel_number = phone
+            online_cus.address = address
+            online_cus.save()
+
 
         return redirect('/')
     else:
         profile_form = EditProfile()
 
-    return render(request,"accounts/profile_settings.html",{'form':profile_form})
+    context = {
+        'form': profile_form,
+        'fname': cus.first_name,
+        'lname' : cus.last_name,
+        'address': online_cus.address,
+        'phone':online_cus.tel_number,
+    }
+
+    return render(request,"accounts/profile_settings.html",context)
