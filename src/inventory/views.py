@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import jewelry,gold
 from .forms import *
+from django.http.response import HttpResponse
+import csv
+import xlwt
 
 def inventory(request):
     return render(request, 'inventory/inventory.html', {})
@@ -135,4 +138,65 @@ def deleteGoldInfo(request, pk):
     gold.objects.filter(pk=pk).delete()
 
     return render(request, 'inventory/rawMeterial.html')
+
+
+def export_Gold_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="gold.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['code', 'supplier', 'txt', 'R', 'Is', 'gBal', 'cp', 'cd', 'bal', 'gwa'])
+    goldInfo = gold.objects.all().values_list('code', 'supplier', 'txt', 'R', 'Is', 'gBal', 'cp', 'cd', 'bal', 'gwa')
+    for info in goldInfo:
+        writer.writerow(info)
+
+    return response
+
+
+def export_gold_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="gold.xls"'
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('gold')
+    #sheet header, first row
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['code', 'supplier', 'txt', 'R', 'Is', 'gBal', 'cp', 'cd', 'bal', 'gwa']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    #sheet body
+    font_style = xlwt.XFStyle()
+    rows = gold.objects.all().values_list('code', 'supplier', 'txt', 'R', 'Is', 'gBal', 'cp', 'cd', 'bal', 'gwa')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+    return response
+
+
+def export_jewelry_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="jewelry.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['category', 'date', 'description', 'charges', 'stoneType', 'NoOfStones', 'weight', 'quantity', 'craftsman_id', 'issues'])
+    jewelryInfo = jewelry.objects.all().values_list('category', 'date', 'description', 'charges', 'stoneType', 'NoOfStones', 'weight', 'quantity', 'craftsman_id', 'issues')
+    for info in jewelryInfo:
+        writer.writerow(info)
+
+    return response
+
+
+
+
+
+
+
+
+
 
