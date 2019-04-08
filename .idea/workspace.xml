@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51826328-1644-4df3-b1b4-a437f7ec6375" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/MJsystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MJsystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,22 +36,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/products/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/products/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="1003">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -59,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/cart/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
+            <state relative-caret-position="867">
               <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
             </state>
           </provider>
@@ -80,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/Products/product_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
+            <state relative-caret-position="459">
               <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
             </state>
           </provider>
@@ -101,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/home_base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
+            <state relative-caret-position="3315">
               <caret line="195" column="7" selection-start-line="195" selection-start-column="7" selection-end-line="195" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -116,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/src/templates/home_home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2091">
-              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#center#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -124,17 +115,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/accounts/profile_settings.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-816" />
+            <state relative-caret-position="119">
+              <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/Products/product_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
+            <state relative-caret-position="1190">
               <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
@@ -172,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/inventory/models.py" />
         <option value="$PROJECT_DIR$/templates/inventory.html" />
         <option value="$PROJECT_DIR$/accounts/admin.py" />
         <option value="$PROJECT_DIR$/accounts/urls.py" />
@@ -223,6 +220,7 @@
         <option value="$PROJECT_DIR$/src/templates/snippets/card.html" />
         <option value="$PROJECT_DIR$/src/templates/home_base.html" />
         <option value="$PROJECT_DIR$/src/templates/home_home.html" />
+        <option value="$PROJECT_DIR$/src/templates/accounts/profile_settings.html" />
       </list>
     </option>
   </component>
@@ -275,6 +273,13 @@
               <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
@@ -344,17 +349,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Asus\Documents\GitHub\MJsystem\src\templates" />
-      <recent name="C:\Users\Asus\Documents\MJ system\MJsystem\src\static\images" />
-      <recent name="C:\MJsystem\templates\accounts" />
-      <recent name="C:\MJsystem\templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Chathurindu\PycharmProjects\MJsystem\templates" />
       <recent name="C:\Users\Chathurindu\PycharmProjects\MJsystem\templates\inventory" />
       <recent name="C:\Users\Chathurindu\PycharmProjects\MJsystem\static\boostrap_files\css" />
       <recent name="C:\Users\Chathurindu\PycharmProjects\MJsystem\inventory" />
+      <recent name="C:\MJsystem\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\MJsystem\src\templates\accounts" />
+      <recent name="C:\Users\Asus\Documents\GitHub\MJsystem\src\templates" />
+      <recent name="C:\Users\Asus\Documents\MJ system\MJsystem\src\static\images" />
+      <recent name="C:\MJsystem\templates\accounts" />
       <recent name="C:\MJsystem\templates" />
     </key>
   </component>
@@ -450,17 +456,18 @@
       <workItem from="1552413734763" duration="621000" />
       <workItem from="1553195144958" duration="1340000" />
       <workItem from="1554737379704" duration="328000" />
+      <workItem from="1554741082796" duration="523000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126535000" />
+    <option name="totallyTimeSpent" value="127058000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2295302" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23298033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -474,7 +481,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.30736545" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" visible="true" weight="0.33994335" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" visible="true" weight="0.33878887" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -526,11 +533,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/templates/delivery/add_delivery.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/inventory/add_newItem.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -824,16 +826,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/products/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="1003">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
@@ -842,7 +841,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/cart/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
+        <state relative-caret-position="867">
           <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
         </state>
       </provider>
@@ -857,22 +856,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/Products/product_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/Products/product_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
+        <state relative-caret-position="459">
           <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
         </state>
       </provider>
@@ -889,7 +875,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/home_base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
+        <state relative-caret-position="3315">
           <caret line="195" column="7" selection-start-line="195" selection-start-column="7" selection-end-line="195" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#a#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -902,16 +888,34 @@
     <entry file="file://$PROJECT_DIR$/src/templates/home_home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2091">
-          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
           <folding>
             <element signature="n#style#0;n#img#0;n#center#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/src/templates/Products/product_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816" />
+        <state relative-caret-position="1190">
+          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h6#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/accounts/profile_settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+        </state>
       </provider>
     </entry>
   </component>
