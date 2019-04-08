@@ -124,3 +124,11 @@ class SignUpForm(forms.Form):
             self.error += "Email is taken"
             raise forms.ValidationError("Email is taken")
         return email
+
+
+
+class EditProfile(forms.Form):
+    fname = forms.CharField()
+    lname = forms.CharField()
+    address = forms.CharField()
+    phone = forms.IntegerField()

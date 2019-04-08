@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
-from .forms import LoginForm, SignUpForm
+from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
+from .forms import LoginForm, SignUpForm, EditProfile
 from .models import Online_Customer, User
 from customer.models import Customer
 from django.contrib.auth import authenticate, login, logout
@@ -104,4 +104,18 @@ def profile(request):
     return render(request, "accounts/profile.html", context)
 
 def settings(request):
-    return render(request,"accounts/profile_settings.html",{})
+    cus = get_object_or_404(Customer, email=request.user.email)
+    online_cus = get_object_or_404(Online_Customer, tel_number=cus.tel_number)
+
+    if request.method == "POST":
+        profile_form = EditProfile(request.POST)
+        if profile_form.is_valid():
+            fname = profile_form.cleaned_data.get('fname')
+            lname = profile_form.cleaned_data.get('lname')
+            print(fname + ' ' + lname)
+
+        return redirect('/')
+    else:
+        profile_form = EditProfile()
+
+    return render(request,"accounts/profile_settings.html",{'form':profile_form})
