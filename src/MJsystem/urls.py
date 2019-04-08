@@ -37,6 +37,7 @@ urlpatterns = [
                   path('test/', views.test_page, name='test'),
                   path('hrmanage/', include('hrmanage.urls')),
                   path('supplier/', include('supplier.urls')),
+                  path('craftsmen/', include('craftsmen.urls')),
 
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
