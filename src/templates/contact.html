@@ -3,40 +3,43 @@
 {%block page_body%}
 {%load static%}
 
-<center>
-  <img style="width: 1000px; height: 500px;" alt="Image description" src="{% static 'images/contact.jpg'%}"/>
-</center>
+<img style="width: 1500px; height: 250px;" alt="Image description" src="{% static 'images/contact.jpg'%}"/>
 
+    <h1 class="center">Contact Us</h1>
+    <div class="feature_divider"></div>
 
-<!-- Container (Contact Section) -->
-<div class="container-fluid bg-grey" style="margin-top: 20px">
-  <h2 class="text-center">CONTACT</h2>
-  <div class="row">
-    <div class="col-sm-5">
-      <p>Contact us and we'll get back to you within 24 hours.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Majjestic Jeweler, Colombo 04</p>
-      <p><span class="glyphicon glyphicon-phone"></span> +112 2233445</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> majjestic_jeweler@gmail.com</p>
+  <div class="contact_form contact-template_contact_form contact_text_position--center contact_text_alignment--center">
+    <div class="
+      eight  columns contact_content">
+      <p>Questions? Shoot us a note! We'd love to hear from you.</p>
+<p>Call us - 94-11-2595787 , 94-11-2595959</p>
+<meta charset="utf-8">
+<p><span>support@majjesticjewelry.com</span></p>
+<p><span>Shop 2-18, Level 2</span></p>
+<p><span>Majjestic City</span></p>
+<p><span>Colombo 4.</span></p>
     </div>
-    <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button type="button" class="btn btn-primary">Send</button>
-          <!--<button class="btn btn-default pull-right" type="submit">Send</button>-->
-        </div>
-      </div>
+    <div class="eight columns">
+      <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="contact-form"><input type="hidden" name="form_type" value="contact" /><input type="hidden" name="utf8" value="✓" />
+
+
+         <div class="four columns alpha">
+
+          <label for="contactFormName">Name <span class="red">*</span></label>
+          <input type="text" id="contactFormName" name="contact[contact-form-name]" placeholder="Name" autocapitalize="words" value="" required="required">
+         </div>
+         <div class="four columns omega">
+          <label for="contactFormEmail">Email <span class="red">*</span></label>
+          <input type="email" id="contactFormEmail" name="contact[email]" placeholder="Email" autocorrect="off" autocapitalize="off" value="" required="required">
+         </div>
+
+
+        <label for="contactFormMessage">Message <span class="red">*</span></label>
+        <textarea rows="5" id="contactFormMessage" name="contact[body]" placeholder="Message" required="required"></textarea>
+
+        <input type="submit" class="submit action_button" value="Send" />
+      </form>
     </div>
   </div>
-</div>
-
 {%endblock%}
 {% block title%}Contact {% endblock %}
