@@ -29,7 +29,7 @@ urlpatterns = [
                   path('user/', include('accounts.urls')),
                   path('delivery/', include('delivery.urls')),
                   path('admin/', admin.site.urls),
-                  path('home/', views.home_page, name='home_page'),  # render index.html
+                  path('home/', views.index_page, name='index_page'),  # render index.html
                   # path('', views.home_page, name='home_page'),  # render index.html
                   path('', views.index_page, name='index_page'),  # render index.html
                   path('dashboard/', views.dashboard, name='dashboard'),
