@@ -7,7 +7,10 @@
     <div class="card-body p-5">
       <h1 class="font-weight-light">Delete Profile</h1>
         <p> Your all details will be destroyed after delete. Are you sure to continue... </p>
-        <button type="button">Delete</button> <button type="button">Cancel</button>
+        <form method="post">{% csrf_token %}
+            {{form}}
+        <input type="submit" value="Delete"> <button type="button">Cancel</button>
+        </form>
 
     </div>
   </div>

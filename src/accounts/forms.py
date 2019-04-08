@@ -132,3 +132,7 @@ class EditProfile(forms.Form):
     lname = forms.CharField()
     address = forms.CharField(widget=forms.Textarea())
     phone = forms.IntegerField()
+
+
+class deleteProfile(forms.Form):
+    password = forms.CharField(widget=forms.PasswordInput())

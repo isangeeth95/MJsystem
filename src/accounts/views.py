@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
-from .forms import LoginForm, SignUpForm, EditProfile
+from .forms import LoginForm, SignUpForm, EditProfile, deleteProfile
 from .models import Online_Customer, User
 from customer.models import Customer
 from django.contrib.auth import authenticate, login, logout
@@ -142,4 +142,24 @@ def settings(request):
 
 
 def delete_account(request):
-    return render(request,"accounts/delete.html",{})
+    cus = get_object_or_404(Customer, email=request.user.email)
+    online_cus = get_object_or_404(Online_Customer, tel_number=cus.tel_number)
+
+    if request.method == 'POST':
+        password_form = deleteProfile(request.POST)
+
+        if password_form.is_valid():
+            password = password_form.cleaned_data.get('password')
+            print(password)
+            user = authenticate(request, username=request.user.email, password=password)
+            if user is not None:
+                cus.delete()
+                online_cus.delete()
+                user.delete()
+            else:
+                print("invalid pw")
+    else:
+        password_form = deleteProfile()
+
+
+    return render(request,"accounts/delete.html",{'form':password_form})
