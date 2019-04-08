@@ -71,7 +71,7 @@
       <img src="{% static 'images/logo1.png'%}" alt="Majjestic Jewelry " />
 
   </a>
-  <a href="/cart" class="icon-cart cart-button right"><span>0</span></a>
+  <a href="/cart" class="icon-cart cart-button right"><span>{{request.session.cart_items}}</span></a>
 </div>
 
 <div class="hidden">
@@ -209,7 +209,7 @@
           </li>
 
         <li class="cart">
-          <a href="#" class="icon-cart cart-button"><span>0</span></a>
+          <a href="/cart" class="icon-cart cart-button"><span>{{request.session.cart_items}}</span></a>
         </li>
       </ul>
 
