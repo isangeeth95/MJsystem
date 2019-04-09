@@ -10,7 +10,13 @@
 
 {% block dashboard-body %}
 {% load static %}
-<center><a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_Trans' %}" class="btn btn-warning btn-sm" role="button">+</a></center>
+
+<div class="slideInLeft">
+<a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_Trans' %}" class="btn btn-warning btn-sm" role="button">+</a>
+
+     <h2 style="margin-left: 50px;" >Bank Transaction Details</h2>
+</div>
+<!--<center><a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_Trans' %}" class="btn btn-warning btn-sm" role="button">+</a></center>-->
 <br><br>
     <!--<ol class="breadcrumb">-->
           <!--<li class="breadcrumb-item">-->
@@ -20,7 +26,7 @@
         <!--</ol>-->
 
 
-    <div class="card mb-3">
+    <div class="card mb-3"style="background-image: linear-gradient(to left top,#dd9fc4,#f393a0,#f29372,#ffcf24,#ffc439)">
           <div class="card-header">
             <i class="fas fa-table"></i>
             Bank Transaction Details</div>
@@ -55,7 +61,7 @@
                     <th>Delete</th>
                   </tr>
                 </tfoot>-->
-                <tbody style="color: black">
+                <tbody style="color: #000000">
                  {% for details in details %}
                     <tr>
 
@@ -75,7 +81,7 @@
 
                 </tbody>
               </table>
-                <a class="btn btn-info" role="button" href="{% url 'export_BussinessAccounts_csv' %}">Export Gold Info (csv)</a>
+                <a class="btn btn-info" role="button" href="{% url 'export_BussinessAccounts_csv' %}">Export transaction Info (csv)</a>
             </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>

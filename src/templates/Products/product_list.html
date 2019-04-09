@@ -8,22 +8,19 @@
 <!--</center>-->
 <br/>
 <br/>
-<div class="container main content main-wrapper">
-
 <div class='container'>
-    <div class='row'>
-
+    <div class='row' style="display: flex;margin-left: 10%">
         {% for obj in qs %}
-        <div class='col'>
+        <div class='col' style="display: flex">
             {{ forloop.counter}}
             {% include 'snippets/card.html' with instance=obj %}
             {% if forloop.counter|divisibleby:3 %}
-        </div></div> <div class='row'><div class="col-12"><hr/></div>
+        </div></div> <div class='row' style="display: flex;;margin-left: 10%"><div class="col-12" style="display: flex;"><hr/></div>
+
     {% else %}
 </div>
     {% endif %}
     {% endfor %}
-</div>
 </div>
 
 {%endblock%}

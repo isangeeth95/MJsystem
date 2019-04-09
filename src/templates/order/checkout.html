@@ -1,0 +1,20 @@
+{% extends "base1.html"%}
+
+{%block page_body%}
+{%load static%}
+
+<div class="container main content main-wrapper">
+<div class='container'>
+
+    <h1>Checkout</h1>
+
+    <p>Cart total : {{ object.cart.total }}</p>
+    <p>Delivering total : {{ object.delivering_total }}</p>
+    <p>Order total : {{ object.total }}</p>
+
+
+</div>
+</div>
+{%endblock%}
+
+{% block title%}Checkout {% endblock %}

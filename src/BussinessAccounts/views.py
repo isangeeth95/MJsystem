@@ -4,7 +4,7 @@ from .models import BankDetails
 from .forms import *
 from django.http.response import HttpResponse
 import csv
-#import xlwt
+import xlwt
 
 def BussinessAccounts(request):
     context = {
@@ -61,8 +61,8 @@ def export_BussinessAccounts_csv(request):
     response['Content-Disposition'] = 'attachment; filename="BussinessAccounts.csv"'
 
     writer = csv.writer(response)
-    writer.writerow(['Trans_ID', ' Trans_Date', ' Bank_Name', ' Bank_Branch', 'Amount', 'Withdraw_or_Deposit', ' Trans_Type', 'Transfer_Details'])
-    BussinessAccountsInfo = BankDetails.objects.all().values_list('Trans_ID', ' Trans_Date', ' Bank_Name', ' Bank_Branch', 'Amount', 'Withdraw_or_Deposit', ' Trans_Type', 'Transfer_Details')
+    writer.writerow(['Trans_ID', 'Trans_Date', 'Bank_Name', 'Bank_Branch', 'Amount', 'Withdraw_or_Deposit', 'Trans_Type', 'Transfer_Details'])
+    BussinessAccountsInfo = BankDetails.objects.all().values_list('Trans_ID', 'Trans_Date', 'Bank_Name', 'Bank_Branch', 'Amount', 'Withdraw_or_Deposit', 'Trans_Type', 'Transfer_Details')
     for info in BussinessAccountsInfo:
         writer.writerow(info)
 

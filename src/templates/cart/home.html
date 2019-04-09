@@ -3,14 +3,13 @@
 {%block page_body%}
 {%load static%}
 
-<div class="container main content main-wrapper">
 
 <div class='container'>
-
+<div class="container main content main-wrapper">
     <h1>Bucket</h1>
 
     {% if cart.jewelries.exists %}
-    <table class="table table-dark">
+    <table class="table-light" >
         <thead>
         <tr>
             <th>#</th>
@@ -38,6 +37,10 @@
             <td colspan="2"></td>
             <td><b>Total</b></td><td>{{ cart.total}}</td>
         </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td><a class="btn btn-lg btn-success" href='{% url "checkout" %}'>Checkout</a> </td>
+        </tr>
         </tbody>
     </table>
 
@@ -48,7 +51,6 @@
 
 </div>
 </div>
-
 {%endblock%}
 
 {% block title%}Cart {% endblock %}

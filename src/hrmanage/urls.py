@@ -9,6 +9,7 @@ urlpatterns = [
     path('add_Staff/', add_Staff, name='add_Staff' ),
     url(r'^edit_staff/(?P<pk>\d+)' , views.edit_staff, name='edit_staff'),
     url(r'^delete_staff/(?P<pk>\d+)' , views.delete_staff, name='delete_staff'),
+    url(r'^exportStaff/csv/$', views.export_Staff_csv, name='export_Staff_csv'),
 
     # url(r'^add_Staff$', add_Staff, name='add_Staff'),
     #
