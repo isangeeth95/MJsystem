@@ -2,74 +2,12 @@
 {% load static %}
 
 {%block page_body%}
-      <div class="global-wrapper">
-
-  <div class='easylockdown-content' style='display:none;'>
-    <div class="index-sections">
-  <!-- BEGIN content_for_index --><div id="shopify-section-1551699212223" class="shopify-section image-with-text-overlay-section under-menu">
-        <section class="parallax-banner parallax-slide slide parallax_effect--true" id="slide-1551699212223">
-  <div  class="lazyload bcg "
-
-
-          data-bgset="  {% static 'images/tworings.jpg'%} 2048w,
-                          {% static 'images/tworings.jpg'%} 1600w,
-                          {% static 'images/tworings.jpg'%} 1200w,
-                          {% static 'images/tworings.jpg'%} 1000w,
-                          {% static 'images/tworings.jpg'%} 800w,
-                          {% static 'images/tworings.jpg'%} 600w,
-                          {% static 'images/tworings.jpg'%} 400w"
-          data-sizes="100vw"
-
-        data-bottom-top="background-position: 50% 10vh;"
-        data-top-bottom="background-position: 50% -10vh;"
-
-      >
-      <div class="hsContainer">
-        <img  alt=""
-
-                src="{% static 'images/tworings.jpg'%}"
-                data-src="{% static 'images/tworings.jpg'%}"
-                class="lazyload lazyload--fade-in hsContainer__image"
-                sizes="100vw"
-                srcset="  {% static 'images/tworings.jpg'%} 2048w,
-                          {% static 'images/tworings.jpg'%} 1600w,
-                          {% static 'images/tworings.jpg'%} 1200w,
-                          {% static 'images/tworings.jpg'%} 1000w,
-                          {% static 'images/tworings.jpg'%} 800w,
-                          {% static 'images/tworings.jpg'%} 600w,
-                          {% static 'images/tworings.jpg'%} 400w"
-                       />
-        <div class="hsContent">
-
-          <div class="container">
-            <div class="columns  twelve offset-by-two  align_center">
-              <div class="animate_down">
-                  <h1 class="headline">
-                    New Jewelry
-                  </h1>
-
-                  <div class="subtitle">
-                    <p>Latest Jewelry</p>
-                  </div>
-
-                  <a href="/products/list/" class="action_button">
-                    Shop Now
-                  </a>
-
-              </div>
-            </div>
-          </div>
-
-            <a href="#slide-1551699212223-content" class="scroll-arrow scroll-animate_down">
-              <span class="icon-arrow-down"></span>
-            </a>
-
-        </div>
-      </div>
-  </div>
-</section>
-<a name="slide-1551699212223-content" id="slide-1551699212223-content"></a>
-
+<!-- all Scripts here -->
+<script type="text/javascript" id='easylockdown-helper'>
+    if( typeof easylockdown == 'object' ) easylockdown.clientContentToggle(true);
+    else { for(var blocks=document.querySelectorAll("div.easylockdown-content, #easylockdown-password-form, #easylockdown-hpbtn-style, .easylockdown-auto-hl-styles, .easylockdown-custom-hl-styles"),i=0;i<blocks.length;i++)blocks[i].remove();try{document.getElementById("easylockdown404").removeAttribute("style")}catch(a){}try{document.querySelector(".easylockdown-title-404").innerHTML="Page not found"}catch(a){}try{document.querySelector(".easylockdown-message-404").innerHTML="<p>Sorry, we couldn't find this page.</p>"}catch(a){}; }
+  </script>
+<!--all styles here-->
 <style>
 
     #slide-1551699212223 .hsContainer {
@@ -83,123 +21,6 @@
       }
 
   }
-
-</style>
-
-</div><div id="shopify-section-1482978216893" class="shopify-section featured-promotions-section"><div class="container content" style="padding-top:0">
-  <div class="sixteen columns featured_links">
-    <div class="section clearfix feature">
-
-        <div class="one-third column alpha animate_up delay-025s center">
-
-            <a href="/">
-
-
-          <div class="rounded">
-
-              <img  src="{% static 'images/rings1.jpg'%}"
-                    alt=""
-                    data-src="{% static 'images/rings1.jpg'%}"
-                    class="lazyload"
-                    data-sizes="auto"
-                    data-srcset=" {% static 'images/rings1.jpg'%} 2048w,
-                                  {% static 'images/rings1.jpg'%} 1600w,
-                                  {% static 'images/rings1.jpg'%} 1200w,
-                                  {% static 'images/rings1.jpg'%} 1000w,
-                                  {% static 'images/rings1.jpg'%} 800w,
-                                  {% static 'images/rings1.jpg'%} 600w,
-                                  {% static 'images/rings1.jpg'%} 400w"
-                     />
-
-          </div>
-
-            <h2>Ring Collections</h2>
-
-            </a>
-
-            <p>Shop our&nbsp;elegent ring collections&nbsp;</p>
-
-        </div>
-
-        <div class="one-third column  animate_up delay-05s center">
-
-            <a href="/">
-
-          <div class="rounded">
-
-              <img  src="{% static 'images/pendents1.jpg'%}"
-                    alt=""
-                    data-src="{% static 'images/pendents1.jpg'%}"
-                    class="lazyload"
-                    data-sizes="auto"
-                    data-srcset=" {% static 'images/pendents1.jpg'%} 2048w,
-                                  {% static 'images/pendents1.jpg'%} 1600w,
-                                  {% static 'images/pendents1.jpg'%} 1200w,
-                                  {% static 'images/pendents1.jpg'%} 1000w,
-                                  {% static 'images/pendents1.jpg'%} 800w,
-                                  {% static 'images/pendents1.jpg'%} 600w,
-                                  {% static 'images/pendents1.jpg'%} 400w"
-                     />
-
-          </div>
-            <h2>Pendent Collections</h2>
-            </a>
-            <p>Shop our beatifull pendent collections</p>
-        </div>
-
-        <div class="one-third column omega animate_up delay-075s center">
-            <a href="/">
-
-          <div class="rounded">
-              <img  src="{% static 'images/bangels2.png'%}"
-                    alt=""
-                    data-src="{% static 'images/bangels2.png'%}"
-                    class="lazyload"
-                    data-sizes="auto"
-                    data-srcset=" {% static 'images/bangels2.png'%} 2048w,
-                                  {% static 'images/bangels2.png'%} 1600w,
-                                  {% static 'images/bangels2.png'%} 1200w,
-                                  {% static 'images/bangels2.png'%} 1000w,
-                                  {% static 'images/bangels2.png'%} 800w,
-                                  {% static 'images/bangels2.png'%} 600w,
-                                  {% static 'images/bangels2.png'%} 400w"
-                     />
-
-          </div>
-
-            <h2>Bangle Collections</h2>
-            </a>
-            <p>Shop our gorgeous bangle collctions</p>
-        </div>
-
-          <br class="clear" />
-
-    </div>
-  </div>
-</div>
-
-</div><div id="shopify-section-1551700299472" class="shopify-section  image-with-text-overlay-section under-menu"><section class="parallax-banner parallax-slide slide parallax_effect--true" id="slide-1551700299472">
-  <div  class="lazyload bcg "
-
-          data-bgset="  {% static 'images/pendents2.jpg'%} 2048w,
-                        {% static 'images/pendents2.jpg'%} 1600w,
-                        {% static 'images/pendents2.jpg'%} 1200w,
-                        {% static 'images/pendents2.jpg'%} 1000w,
-                        {% static 'images/pendents2.jpg'%} 800w,
-                        {% static 'images/pendents2.jpg'%} 600w,
-                        {% static 'images/pendents2.jpg'%} 400w"
-          data-sizes="100vw"
-
-        data-bottom-top="background-position: 50% 10vh;"
-        data-top-bottom="background-position: 50% -10vh;"
-
-      >
-      <div class="hsContainer"></div>
-  </div>
-</section>
-
-<style>
-
     #slide-1551700299472 .hsContainer {
       height: 600px;
     }
@@ -212,47 +33,183 @@
       }
 
   }
+
 </style>
 
-</div>
 
-  </div>
-  <div id='easylockdown404' style='display:none;'>
-  <div class="container main content main-wrapper">
-  <div class="sixteen columns page clearfix">
-    <h1 class="center">
-      <span class="easylockdown-title-404"></span>
-    </h1>
-    <div class="feature_divider"></div>
-
-    <div>
-      <div class="easylockdown-message-404"></div>
+<div class="global-wrapper">
+    <div class='easylockdown-content' style='display:none;'>
+        <div class="index-sections">
+            <!-- BEGIN content_for_index -->
+            <div id="shopify-section-1551699212223" class="shopify-section image-with-text-overlay-section under-menu">
+                <section class="parallax-banner parallax-slide slide parallax_effect--true" id="slide-1551699212223">
+                    <div  class="lazyload bcg "
+                          data-bgset="  {% static 'images/tworings.jpg'%} 2048w,
+                                          {% static 'images/tworings.jpg'%} 1600w,
+                                          {% static 'images/tworings.jpg'%} 1200w,
+                                          {% static 'images/tworings.jpg'%} 1000w,
+                                          {% static 'images/tworings.jpg'%} 800w,
+                                          {% static 'images/tworings.jpg'%} 600w,
+                                          {% static 'images/tworings.jpg'%} 400w"
+                          data-sizes="100vw"
+                          data-bottom-top="background-position: 50% 10vh;"
+                          data-top-bottom="background-position: 50% -10vh;">
+                        <div class="hsContainer">
+                            <img  alt=""
+                                  src="{% static 'images/tworings.jpg'%}"
+                                  data-src="{% static 'images/tworings.jpg'%}"
+                                  class="lazyload lazyload--fade-in hsContainer__image"
+                                  sizes="100vw"
+                                  srcset="{% static 'images/tworings.jpg'%} 2048w,
+                                          {% static 'images/tworings.jpg'%} 1600w,
+                                          {% static 'images/tworings.jpg'%} 1200w,
+                                          {% static 'images/tworings.jpg'%} 1000w,
+                                          {% static 'images/tworings.jpg'%} 800w,
+                                          {% static 'images/tworings.jpg'%} 600w,
+                                          {% static 'images/tworings.jpg'%} 400w"/>
+                            <div class="hsContent">
+                                <div class="container">
+                                    <div class="columns  twelve offset-by-two  align_center">
+                                        <div class="animate_down">
+                                            <h1 class="headline">New Jewelry</h1>
+                                            <div class="subtitle">
+                                                <p>Latest Jewelry</p>
+                                            </div>
+                                            <a href="/products/list/" class="action_button">Shop Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#slide-1551699212223-content" class="scroll-arrow scroll-animate_down">
+                                    <span class="icon-arrow-down"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <a name="slide-1551699212223-content" id="slide-1551699212223-content"></a>
+            </div>
+            <div id="shopify-section-1482978216893" class="shopify-section featured-promotions-section">
+                <div class="container content" style="padding-top:0">
+                <div class="sixteen columns featured_links">
+                    <div class="section clearfix feature">
+                        <div class="one-third column alpha animate_up delay-025s center">
+                            <a href="/"> <!-- ring collections -->
+                                <div class="rounded">
+                                    <img  src="{% static 'images/rings1.jpg'%}"
+                                          alt=""
+                                          data-src="{% static 'images/rings1.jpg'%}"
+                                          class="lazyload"
+                                          data-sizes="auto"
+                                          data-srcset=" {% static 'images/rings1.jpg'%} 2048w,
+                                                        {% static 'images/rings1.jpg'%} 1600w,
+                                                        {% static 'images/rings1.jpg'%} 1200w,
+                                                        {% static 'images/rings1.jpg'%} 1000w,
+                                                        {% static 'images/rings1.jpg'%} 800w,
+                                                        {% static 'images/rings1.jpg'%} 600w,
+                                                        {% static 'images/rings1.jpg'%} 400w"
+                                    />
+                                </div>
+                                <h2>Ring Collections</h2>
+                                <p>Shop our&nbsp;elegent ring collections&nbsp;</p>
+                            </a>
+                        </div>
+                        <div class="one-third column  animate_up delay-05s center">
+                            <a href="/"><!-- pendents -->
+                                <div class="rounded">
+                                <img    src="{% static 'images/pendents1.jpg'%}"
+                                        alt=""
+                                        data-src="{% static 'images/pendents1.jpg'%}"
+                                        class="lazyload"
+                                        data-sizes="auto"
+                                        data-srcset=" {% static 'images/pendents1.jpg'%} 2048w,
+                                                      {% static 'images/pendents1.jpg'%} 1600w,
+                                                      {% static 'images/pendents1.jpg'%} 1200w,
+                                                      {% static 'images/pendents1.jpg'%} 1000w,
+                                                      {% static 'images/pendents1.jpg'%} 800w,
+                                                      {% static 'images/pendents1.jpg'%} 600w,
+                                                      {% static 'images/pendents1.jpg'%} 400w"
+                                />
+                                </div>
+                                <h2>Pendent Collections</h2>
+                                <p>Shop our beatifull pendent collections</p>
+                            </a>
+                        </div>
+                        <div class="one-third column omega animate_up delay-075s center">
+                            <a href="/">
+                                <div class="rounded">
+                                    <img    src="{% static 'images/bangels2.png'%}"
+                                            alt=""
+                                            data-src="{% static 'images/bangels2.png'%}"
+                                            class="lazyload"
+                                            data-sizes="auto"
+                                            data-srcset=" {% static 'images/bangels2.png'%} 2048w,
+                                                          {% static 'images/bangels2.png'%} 1600w,
+                                                          {% static 'images/bangels2.png'%} 1200w,
+                                                          {% static 'images/bangels2.png'%} 1000w,
+                                                          {% static 'images/bangels2.png'%} 800w,
+                                                          {% static 'images/bangels2.png'%} 600w,
+                                                          {% static 'images/bangels2.png'%} 400w"
+                                    />
+                                </div>
+                                <h2>Bangle Collections</h2>
+                                <p>Shop our gorgeous bangle collctions</p>
+                            </a>
+                        </div>
+                        <br class="clear" />
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div id="shopify-section-1551700299472" class="shopify-section  image-with-text-overlay-section under-menu">
+                <section class="parallax-banner parallax-slide slide parallax_effect--true" id="slide-1551700299472">
+                <div  class="lazyload bcg "
+                      data-bgset="  {% static 'images/pendents2.jpg'%} 2048w,
+                        {% static 'images/pendents2.jpg'%} 1600w,
+                        {% static 'images/pendents2.jpg'%} 1200w,
+                        {% static 'images/pendents2.jpg'%} 1000w,
+                        {% static 'images/pendents2.jpg'%} 800w,
+                        {% static 'images/pendents2.jpg'%} 600w,
+                        {% static 'images/pendents2.jpg'%} 400w"
+                      data-sizes="100vw"
+                      data-bottom-top="background-position: 50% 10vh;"
+                      data-top-bottom="background-position: 50% -10vh;"
+                >
+                    <div class="hsContainer">
+                        <!-- pendent image section -->
+                    </div>
+                </div>
+                </section>
+            </div>
+        </div>
+        <div id='easylockdown404' style='display:none;'>
+            <div class="container main content main-wrapper">
+                <div class="sixteen columns page clearfix">
+                    <h1 class="center">
+                        <span class="easylockdown-title-404"></span>
+                    </h1>
+                    <div class="feature_divider"></div>
+                    <div>
+                        <div class="easylockdown-message-404"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="easylockdown-password-form" style="display: none;">
+            <div id="easylockdown-wrapper">
+                <div class="easylockdown-form-holder">
+                    <div id="easylockdown-password-error">Invalid password</div>
+                    <input type="password"
+                           placeholder=""
+                           id="easylockdown-password"
+                           onkeypress="if( event.keyCode == 13 && typeof easylockdown == 'object' && typeof easylockdown.checkUnlockPassword == 'function' ) { event.preventDefault(); easylockdown.checkUnlockPassword(this); }" />
+                    <a href="javascript:void(0);"
+                       id="easylockdown-password-form-button"
+                       onclick="if( typeof easylockdown == 'object' && typeof easylockdown.checkUnlockPassword == 'function' ) easylockdown.checkUnlockPassword(this);">
+                        Enter </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-</div>
-  <div id="easylockdown-password-form" style="display: none;">
-  <div id="easylockdown-wrapper">
-
-    <div class="easylockdown-form-holder">
-      <div id="easylockdown-password-error">Invalid password</div>
-      <input type="password" placeholder="" id="easylockdown-password"
-             onkeypress="if( event.keyCode == 13 && typeof easylockdown == 'object' && typeof easylockdown.checkUnlockPassword == 'function' ) { event.preventDefault(); easylockdown.checkUnlockPassword(this); }" />
-      <a href="javascript:void(0);" id="easylockdown-password-form-button"
-         onclick="if( typeof easylockdown == 'object' && typeof easylockdown.checkUnlockPassword == 'function' ) easylockdown.checkUnlockPassword(this);">
-        Enter
-      </a>
-    </div>
-  </div>
-</div>
-
-  <script type="text/javascript" id='easylockdown-helper'>
-    if( typeof easylockdown == 'object' ) easylockdown.clientContentToggle(true);
-    else { for(var blocks=document.querySelectorAll("div.easylockdown-content, #easylockdown-password-form, #easylockdown-hpbtn-style, .easylockdown-auto-hl-styles, .easylockdown-custom-hl-styles"),i=0;i<blocks.length;i++)blocks[i].remove();try{document.getElementById("easylockdown404").removeAttribute("style")}catch(a){}try{document.querySelector(".easylockdown-title-404").innerHTML="Page not found"}catch(a){}try{document.querySelector(".easylockdown-message-404").innerHTML="<p>Sorry, we couldn't find this page.</p>"}catch(a){}; }
-  </script>
-
-      </div>
-
 </div>
 
 {% endblock %}
