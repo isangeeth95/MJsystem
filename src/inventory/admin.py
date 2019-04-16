@@ -8,3 +8,5 @@ class RingAdmin(admin.ModelAdmin):
 
 admin.site.register(jewelry)
 admin.site.register(gold)
+admin.site.register(jType)
+admin.site.register(stone)

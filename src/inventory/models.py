@@ -1,6 +1,8 @@
 import random
 import os
 from django.db import models
+from craftsmen.models import *
+from django.forms import ModelForm
 from django.utils.timezone import datetime
 from .utils import unique_slug_generator
 from django.db.models.signals import pre_save, post_save
@@ -34,37 +36,50 @@ class gold(models.Model):
 
 
 ##########################################################################################
+class jType(models.Model):
+    jtype=models.CharField(max_length=100)
+
+    def __str__(self):
+        return format(self.jtype)
+##########################################################################################
+class stone(models.Model):
+    name=models.CharField(max_length=100)
+
+    def __str__(self):
+        return format(self.name)
+##########################################################################################
 class jewelry(models.Model):
 
-    catChoice =(
-        ('NE', 'Necklaces'),
-        ('RI', 'Ring'),
-        ('PE', 'Pendants'),
-        ('ER', 'Earrings')
-    )
-
-    category = models.CharField(max_length=100, choices=catChoice ,blank=False )#category
+    category = models.ForeignKey(jType, on_delete=models.CASCADE, null=True)
     slug = models.SlugField(blank=True, unique=True)
     date = models.DateField(default=datetime.now, blank=True)
-    description = models.CharField(max_length=500, blank=False)
+    description = models.CharField(max_length=500, blank=True)
     charges = models.FloatField()
-    stoneType = models.CharField(max_length=100, blank=False)
+    stoneType = models.ForeignKey(stone, on_delete=models.CASCADE, null=True)
     NoOfStones = models.IntegerField()
     weight = models.FloatField()
     quantity = models.IntegerField()
-    craftsman_id = models.IntegerField()
+    craftsman_id = models.ForeignKey(craftsmen, on_delete=models.CASCADE, null=True)
 
     choices = (
         ('AVAILABLE', 'Item ready to be purchased'),
         ('SOLD', 'Item Sold'),
         ('RESTOCKING', 'Item restocking in few days')
     )
-    status = models.CharField(max_length=10, choices=choices, default="SOLD")
+    status = models.CharField(max_length=10, choices=choices, default="AVAILABLE")
     issues = models.CharField(max_length=100, default="No issues")
-    image = models.ImageField(upload_to='jewelry_image/', null=True, blank=False)
+    image = models.ImageField(upload_to='jewelry_image/', null=True, blank=True)
 
     # class Meta:
     #     abstract = True
+
+    @property
+    def net_price(self):
+        return self.charges * 50
+
+    @property
+    def total_net_price(self):
+        return self.quantity *  self.net_price
 
     def get_absolute_url(self):
         return "/products/list/{slug}/".format(slug=self.slug)
@@ -78,5 +93,4 @@ def ring_presave_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = 'abc'
         pre_save.connect(ring_presave_receiver, sender=jewelry)
-
 

@@ -13,3 +13,6 @@ class craftsmen(models.Model):
     address = models.CharField(max_length=400)  # address of the craftsmen
     phone_No = models.IntegerField(default=0)  # phone number
     craftsmen_Item = models.CharField(max_length=100, choices=craftsmen_Item ,blank=False)  # craftsmen item list
+
+    def __str__(self):
+        return self.first_Name

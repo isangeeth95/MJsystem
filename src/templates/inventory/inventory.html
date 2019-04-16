@@ -61,6 +61,8 @@
             <th>Date</th>
             <th>Description</th>
             <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
             <th>stoneType</th>
             <th>NoOfStones</th>
             <th>weight</th>
@@ -79,6 +81,8 @@
             <th>Date</th>
             <th>Description</th>
             <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
             <th>stoneType</th>
             <th>NoOfStones</th>
             <th>weight</th>
@@ -93,13 +97,15 @@
 
     <tbody>
         {% for item in items %}
-    {% if item.category == "RI" %}
+    {% if item.category_id is 2 %}  
      <tr>
             <td>{{ item.pk }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
             <td>{{ item.charges }}</td>
+            <td>{{ item.net_price }}</td>
+            <td>{{ item.total_net_price }}</td>
             <td>{{ item.stoneType }}</td>
             <td>{{ item.NoOfStones }}</td>
             <td>{{ item.weight }}</td>
@@ -113,9 +119,9 @@
                 <a href="{% url 'delete_items' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
             </td>
         </tr>
+ 
     {% endif %}
-
-            {% endfor %}
+        {% endfor %}
     </tbody>
 </table>
 
@@ -134,6 +140,8 @@
             <th>Date</th>
             <th>Description</th>
             <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
             <th>stoneType</th>
             <th>NoOfStones</th>
             <th>weight</th>
@@ -152,6 +160,8 @@
             <th>Date</th>
             <th>Description</th>
             <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
             <th>stoneType</th>
             <th>NoOfStones</th>
             <th>weight</th>
@@ -166,13 +176,15 @@
 
     <tbody>
         {% for item in items %}
-    {% if item.category == "NE" %}
+        {% if item.category_id is 1 %}  
      <tr>
             <td>{{ item.pk }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
             <td>{{ item.charges }}</td>
+            <td>{{ item.net_price }}</td>
+            <td>{{ item.total_net_price }}</td>
             <td>{{ item.stoneType }}</td>
             <td>{{ item.NoOfStones }}</td>
             <td>{{ item.weight }}</td>
@@ -206,6 +218,8 @@
             <th>Date</th>
             <th>Description</th>
             <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
             <th>stoneType</th>
             <th>NoOfStones</th>
             <th>weight</th>
@@ -224,6 +238,8 @@
             <th>Date</th>
             <th>Description</th>
             <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
             <th>stoneType</th>
             <th>NoOfStones</th>
             <th>weight</th>
@@ -238,13 +254,15 @@
 
     <tbody>
         {% for item in items %}
-    {% if item.category == "ER" %}
+        {% if item.category_id is 3 %}  
      <tr>
             <td>{{ item.pk }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
             <td>{{ item.charges }}</td>
+            <td>{{ item.net_price }}</td>
+            <td>{{ item.total_net_price }}</td>
             <td>{{ item.stoneType }}</td>
             <td>{{ item.NoOfStones }}</td>
             <td>{{ item.weight }}</td>
@@ -278,6 +296,8 @@
             <th>Date</th>
             <th>Description</th>
             <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
             <th>stoneType</th>
             <th>NoOfStones</th>
             <th>weight</th>
@@ -296,6 +316,8 @@
             <th>Date</th>
             <th>Description</th>
             <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
             <th>stoneType</th>
             <th>NoOfStones</th>
             <th>weight</th>
@@ -310,13 +332,15 @@
 
     <tbody>
         {% for item in items %}
-    {% if item.category == "PE" %}
+        {% if item.category_id is 4 %}  
      <tr>
             <td>{{ item.pk }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
             <td>{{ item.charges }}</td>
+            <td>{{ item.net_price }}</td>
+            <td>{{ item.total_net_price }}</td>
             <td>{{ item.stoneType }}</td>
             <td>{{ item.NoOfStones }}</td>
             <td>{{ item.weight }}</td>
