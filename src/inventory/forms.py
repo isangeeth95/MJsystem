@@ -19,3 +19,7 @@ class editGoldInfoForm(forms.ModelForm):
         model = gold
         fields= ('code','supplier', 'txt', 'R', 'Is', 'gBal' , 'cp', 'cd', 'bal', 'gwa')
 
+class stone_form(forms.ModelForm):
+    class Meta:
+        model = stone
+        fields= ('name','supplier', 'quantity_Details', 'amount')

@@ -2,6 +2,7 @@ import random
 import os
 from django.db import models
 from craftsmen.models import *
+from supplier.models import *
 from django.forms import ModelForm
 from django.utils.timezone import datetime
 from .utils import unique_slug_generator
@@ -44,6 +45,10 @@ class jType(models.Model):
 ##########################################################################################
 class stone(models.Model):
     name=models.CharField(max_length=100)
+    supplier=models.ForeignKey(supplier, on_delete=models.CASCADE, null=True)
+    date = models.DateField(default=datetime.now, blank=True)
+    quantity_Details=models.CharField(max_length=500, blank=True)
+    amount=models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return format(self.name)

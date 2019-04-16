@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block dashboard-body %}
+{% load staticfiles %}
+<div class="rawBody">
+		<div class="wrapperForm" >
+			<div class="innerForm">
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" class="addJForm">
+      {% csrf_token %}
+
+      <h4>{{ header }}</h4>
+      <br>
+      <center><h3 class="IFh3"><b>EDIT NEW STONE DETAILS </b></h3><br></center>
+      {% for field in form %}
+      <div class="form-group row" id="alfa">
+        <label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>
+        <div class="col-10">
+          {{ field }}
+        </div>
+      </div>
+      {% endfor %}
+
+         <center> <button type="submit" class="iFbutton">EDIT </button></center>
+    </form>
+  </div>
+  </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{%  extends 'base.html' %}
+
+{% block dashboard-body %}
+{% load staticfiles %}
+<div class="mBody">
+        <br><center> <div class="slideInLeft"><h3>STONE Details</h3></div></center>
+        <div class="slideInLeft">
+        <a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_stone' %}" class="btn btn-warning btn-sm" role="button">+</a>
+        </div><br><br>
+        <div class="card-body">
+            <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr class="table100-head">
+                    <th>code</th>
+                    <th>Stone Name</th>
+                    <th>supplier</th>
+                    <th>date</th>
+                    <th>quantity_Details</th>
+                    <th>amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in items %}
+                {% if item.pk > 1 %}
+             <tr>
+                    <td>{{ item.pk }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.supplier }}</td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.quantity_Details }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>
+                        <a style="margin: 10px 0 10px 10px;width: 55px" href="{% url 'edit_stone' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                        <a style="margin-left: 15px;" href="{% url 'delete_stone_info' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+                    </td>
+                </tr>
+                    {% endif %}
+                    {% endfor %}
+            </tbody>
+        </table>
+                <a class="btn btn-info" role="button" href="{% url 'export_stone_csv' %}">Export Stone Info (csv)</a>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

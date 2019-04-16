@@ -25,6 +25,12 @@ urlpatterns = [
     url(r'^export/xls/$', views.export_gold_xls, name='export_gold_xls'),
     url(r'^exportJewelry/csv/$', views.export_jewelry_csv, name='export_jewelry_csv'),
 
+    url(r'^stone$', views.Stone, name='stone'),
+    url(r'^add_stone$', views.add_stone, name='add_stone'),
+    url(r'^edit_stone/(?P<pk>\d+)$', views.edit_stone, name='edit_stone'),
+    url(r'^delete_stone_info/(?P<pk>\d+)$', views.delete_stone_info, name='delete_stone_info'),
+    url(r'^export/csv/$', views.export_stone_csv, name='export_stone_csv'),
+
     # url(r'^edit_Earrings/(?P<pk>\d+)$', edit_Earrings, name='edit_Earrings'),
     # url(r'^edit_Necklaces/(?P<pk>\d+)$', edit_Necklaces, name='edit_Necklaces'),
     # url(r'^edit_Ring/(?P<pk>\d+)$', edit_Ring, name='edit_Ring'),

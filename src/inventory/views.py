@@ -193,10 +193,59 @@ def export_jewelry_csv(request):
 
 
 
+def Stone(request):
+    items = stone.objects.all()
+    context = {
+        'items' :items,
+    }
+    return render(request, 'inventory/stone.html', context)
+
+def add_stone(request):
+    if request.method == "POST":
+        form = stone_form(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'inventory/inventory.html', {})
+
+    else:
+        form = stone_form
+        return render(request, 'inventory/add_newStone.html', {'form': form})
 
 
+def edit_stone(request, pk):
+    item = get_object_or_404(stone, pk=pk)
+
+    if request.method == "POST":
+        form = stone_form(request.POST, request.FILES, instance=item)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'inventory/inventory.html', {})
+
+    else:
+        form = stone_form(instance=item)
+        return render(request, 'inventory/edit_newStone.html', {'form': form})
+
+def delete_stone_info(request, pk):
+    stone.objects.filter(pk=pk).delete()
+
+    items = stone.objects.all()
+    context = {'item': items}
+    return render(request, 'inventory/inventory.html')
 
 
+def export_stone_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="stone.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['name', 'supplier', 'date', 'quantity_Details', 'amount'])
+    stoneInfo = stone.objects.all().values_list('name', 'supplier', 'date', 'quantity_Details', 'amount')
+    for info in stoneInfo:
+        writer.writerow(info)
+
+    return response
 
 
 

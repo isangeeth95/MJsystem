@@ -13,3 +13,6 @@ class supplier(models.Model):
     address = models.CharField(max_length= 400)# address of the supllier
     phone_No = models.IntegerField(default=0)# phone number
     supplier_item =models.CharField(max_length= 2 , choices= sup_items)# supplier item list
+
+    def __str__(self):
+        return self.first_Name
