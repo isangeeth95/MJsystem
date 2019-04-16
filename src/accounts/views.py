@@ -107,7 +107,12 @@ def settings(request):
     cus = get_object_or_404(Customer, email=request.user.email)
     online_cus = get_object_or_404(Online_Customer, tel_number=cus.tel_number)
 
-
+    init = {
+        'fname': cus.first_name,
+        'lname': cus.last_name,
+        'address': online_cus.address,
+        'phone': online_cus.tel_number,
+            }
 
     if request.method == "POST":
         profile_form = EditProfile(request.POST)
@@ -128,14 +133,11 @@ def settings(request):
 
         return redirect('/')
     else:
-        profile_form = EditProfile()
+        profile_form = EditProfile(initial= init)
+
 
     context = {
         'form': profile_form,
-        'fname': cus.first_name,
-        'lname' : cus.last_name,
-        'address': online_cus.address,
-        'phone':online_cus.tel_number,
     }
 
     return render(request,"accounts/profile_settings.html",context)
@@ -153,13 +155,13 @@ def delete_account(request):
             print(password)
             user = authenticate(request, username=request.user.email, password=password)
             if user is not None:
+                #delete all tupples related to user
                 cus.delete()
                 online_cus.delete()
                 user.delete()
+                #logout
             else:
                 print("invalid pw")
     else:
         password_form = deleteProfile()
-
-
     return render(request,"accounts/delete.html",{'form':password_form})
