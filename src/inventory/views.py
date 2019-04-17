@@ -1,12 +1,21 @@
 from django.shortcuts import render, get_object_or_404
 from .models import jewelry,gold,stone,jType
 from .forms import *
+from django.db.models import Sum
 from django.http.response import HttpResponse
 import csv
 import xlwt
 
 def inventory(request):
-    return render(request, 'inventory/inventory.html', {})
+    items = jewelry.objects.all()
+    # totals = items.annotate(totals=Sum('quantity'))
+
+    # totals = jewelry.objects.aggregate(Sum('quantity'))
+    context = {
+        'itemTotal': items,
+        # 'totals': totals,
+    }
+    return render(request, 'inventory/inventory.html', context)
 
 def re_order(request):
     items = jewelry.objects.all()
