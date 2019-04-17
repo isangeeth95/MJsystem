@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^display_Necklaces$', display_Necklaces, name='display_Necklaces'),
     url(r'^display_Ring$', display_Ring, name='display_Ring'),
     url(r'^display_Pendants$', display_Pendants, name='display_Pendants'),
+    url(r'^display_Bangle', display_Bangle, name='display_Bangle'),
 
     url(r'^edit_items/(?P<pk>\d+)' , views.edit_items, name='edit_items'),
     url(r'^delete_items/(?P<pk>\d+)' , views.delete_items, name='delete_items'),

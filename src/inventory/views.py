@@ -48,6 +48,14 @@ def display_Pendants(request):
     }
     return render(request, 'inventory/inventory.html', context)
 
+def display_Bangle(request):
+    items = jewelry.objects.all()
+    context = {
+        'items' : items,
+        'header':'Bangle'
+    }
+    return render(request, 'inventory/inventory.html', context)
+
 
 #################################################################
 
