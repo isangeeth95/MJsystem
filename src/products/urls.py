@@ -8,6 +8,7 @@ from django.conf.urls import url
 urlpatterns = [
 
     url(r'^list/$', Product_List_View),
+    url(r'^ring_list/$', ring_list),
 
     # url(r'^list/(?P<pk>\d+)/$', Product_detail_View),
 

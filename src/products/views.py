@@ -16,6 +16,14 @@ def Product_List_View(request):
     return render(request, "Products/product_list.html", context)
 
 
+def ring_list(request):
+    querySet = jewelry.objects.all()
+    context = {
+        'qs': querySet,
+    }
+    return render(request, "Products/ring_list.html", context)
+
+
 # def Product_detail_View(self, pk=None, *args, **kwargs):
 #     # instance = Ring.objects.get(id=pk)
 #     instance = get_object_or_404(jewelry, id=pk)
