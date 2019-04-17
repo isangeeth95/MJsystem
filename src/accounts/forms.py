@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, ReadOnlyPasswordHashField
-from .models import User
+from .models import User, Online_Customer
+from customer.models import Customer
+
 
 
 # User = get_user_model()
@@ -126,12 +128,12 @@ class SignUpForm(forms.Form):
         return email
 
 
-
 class EditProfile(forms.Form):
-    fname = forms.CharField()
-    lname = forms.CharField()
-    address = forms.CharField(widget=forms.Textarea())
-    phone = forms.IntegerField()
+
+    fname = forms.CharField(label= 'First Name')
+    lname = forms.CharField(label= ' Last Name')
+    address = forms.CharField(label='Address',widget=forms.Textarea())
+    phone = forms.IntegerField(label='Phone Number')
 
 
 class deleteProfile(forms.Form):

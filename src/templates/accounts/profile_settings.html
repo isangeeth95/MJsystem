@@ -1,15 +1,30 @@
 {% extends "base1.html"%}
 
 {%block page_body%}
-<div class="container main content main-wrapper">
+<div class="container main content main-wrapper" style="padding-top: 160px">
 <div class="container">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
       <h1 class="font-weight-light">User Profile Settings</h1>
+        <br>
+        <br>
+        <h2 class="font-weight-light">Edit Profile Details</h2>
+
 
         <form method="post">{% csrf_token %}
-            {{form}}
-            <input type="submit" value="Change Details">
+            {{editform}}
+            <input type="submit" value="Change Details" name="editform">
+        </form>
+
+        <br>
+        <br>
+        <h2 class="font-weight-light">Delete Profile</h2>
+        <p class=""> Your all details will be destroyed after delete. Are you sure to continue... </p>
+        <form method="post">{% csrf_token %}
+            {{deleteform}}
+            {{ error }}<br>
+
+        <input type="submit" value="Delete" name="deleteform"> <button type="button">Cancel</button>
         </form>
 
 
@@ -22,11 +37,7 @@
     </div>
 
   </div>
-    <br> <br>
-    <div class="card border-2">
-        <a href="\user\delete"><button class="button">Delete This Account</button></a>
 
-    </div>
 </div>
 </div>
 

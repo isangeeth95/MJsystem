@@ -53,9 +53,9 @@ def signup(request):
         form = SignUpForm(request.POST, request.FILES)
         print('image url')
         print(form.is_valid())
-        #print(form.cleaned_data.get('image'))
+        # print(form.cleaned_data.get('image'))
         if form.is_valid():
-            print('in valid form')
+            print('valid form')
             print(form.cleaned_data)
             fname = form.cleaned_data.get('fname')
             lname = form.cleaned_data.get('lname')
@@ -64,9 +64,11 @@ def signup(request):
             address = form.cleaned_data.get('address')
             phone = form.cleaned_data.get('phone')
             image = form.cleaned_data.get('user_image')
-            user1 = User.objects.create_customeruser(email, password) # create new auth user
-            Online_Customer.objects.create(User=user1,tel_number=phone,address=address,profile_pic=image) # create online customer OneToOne with auth user
-            Customer.objects.create(first_name=fname,last_name=lname,tel_number=phone,email=email)  # online customer IS-A customer, there should be validation
+            user1 = User.objects.create_customeruser(email, password)  # create new auth user
+            Online_Customer.objects.create(User=user1, tel_number=phone, address=address,
+                                           profile_pic=image)  # create online customer OneToOne with auth user
+            Customer.objects.create(first_name=fname, last_name=lname, tel_number=phone,
+                                    email=email)  # online customer IS-A customer, there should be validation
             return redirect("/")
     else:
         form = SignUpForm()
@@ -98,70 +100,68 @@ def profile(request):
         'username': fname + ' ' + lname,
         'email': email,
         'address': address,
-        'tel' : tel,
-        'picture' : pic,
+        'tel': tel,
+        'picture': pic,
     }
     return render(request, "accounts/profile.html", context)
+
 
 def settings(request):
     cus = get_object_or_404(Customer, email=request.user.email)
     online_cus = get_object_or_404(Online_Customer, tel_number=cus.tel_number)
-
     init = {
         'fname': cus.first_name,
         'lname': cus.last_name,
         'address': online_cus.address,
         'phone': online_cus.tel_number,
-            }
-
-    if request.method == "POST":
-        profile_form = EditProfile(request.POST)
-        if profile_form.is_valid():
-            fname = profile_form.cleaned_data.get('fname')
-            lname = profile_form.cleaned_data.get('lname')
-            address = profile_form.cleaned_data.get('address')
-            phone = profile_form.cleaned_data.get('phone')
-            print(fname + ' ' + lname + ' '+ address)
-            cus.first_name = fname
-            cus.last_name = lname
-            cus.tel_number = phone
-            cus.save()
-            online_cus.tel_number = phone
-            online_cus.address = address
-            online_cus.save()
-
-
-        return redirect('/')
-    else:
-        profile_form = EditProfile(initial= init)
-
+    }
+    profile_form = EditProfile(initial=init)
+    delete_form = deleteProfile()
 
     context = {
-        'form': profile_form,
+        'editform': profile_form,
+        'deleteform': delete_form,
     }
 
-    return render(request,"accounts/profile_settings.html",context)
+    if request.method == "POST":
+        if 'editform' in request.POST:
+            profile_form = EditProfile(request.POST)
+            if profile_form.is_valid():
+                fname = profile_form.cleaned_data.get('fname')
+                lname = profile_form.cleaned_data.get('lname')
+                address = profile_form.cleaned_data.get('address')
+                phone = profile_form.cleaned_data.get('phone')
+                print(fname + ' ' + lname + ' ' + address)
+                cus.first_name = fname
+                cus.last_name = lname
+                cus.tel_number = phone
+                cus.save()
+                online_cus.tel_number = phone
+                online_cus.address = address
+                online_cus.save()
+        elif 'deleteform' in request.POST:
+            delete_form = deleteProfile(request.POST)
+
+            if delete_form.is_valid():
+                password = delete_form.cleaned_data.get('password')
+                print(password)
+                user = authenticate(request, username=request.user.email, password=password)
+                if user is not None:
+                    # delete all tuples related to user
+                    cus.delete()
+                    online_cus.delete()
+                    user.delete()
+                    # logout
+                else:
+                    context = {
+                        'editform': profile_form,
+                        'deleteform': delete_form,
+                        'error':'Invalid Password',
+                    }
+                    return render(request, "accounts/profile_settings.html", context)
+        return redirect('/')
 
 
-def delete_account(request):
-    cus = get_object_or_404(Customer, email=request.user.email)
-    online_cus = get_object_or_404(Online_Customer, tel_number=cus.tel_number)
+    return render(request, "accounts/profile_settings.html", context)
 
-    if request.method == 'POST':
-        password_form = deleteProfile(request.POST)
 
-        if password_form.is_valid():
-            password = password_form.cleaned_data.get('password')
-            print(password)
-            user = authenticate(request, username=request.user.email, password=password)
-            if user is not None:
-                #delete all tupples related to user
-                cus.delete()
-                online_cus.delete()
-                user.delete()
-                #logout
-            else:
-                print("invalid pw")
-    else:
-        password_form = deleteProfile()
-    return render(request,"accounts/delete.html",{'form':password_form})
