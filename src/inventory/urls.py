@@ -31,6 +31,8 @@ urlpatterns = [
     url(r'^delete_stone_info/(?P<pk>\d+)$', views.delete_stone_info, name='delete_stone_info'),
     url(r'^export/csv/$', views.export_stone_csv, name='export_stone_csv'),
 
+    url(r'^add_jType', views.add_jType, name='add_jType'),
+
     # url(r'^edit_Earrings/(?P<pk>\d+)$', edit_Earrings, name='edit_Earrings'),
     # url(r'^edit_Necklaces/(?P<pk>\d+)$', edit_Necklaces, name='edit_Necklaces'),
     # url(r'^edit_Ring/(?P<pk>\d+)$', edit_Ring, name='edit_Ring'),

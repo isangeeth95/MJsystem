@@ -23,3 +23,9 @@ class stone_form(forms.ModelForm):
     class Meta:
         model = stone
         fields= ('name','supplier', 'quantity_Details', 'amount')
+
+
+class jType_form(forms.ModelForm):
+    class Meta:
+        model = jType
+        fields= ('id','jtype')

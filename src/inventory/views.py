@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import jewelry,gold
+from .models import jewelry,gold,stone,jType
 from .forms import *
 from django.http.response import HttpResponse
 import csv
@@ -246,6 +246,19 @@ def export_stone_csv(request):
         writer.writerow(info)
 
     return response
+
+##############################################################################################################
+def add_jType(request):
+    if request.method == "POST":
+        form = jType_form(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'inventory/add_newStone.html', {})
+
+    else:
+        form = jType_form
+        return render(request, 'inventory/add_new_jType.html', {'form': form})
 
 
 

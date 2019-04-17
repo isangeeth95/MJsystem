@@ -2,17 +2,16 @@
 
 {% block dashboard-body %}
 {% load staticfiles %}
-<div class="rawBody" style="background-image: url('{% static "images/back3.jpg"%}')">
-<a style="float:right;margin-right:50px;width:100px;font-size:large;" href="{% url 'add_jType' %}" class="btn btn-warning btn-sm" role="button">Add New Jewelery Category</a>
-		<div class="wrapperForm" >
-			<div class="innerForm">
+<div class="reorderBody">
+		<div class="wrapperForm" style="">
+			<div class="innerForm" style="margin-top: -300px">
 <div class="container">
     <form method="POST" enctype="multipart/form-data" class="addJForm">
       {% csrf_token %}
 
       <h4>{{ header }}</h4>
       <br>
-      <center><h3 class="IFh3"><b>Add New Jewellers </b></h3><br></center>
+      <center><h3 class="IFh3"><b>Add New Jewelery Types </b></h3><br></center>
       {% for field in form %}
       <div class="form-group row" id="alfa">
         <label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>
@@ -22,7 +21,7 @@
       </div>
       {% endfor %}
 
-         <center> <button type="submit" class="iFbutton">Add Item</button></center>
+         <center> <button type="submit" class="iFbutton">Add </button></center>
     </form>
   </div>
   </div>
