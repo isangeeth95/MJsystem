@@ -1,0 +1,71 @@
+{%  extends 'base.html' %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+{% block dashboard-body %}
+    <!--<ol class="breadcrumb">-->
+          <!--<li class="breadcrumb-item">-->
+            <!--<a href="#">Dashboard /DeliveryInfo</a>-->
+          <!--</li>-->
+          <!--<li class="breadcrumb-item active">{{ dashboard_dir }}</li>-->
+        <!--</ol>-->
+
+
+    <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Edit Delivery Information</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                 <center><a class="btn btn-info" role="button" href="{% url 'export_delivery_csv' %}">Export Delivery Info (csv)</a></center>
+                  <tr>
+                    <th>No</th>
+                    <th>Order Number</th>
+                    <th>User's Email</th>
+                    <th>Receiver's Name</th>
+                    <th>Receiver's Address</th>
+                    <th>Telephone Number</th>
+                    <th>Order date</th>
+                    <th>Deliver date</th>
+                    <th>Delivery Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+
+                <tbody style="color: #000">
+                {% for item1 in info %}
+                    <tr>
+
+                    <td>{{ item1.pk }}</td>
+                    <td>{{ item1.Order_No }}</td>
+                    <td>{{ item1.UserName }}</td>
+                    <td>{{ item1.Receiver_Name }}</td>
+                    <td>{{ item1.Receiver_Add }}</td>
+                    <td>{{ item1.Telephone_No}}</td>
+                    <td>{{ item1.Order_date }}</td>
+                    <td>{{ item1.Deliver_date }}</td>
+                    <td>{{ item1.Delivery_Process}}</td>
+                    <td><a href="{% url 'staffedit_delivery' item1.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                    <td><a href="{% url 'delete_delivery' item1.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                  </tr>
+
+                {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+
+
+{% endblock %}
