@@ -10,45 +10,6 @@ def delivery(request):
 def mainstaffpage(request):
     return render(request, 'delivery/staffchoice.html')
 
-def addarea(request):
-    if request.method == "POST":
-        form = DeliveyDistanceForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return redirect('dashboard')
-
-    else:
-        form = DeliveyDistanceForm()
-        return render(request, 'delivery/add_delivery_areas.html',{'form':form})
-
-def displayAreas(request):
-    info1 = DeliveryDistance.objects.all()
-    context = {'info1' : info1,
-               'dashboard_dir': 'DeliveryDistance'}
-    return render(request,'delivery/areafrom.html',context)
-
-def edit_deliveryArea(request, pk):
-    item2 = get_object_or_404(DeliveryDistance, pk=pk)
-
-    if request.method == "POST":
-        form = DeliveyDistanceForm(request.POST, instance=item2)
-
-        if form.is_valid():
-            form.save()
-            return redirect('displayAreas')
-
-    else:
-        form = DeliveyDistanceForm(instance=item2)
-        return render(request,'delivery/edit_deliveryArea.html',{'form': form})
-
-def delete_deliveryArea(request, pk):
-    DeliveryDistance.objects.filter(pk=pk).delete()
-
-    info1 = DeliveryDistance.objects.all()
-    context = {'info1': info1}
-    return render(request,'delivery/areafrom.html',context)
-
 def deliveryInfo(request):
     info = DeliveryInfo.objects.all()
     context = {'info': info,
