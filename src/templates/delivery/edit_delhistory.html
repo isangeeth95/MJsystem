@@ -1,0 +1,29 @@
+{%  extends 'base1.html' %}
+
+
+{%block page_body%}
+{%load static%}
+<br><br><br><br><br>
+<div class="container main content main-wrapper">
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <h1 class="font-weight-light">Edit Delivery History</h1>
+            <center><form method="POST" style="width: 40%">
+            {% csrf_token %}
+<br>
+            {% for field in form %}
+            <div class = "form-group row">
+                  <label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>
+                  <div class="col-10">{{ field }}</div>
+                </div>
+            {% endfor %}
+
+    <button type="submit" class="btn btn-primary" name="'button">Edit</button>
+    </form></center>
+        </div>
+
+          </div>
+   </div>
+</div>
+{% endblock %}

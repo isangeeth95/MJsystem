@@ -16,7 +16,7 @@
         <p class="lead mb-0">Receiver's Phone Number : {{ item.Telephone_No }}</p>
         <p class="lead mb-0">Ordered date : {{ item.Order_date }}</p>
         <p class="lead mb-0">Deliver date : {{ item.Deliver_date }}</p>
-        <a style="padding: 40px" href="{% url 'edit_delivery' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
+        <a style="padding: 40px" href="{% url 'edit_deliveryhistory' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a>
         <a href="{% url 'delete_delivery' item.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a>
       <br>
       <p>------------------------------------------------------------------------</p>

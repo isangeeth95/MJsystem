@@ -42,6 +42,20 @@ def edit_deliveryform(request, pk):
         form = DeliveryForm(instance=item)
         return render(request,'delivery/edit_delivery.html',{'form': form})
 
+def edit_deliveryhistory(request, pk):
+    item = get_object_or_404(DeliveryInfo, pk=pk)
+
+    if request.method == "POST":
+        form = DeliveryForm(request.POST, instance=item)
+
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+
+    else:
+        form = DeliveryForm(instance=item)
+        return render(request,'delivery/edit_delhistory.html',{'form': form})
+
 def delete_deliveryform(request, pk):
     DeliveryInfo.objects.filter(pk=pk).delete()
 
