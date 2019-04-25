@@ -3,6 +3,7 @@ from django.db import models
 from MJsystem.utils import unique_order_id_generator
 from django.db.models.signals import pre_save, post_save
 from carts.models import Cart
+from addresses.models import Address
 from billing.models import BillingProfile
 
 ORDER_STATUS_CHOICES = (
@@ -38,6 +39,8 @@ class OrderManager(models.Manager):
 class Order(models.Model):
     billing_profile = models.ForeignKey(BillingProfile, null=True, blank=True, on_delete=models.PROTECT)
     order_id = models.CharField(max_length=120, blank=True)
+    delivering_address = models.ForeignKey(Address, related_name="delivering_address", null=True, blank=True, on_delete=models.PROTECT)
+    billing_address = models.ForeignKey(Address, related_name="billing_address", null=True, blank=True, on_delete=models.PROTECT)
     cart = models.ForeignKey(Cart, on_delete=models.PROTECT)
     status = models.CharField(max_length=120, default='created', choices=ORDER_STATUS_CHOICES)
     delivering_total = models.DecimalField(default=50.00, max_digits=100, decimal_places=2)

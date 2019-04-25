@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
 from . import views
+from addresses.views import checkout_address_create_view
 
 
 urlpatterns = [
@@ -25,6 +27,7 @@ urlpatterns = [
                   path('order/', include('order.urls')),
                   path('products/', include('products.urls')),
                   path('cart/', include('carts.urls')),
+                  url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
                   path('dashboard/customer/', include('customer.urls')),
                   path('user/', include('accounts.urls')),
                   path('delivery/', include('delivery.urls')),
