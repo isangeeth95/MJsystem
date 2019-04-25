@@ -59,6 +59,10 @@ def login_page(request):
         if user is not None:
             login(request, user)
             print("login success")
+            try:
+                del request.session['guest_email_id']
+            except:
+                pass
             if user.is_staff:
                 return redirect('dashboard')
             if user.is_customer:
