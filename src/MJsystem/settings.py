@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # MJ apps
     'accounts',
     'inventory',
+    'billing',
     'order',
     'customer',
     'products',

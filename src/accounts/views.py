@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
-from .forms import LoginForm, SignUpForm, EditProfile, deleteProfile
-from .models import Online_Customer, User
+from .forms import LoginForm, SignUpForm, EditProfile, deleteProfile, GuestForm
+from .models import Online_Customer, User, GuestEmail
 from customer.models import Customer
 from django.contrib.auth import authenticate, login, logout
-
+from django.utils.http import is_safe_url
 
 # Create your views here.
 
@@ -14,12 +14,43 @@ from django.contrib.auth import authenticate, login, logout
 #     return render(request, 'index.html', context)
 
 
+#sangeeth added below function
+def guest_register_view(request):
+    form = GuestForm(request.POST or None)
+    error = ' '
+    context = {
+        'form': form,
+        'error': error,
+    }
+    print(request.user.is_authenticated)
+    next_ = request.GET.get('next')
+    next_post = request.POST.get('next')
+    redirect_path = next_ or next_post or None
+
+    if form.is_valid():
+        print(form.cleaned_data)
+        email = form.cleaned_data.get('email')
+        new_guest_email = GuestEmail.objects.create(email=email)
+        request.session['guest_email_id'] = new_guest_email.id
+        if is_safe_url(redirect_path, request.get_host()):
+            return redirect(redirect_path)
+        else:
+            return redirect("/register/")
+    return redirect("/register/")
+
+
 def login_page(request):
     if request.user.is_authenticated:
         return redirect('/home/')
     form = LoginForm(request.POST or None)
     error = ' '
     print(request.user.is_authenticated)
+    # sangeeth added bellow lines
+    next_ = request.GET.get('next')
+    next_post = request.POST.get('next')
+    redirect_path = next_ or next_post or None
+    #til this
+
     if form.is_valid():
         print(form.cleaned_data)
         email = form.cleaned_data.get('email')
@@ -31,7 +62,12 @@ def login_page(request):
             if user.is_staff:
                 return redirect('dashboard')
             if user.is_customer:
-                return redirect('/')
+                #sangeeth added below lines
+                if is_safe_url(redirect_path, request.get_host()):
+                    return redirect(redirect_path)
+                #till this
+                else:
+                    return redirect('/')
         else:
             error = 'error'
             print('Error')

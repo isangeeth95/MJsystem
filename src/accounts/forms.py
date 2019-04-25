@@ -9,6 +9,11 @@ from customer.models import Customer
 # User = get_user_model()
 
 
+#sangeeth added below class
+class GuestForm(forms.Form):
+    email = forms.EmailField()
+
+
 class UserAdminCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""

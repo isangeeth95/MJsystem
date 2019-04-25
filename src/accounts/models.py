@@ -75,12 +75,20 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.onlinecustomer
 
 
-
-
 class Online_Customer(models.Model):
     User = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     tel_number = models.IntegerField(unique=True)
     profile_pic = models.ImageField(upload_to='customer_image/', null=True, blank=False)
     address = models.TextField(max_length=512)
 
+
+#sangeeth added below lines
+class GuestEmail(models.Model):
+    email = models.EmailField()
+    active = models.BooleanField(default=True)
+    update = models.DateTimeField(auto_now=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
 
