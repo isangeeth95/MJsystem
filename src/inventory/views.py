@@ -12,7 +12,8 @@ def inventory(request):
 
     # totals = jewelry.objects.aggregate(Sum('quantity'))
     context = {
-        'itemTotal': items,
+        'items': items,
+        #'itemTotal': items,
         # 'totals': totals,
     }
     return render(request, 'inventory/inventory.html', context)
