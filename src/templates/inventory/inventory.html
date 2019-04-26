@@ -23,7 +23,9 @@
 
     <a href="{% url 'display_Bangle' %}" class="btn btn-primary btn-md" role="button">Bangle</a>
 
-    {% if header != "Necklaces" and header != "Earrings" and header != "Pendants" and header != "Rings" and header != "Bangle" %}
+    <a href="{% url 'display_other_category' %}" class="btn btn-primary btn-md" role="button">Other category</a>
+
+    {% if header != "Necklaces" and header != "Earrings" and header != "Pendants" and header != "Rings" and header != "Bangle" and header != "OtherCategory" %}
 
    <center><div>
     <br><!--<img style="width: 840px; height: 300px;" alt="Image description" src="{% static 'images/image.png' %}"/>-->
@@ -50,7 +52,7 @@
 </div></center>
 
 
-{% if header == "Necklaces" or header == "Earrings" or header == "Pendants" or header == "Rings" or header == "Bangle" %}
+{% if header == "Necklaces" or header == "Earrings" or header == "Pendants" or header == "Rings" or header == "Bangle" or header == "OtherCategory" %}
 {% if header == "Rings" %}
     <br><center> <div class="slideInLeft"><h4>Currently Viewing {{ header }}</h4></div></center>
 <div class="card-body">
@@ -444,13 +446,86 @@
     </div>
 </div>
 {% endif %}
-        <div class="container main content main-wrapper">
-<div class='container'>
-    <h3 style="font-weight: bolder">Summary</h3>
-    <div style="">
-    <p>Total Number of Items : {{ items.total_quantity }}</p>
-    <p>Total Price : </p>
-    </div><br>
+
+{% if header == "OtherCategory" %}
+    <br><center> <div class="slideInLeft"><h4>Currently Viewing {{ header }}</h4></div></center>
+<div class="card-body">
+    <div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
+            <th>stoneType</th>
+            <th>NoOfStones</th>
+            <th>weight</th>
+            <th>quantity</th>
+            <th>craftsman_id</th>
+            <th>Status</th>
+            <th>Issues</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>charges (Rs)</th>
+            <th>net_price (Rs)</th>
+            <th>total_net_price (Rs)</th>
+            <th>stoneType</th>
+            <th>NoOfStones</th>
+            <th>weight</th>
+            <th>quantity</th>
+            <th>craftsman_id</th>
+            <th>Status</th>
+            <th>Issues</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </tfoot>
+
+    <tbody>
+        {% for item in items %}
+        {% if item.category_id > 5 %}
+     <tr>
+            <td>{{ item.pk }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.charges }}</td>
+            <td>{{ item.net_price }}</td>
+            <td>{{ item.total_net_price }}</td>
+            <td>{{ item.stoneType }}</td>
+            <td>{{ item.NoOfStones }}</td>
+            <td>{{ item.weight }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.craftsman_id}}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.issues }}</td>
+            <td><img style="width: 100px; height: 100px;" alt="Image description" src="{{ item.image.url }}"/></td>
+            <td>
+                <a style="margin: 10px 0 10px 0;width: 55px" href="{% url 'edit_items' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+                <a href="{% url 'delete_items' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > delete</a>
+            </td>
+        </tr>
+    {% endif %}
+
+            {% endfor %}
+    </tbody>
+</table>
+    </div>
+</div>
+{% endif %}
+    
 {% endif %}
 
 </div>

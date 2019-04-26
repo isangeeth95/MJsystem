@@ -66,6 +66,14 @@ def display_Bangle(request):
     }
     return render(request, 'inventory/inventory.html', context)
 
+def display_other_category(request):
+    items = jewelry.objects.all()
+    context = {
+        'items' : items,
+        'header':'OtherCategory'
+    }
+    return render(request, 'inventory/inventory.html', context)
+
 
 #################################################################
 
