@@ -7,6 +7,9 @@ import csv
 def delivery(request):
     return render(request, 'delivery/delivery.html')
 
+def mainstaffpage(request):
+    return render(request, 'delivery/staffchoice.html')
+
 def deliveryInfo(request):
     info = DeliveryInfo.objects.all()
     context = {'info': info,
@@ -39,6 +42,19 @@ def edit_deliveryform(request, pk):
         form = DeliveryForm(instance=item)
         return render(request,'delivery/edit_delivery.html',{'form': form})
 
+def edit_deliveryhistory(request, pk):
+    item = get_object_or_404(DeliveryInfo, pk=pk)
+
+    if request.method == "POST":
+        form = DeliveryForm(request.POST, instance=item)
+
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+
+    else:
+        form = DeliveryForm(instance=item)
+        return render(request,'delivery/edit_delhistory.html',{'form': form})
 
 def delete_deliveryform(request, pk):
     DeliveryInfo.objects.filter(pk=pk).delete()
@@ -46,6 +62,26 @@ def delete_deliveryform(request, pk):
     info = DeliveryInfo.objects.all()
     context = {'info': info}
     return render(request,'delivery/deliveryfrom.html',context)
+
+def staffdelivery(request):
+    info = DeliveryInfo.objects.all()
+    context = {'info': info,
+               'dashboard_dir': 'DeliveryInfo'}
+    return render(request, 'delivery/staffdelivery.html',context)
+
+def staffedit_deliveryform(request, pk):
+    item1 = get_object_or_404(DeliveryInfo, pk=pk)
+
+    if request.method == "POST":
+        form = StaffDelivery(request.POST, instance=item1)
+
+        if form.is_valid():
+            form.save()
+            return redirect('staffdelivery')
+
+    else:
+        form = StaffDelivery(instance=item1)
+        return render(request,'delivery/sedit.html',{'form': form})
 
 def export_delivery_csv(request):
     response = HttpResponse(content_type='text/csv')
@@ -68,10 +104,6 @@ def deliprofile(request):
     Telephone_No = ' '
     Order_date = ' '
     Deliver_date = ' '
-    # for d1 in qs:
-    #     Order_No = d1.Order_No
-        # UserName = d1.UserName
-        # Receiver_Name = d1.Receiver_Name
 
     for d in qs1:
         Order_No = d.Order_No
@@ -82,6 +114,7 @@ def deliprofile(request):
         Deliver_date = d.Deliver_date
 
     context = {
+        'qs1': qs1,
         'UserName': UserName,
         'Order_No': Order_No,
         'Receiver_Name': Receiver_Name,

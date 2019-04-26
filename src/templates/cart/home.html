@@ -5,7 +5,7 @@
 
 
 <div class='container'>
-<div class="container main content main-wrapper">
+<div class="container main content main-wrapper" style="margin-top: 150px">
     <h1>Bucket</h1>
 
     {% if cart.jewelries.exists %}
@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td colspan="2"></td>
-            <td><a class="btn btn-lg btn-success" href='{% url "checkout" %}'>Checkout</a> </td>
+            <td><a class="btn btn-success" href='{% url "checkout" %}'>Checkout</a> </td>
         </tr>
         </tbody>
     </table>
