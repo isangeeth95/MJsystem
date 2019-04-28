@@ -43,6 +43,6 @@ urlpatterns = [
                   path('supplier/', include('supplier.urls')),
                   path('craftsmen/', include('craftsmen.urls')),
                   path('BussinessAccounts/', include('BussinessAccounts.urls')),
-
+                  path('accounts/', include('accounts.password.urls')), # for password reset
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
