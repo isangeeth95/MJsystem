@@ -1,0 +1,22 @@
+{%  extends 'base.html' %}
+{% block dashboard-body %}
+{% load staticfiles %}
+<div class="container">
+    <div class="page-header">
+        <h2>Analyst Of Jewelry</h2>
+            <ol style="font-size: large">
+                <ul>Total Number Of Models : {{ numberOfModels }}</ul><br>
+                <ul><a href="{% url 'display_Necklaces' %}">Number Of Necklaces Models : {{ numberOfNecklaces }}</a></ul>
+                <ul><a href="{% url 'display_Ring' %}">Number Of Ring Models : {{ numberOfRing }}</a></ul>
+                <ul><a href="{% url 'display_Earrings' %}">Number Of EarRing Models : {{ numberOfEarrings }}</a></ul>
+                <ul><a href="{% url 'display_Pendants' %}">Number Of Pendants Models : {{ numberOfPendants }}</a></ul>
+                <ul><a href="{% url 'display_Bangle' %}">Number Of Bangle Models : {{ numberOfBangle }}</a></ul>
+                <ul><a href="{% url 'display_other_category' %}">Number Of Other Category Items Models: {{ numberOfOtherCategory }}</a></ul><br>
+                <ul>Total Quantity Of Jewelry: {{ totalQuantity }}</ul>
+                <ul>Total Amount Of Charges : {{ totalCharges|floatformat:2 }}</ul>
+                <ul>Total Amount Of NetPrice : {{ totalNetPrice|floatformat:2 }}</ul>
+            </ol>
+    </div>
+</div>
+{% endblock %}
+

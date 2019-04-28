@@ -44,7 +44,8 @@
    </div></center><a class="btn btn-info" role="button" href="{% url 'export_jewelry_csv' %}">Export jewelry Info (csv/txt) Sheet</a>
            <div class="lightSpeedIn">
              <br><a href="{% url 'rawMeterial' %}" class="btn  btn-success btn-lg btn-block" role="button" style="background: #7ac514;border: none">Raw Materials</a>
-             <a href="{% url 're_order' %}" class="btn btn-lg btn-block btn-success" role="button">Re Order Items</a><br>
+             <a href="{% url 're_order' %}" class="btn btn-lg btn-block btn-success" role="button">Re Order Items</a>
+             <a href="{% url 'analyst' %}" class="btn btn-lg btn-block btn-success" role="button">Analyst</a><br><br>
            </div>
 
        {% endif %}
@@ -337,7 +338,7 @@
 
     <tbody>
         {% for item in items %}
-        {% if item.category_id is 3 %}
+        {% if item.category_id is 5 %}
      <tr>
             <td>{{ item.pk }}</td>
             <td>{{ item.category }}</td>
@@ -525,7 +526,7 @@
     </div>
 </div>
 {% endif %}
-    
+
 {% endif %}
 
 </div>

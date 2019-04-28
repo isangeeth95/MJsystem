@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^export/csv/$', views.export_stone_csv, name='export_stone_csv'),
 
     url(r'^add_jType', views.add_jType, name='add_jType'),
+    url(r'^analyst', views.analyst, name='analyst'),
 
     # url(r'^edit_Earrings/(?P<pk>\d+)$', edit_Earrings, name='edit_Earrings'),
     # url(r'^edit_Necklaces/(?P<pk>\d+)$', edit_Necklaces, name='edit_Necklaces'),

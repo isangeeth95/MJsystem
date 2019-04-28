@@ -74,7 +74,55 @@ def display_other_category(request):
     }
     return render(request, 'inventory/inventory.html', context)
 
+#################################################################
 
+def analyst(request):
+    qs1 = jewelry.objects.all()
+    qs2 = jewelry.objects.all().filter(category=1)
+    qs3 = jewelry.objects.all().filter(category=2)
+    qs4 = jewelry.objects.all().filter(category=3)
+    qs5 = jewelry.objects.all().filter(category=4)
+    qs6 = jewelry.objects.all().filter(category=5)
+    qs7 = jewelry.objects.all().filter(category__gt=5)
+    qs8 = jewelry.objects.all().annotate(totalQuantity = Sum("quantity"))
+    qs9 = jewelry.objects.values('category').annotate(totalQuantity=Sum('quantity'))
+    qs10 = jewelry.objects.values('category').annotate(totalCharges=Sum('charges'))
+    ###############################################################################
+    numberOfModels = qs1.count()
+    numberOfNecklaces = qs2.count()
+    numberOfRing = qs3.count()
+    numberOfEarrings = qs4.count()
+    numberOfPendants = qs5.count()
+    numberOfBangle = qs6.count()
+    numberOfOtherCategory = qs7.count()
+    # totalQuantity = qs8.count()
+
+    # def get_data(self, *args, **kwargs):
+    recentQuentiryTotal = 0
+    for i in qs1:
+        recentQuentiryTotal += i.quantity
+
+    totalCharges = 0
+    for i in qs1:
+        totalCharges += i.charges
+
+    totalNetPrice = 0
+    for i in qs1:
+        totalNetPrice += i.total_net_price
+
+    context = {
+        'numberOfModels' : numberOfModels,
+        'numberOfNecklaces' : numberOfNecklaces,
+        'numberOfRing': numberOfRing,
+        'numberOfEarrings': numberOfEarrings,
+        'numberOfPendants': numberOfPendants,
+        'numberOfBangle': numberOfBangle,
+        'numberOfOtherCategory': numberOfOtherCategory,
+        'totalQuantity' : recentQuentiryTotal,
+        'totalCharges' : totalCharges,
+        'totalNetPrice': totalNetPrice,
+    }
+    return render(request, 'inventory/analyst.html', context)
 #################################################################
 
 
