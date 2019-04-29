@@ -1,0 +1,57 @@
+{%  extends 'base.html' %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+{% block dashboard-body %}
+ <div class="card mb-3">
+     <div class="slideInLeft">
+<a style="float:right;margin-right:10px;width:50px;font-size:large;" href="addarea" class="btn btn-warning btn-sm" role="button">+</a>
+</div>
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+             Delivery Area Information</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                 <center><a class="btn btn-info" role="button" href="{% url 'export_delivery_csv' %}">Export Delivery Info (csv)</a></center>
+                  <tr>
+                    <th>No</th>
+                    <th>Destination (district)</th>
+                    <th>Average Distance (km)</th>
+                    <th>Price per km (Rs.)</th>
+                    <th>Total Price(Rs.)</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+
+                  </tr>
+                </thead>
+                <tbody style="color: #000">
+                {% for item in info1 %}
+                    <tr>
+
+                    <td>{{ item.pk }}</td>
+                    <td>{{ item.Destination }}</td>
+                    <td>{{ item.Distance}}</td>
+                    <td>{{ item.Price}}</td>
+                    <td>{{ item.net_price_district}}</td>
+                    <td><a href="{% url 'edit_deliveryArea' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                    <td><a href="{% url 'delete_deliveryArea' item.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                  </tr>
+
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+
+
+{% endblock %}

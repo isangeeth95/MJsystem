@@ -40,6 +40,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label>District:</label>
+                        <select type="text" name="District" id="District" value=" {{ field.District }}"/>
+                          <option value="{{ field.District }}">Colombo</option>
+                          <option value="{{ field.District }}">Gampaha</option>
+                          <option value="{{ field.District }}">Kalutara</option>
+                          <option value="{{ field.District }}">Kandy</option>
+                    </div>
+
+                    <div class="form-group">
                         <label>Receiver's Phone Number:</label>
                         <input type="text" name="Telephone_No" id="Telephone_No" value=" {{ field.Telephone_No }}" size="10"/>
                     </div>
@@ -53,7 +62,7 @@
 
                     <div class="form-group">
                         <label>Current Delivery proccess:</label>
-                        <select type="text" name="Delivery_Process" id="Delivery_Process" value=" {{ field.Deliver_date }}"/>
+                        <select type="text" name="Delivery_Process" id="Delivery_Process" value=" {{ field.Delivery_Process }}"/>
                             <option value=" {{ field.Delivery_Process }}">Request</option>
                             <option value=" {{ field.Delivery_Process }}">Processing</option>
                             <option value=" {{ field.Delivery_Process }}">on Delivery</option>
