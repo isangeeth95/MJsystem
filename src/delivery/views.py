@@ -16,7 +16,7 @@ def addarea(request):
 
         if form.is_valid():
             form.save()
-            return redirect('dashboard')
+            return redirect('displayAreas')
 
     else:
         form = DeliveyDistanceForm()
