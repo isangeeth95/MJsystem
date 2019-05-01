@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from.models import *
 from .forms import *
+from customer.models import Customer
 from django.http import HttpResponse
 import csv
 
@@ -57,6 +58,10 @@ def deliveryInfo(request):
     return render(request,'delivery/deliveryfrom.html',context)
 
 def add_deliveryform(request):
+    haa = get_object_or_404(Customer, email=request.user.email)
+    init = {
+        'UserName': haa.email,
+    }
     if request.method == "POST":
         form = DeliveryForm(request.POST)
 
@@ -65,8 +70,8 @@ def add_deliveryform(request):
             return redirect('dashboard')
 
     else:
-        form = DeliveryForm()
-        return render(request,'delivery/add_delivery.html',{'form':form})
+        form = DeliveryForm(initial=init)
+        return render(request, 'delivery/add_delivery.html', {'form': form})
 
 def edit_deliveryform(request, pk):
     item = get_object_or_404(DeliveryInfo, pk=pk)
