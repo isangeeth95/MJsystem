@@ -169,3 +169,26 @@ def deliprofile(request):
         'Deliver_date' : Deliver_date,
     }
     return render(request, "delivery/deliprofile.html", context)
+
+def deliveryanalysis(request):
+    qs1 = DeliveryInfo.objects.all()
+    qs2 = DeliveryInfo.objects.all().filter(Delivery_Process='Request')
+    qs3 = DeliveryInfo.objects.all().filter(Delivery_Process='OnProcess')
+    qs4 = DeliveryInfo.objects.all().filter(Delivery_Process='onDelivery')
+    qs5 = DeliveryInfo.objects.all().filter(Delivery_Process='Delivered')
+
+    numberOfRequest = qs1.count()
+    numberOfDelRequest = qs2.count()
+    numberOfDelProcess = qs3.count()
+    numberOfDelOndelivery = qs4.count()
+    numberOfDelDelivered = qs5.count()
+
+    context ={
+        'numberOfRequest' : numberOfRequest,
+        'numberOfDelRequest' : numberOfDelRequest,
+        'numberOfDelProcess' : numberOfDelProcess,
+        'numberOfDelOndelivery': numberOfDelOndelivery,
+        'numberOfDelDelivered' : numberOfDelDelivered,
+    }
+
+    return render(request, 'delivery/analyst.html', context)

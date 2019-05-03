@@ -10,6 +10,7 @@ path('deliprofile/', views.deliprofile, name='deliprofile-page'),
 path('staffdelivery/', views.staffdelivery, name='staffdelivery'),
 path('displayAreas/addarea/', views.addarea, name='addarea'),
 path('displayAreas/', views.displayAreas, name='displayAreas'),
+path('deliveryanalysis/', views.deliveryanalysis, name='deliveryanalyst'),
 
 url(r'^edit_delivery/(?P<pk>\d+)' , views.edit_deliveryform, name='edit_delivery'),
 url(r'^edit_deliveryArea/(?P<pk>\d+)' , views.edit_deliveryArea, name='edit_deliveryArea'),

@@ -27,7 +27,7 @@
                 <thead>
                  <center><a class="btn btn-info" role="button" href="{% url 'export_delivery_csv' %}">Export Delivery Info (csv)</a></center>
                   <tr>
-                    <th>No</th>
+                    <!-- <th>No</th> -->
                     <th>Order Number</th>
                     <th>User's Email</th>
                     <th>Receiver's Name</th>
@@ -41,7 +41,7 @@
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>No</th>
+                    <!-- <th>No</th> -->
                     <th>Order Number</th>
                     <th>User's Email</th>
                     <th>Receiver's Name</th>
@@ -57,7 +57,7 @@
                 {% for item in info %}
                     <tr>
 
-                    <td>{{ item.pk }}</td>
+                    <!-- <td>{{ item.pk }}</td> -->
                     <td>{{ item.Order_No }}</td>
                     <td>{{ item.UserName }}</td>
                     <td>{{ item.Receiver_Name }}</td>
