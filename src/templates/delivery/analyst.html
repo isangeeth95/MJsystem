@@ -9,12 +9,14 @@
 </head>
 
 {% block dashboard-body %}
-<center><h3>Customer Delivery Requesting Report</h3></center><br>
-<ul>Total Number Of Delivery Requests : {{ numberOfRequest }}</ul>
-<ul>Number Of Delivery Requests in Request Status: {{ numberOfDelRequest }}</ul>
-<ul>Number Of Delivery Requests in Process Status: {{ numberOfDelProcess }}</ul>
-<ul>Number Of Delivery Requests in On Delivery Status: {{ numberOfDelOndelivery }}</ul>
-<ul>Number Of Delivery Requests in Delivered Status: {{ numberOfDelDelivered }}</ul>
+<center><h3>Customer Delivery Order Report</h3></center><br>
+<hr>
+<ul><B>Total Number Of Delivery Orders : {{ numberOfRequest }}</B></ul>
+<hr>
+<ul>Number Of Delivery Orders in Request Status: {{ numberOfDelRequest }}</ul>
+<ul>Number Of Delivery Orders in Process Status: {{ numberOfDelProcess }}</ul>
+<ul>Number Of Delivery Orders in On Delivery Status: {{ numberOfDelOndelivery }}</ul>
+<ul>Number Of Delivery Orders in Delivered Status: {{ numberOfDelDelivered }}</ul>
 
 {% endblock %}
 
