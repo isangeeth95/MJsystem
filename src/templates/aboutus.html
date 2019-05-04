@@ -2,7 +2,10 @@
 
 {%block page_body%}
 {%load static%}
-<img style="width: 1500px; height: 250px;" alt="Image description" src="{% static 'images/about1.jpg'%}"/>
+
+<div class='container'>
+    <div class="container main content main-wrapper" style="margin-top: 150px">
+<img style="width: 1300px; height: 250px;" alt="Image description" src="{% static 'images/about1.jpg'%}"/>
 
     <h1 class="center">About Us</h1>
     <div class="feature_divider"></div>
@@ -21,5 +24,8 @@
     </div>
 </div>
 </div>
-
+</div>
+</div>
 {%endblock%}
+
+{% block title%}Checkout {% endblock %}
