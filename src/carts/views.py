@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from inventory.models import jewelry
 from .models import Cart
@@ -11,9 +12,32 @@ from addresses.forms import AddressForm
 # Create your views here.
 
 
+def cart_detail_api_view(request):
+    cart_obj, new_obj = Cart.objects.new_or_get(request)
+    products = [{"name": x.category, "price": x.charges} for x in cart_obj.jewelries.all()]
+    # products_list = []
+    # for x in cart_obj.jewelries.all():
+    #     products_list.append({
+    #         "name":x.category,
+    #         "price":x.charges,
+    #     })
+    # cart_data = {
+    #     "products": products,
+    #     "subtotal": cart_obj.subtotal,
+    #     "total": cart_obj.total,
+    # }
+    cart_data = {"products": products, "subtotal": cart_obj.subtotal, "total": cart_obj.total}
+    return JsonResponse(cart_data)
+
+
 def cart_home(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
     return render(request, 'cart/home.html', {"cart": cart_obj})
+
+
+
+
+
 
 
 def cart_update(request):
@@ -27,10 +51,25 @@ def cart_update(request):
         cart_obj, new_obj = Cart.objects.new_or_get(request)
         if product_obj in cart_obj.jewelries.all():
             cart_obj.jewelries.remove(product_obj)
+            added = False
         else:
             cart_obj.jewelries.add(product_obj)
+            added = True
         request.session['cart_items'] = cart_obj.jewelries.count()
+        if request.is_ajax():#Asynchronus javascript and xml / json
+            print("Ajax request")
+            json_data = {
+                "added": added,
+                "removed": not added,
+                "cartItemCount": cart_obj.jewelries.count(),
+            }
+            return JsonResponse(json_data)
     return redirect("home")
+
+
+
+
+
 
 
 def checkout_home(request):

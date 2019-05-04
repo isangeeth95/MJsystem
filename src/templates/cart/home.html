@@ -5,51 +5,51 @@
 
 
 <div class='container'>
-<div class="container main content main-wrapper" style="margin-top: 150px">
-    <h1>Bucket</h1>
+    <div class="container main content main-wrapper" style="margin-top: 150px">
+        <h1>Bucket</h1>
 
-    {% if cart.jewelries.exists %}
-    <table class="table-light" >
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Product Name</th>
-            <th>Product Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for product in cart.jewelries.all %}
-        <tr>
-            <th scope="row">{{ forloop.counter}}</th>
-            <td><a href='{{ product.get_absolute_url }}'>{{ product.category }}</a>
+        {% if cart.jewelries.exists %}
+        <table class="table-light cart-table" >
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+            </tr>
+            </thead>
+            <tbody class="cart-body">
+                {% for product in cart.jewelries.all %}
+                <tr class="cart-product">
+                    <th scope="row">{{ forloop.counter}}</th>
+                    <td><a href='{{ product.get_absolute_url }}'>{{ product.category }}</a>
 
 
-            {% include 'cart/update-cart.html' with product=product cart=cart in_cart=True%}
-            </td>
-            <td>{{ product.charges }}</td>
-        </tr>
-        {% endfor %}
-        <tr>
-            <td colspan="2"></td>
-            <td><b>Subtotal</b></td><td>{{ cart.subtotal}}</td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-            <td><b>Total</b></td><td>{{ cart.total}}</td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
-            <td><a class="btn btn-success" href='{% url "checkout" %}'>Checkout</a> </td>
-        </tr>
-        </tbody>
-    </table>
+                        {% include 'cart/update-cart.html' with product=product cart=cart in_cart=True%}
+                    </td>
+                    <td>{{ product.charges }}</td>
+                </tr>
+                {% endfor %}
+            <tr>
+                <td colspan="2"></td>
+                <td><b>Subtotal</b></td><td><span class="cart-subtotal">{{ cart.subtotal}}</span></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td><b>Total</b></td><td><span class="cart-total">{{ cart.total}}</span></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td><a class="btn btn-success" href='{% url "checkout" %}'>Checkout</a> </td>
+            </tr>
+            </tbody>
+        </table>
 
-    {% else %}
-    <p class="lead">Bucket is empty</p>
+        {% else %}
+        <p class="lead">Bucket is empty</p>
 
-    {% endif %}
+        {% endif %}
 
-</div>
+    </div>
 </div>
 {%endblock%}
 
