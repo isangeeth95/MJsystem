@@ -15,18 +15,7 @@ from addresses.forms import AddressForm
 def cart_detail_api_view(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
     products = [{"name": x.category, "price": x.charges} for x in cart_obj.jewelries.all()]
-    # products_list = []
-    # for x in cart_obj.jewelries.all():
-    #     products_list.append({
-    #         "name":x.category,
-    #         "price":x.charges,
-    #     })
-    # cart_data = {
-    #     "products": products,
-    #     "subtotal": cart_obj.subtotal,
-    #     "total": cart_obj.total,
-    # }
-    cart_data = {"products": products, "subtotal": cart_obj.subtotal, "total": cart_obj.total}
+    cart_data = {"subtotal": cart_obj.subtotal, "total": cart_obj.total, }
     return JsonResponse(cart_data)
 
 

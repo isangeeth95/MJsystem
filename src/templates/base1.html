@@ -398,9 +398,9 @@
                 var productRows = cartBody.find(".cart-product");
                 var currentUrl= window.location.href;
 
-                var refreshCartUrl = '/api/cart/';
+                var refreshCartUrl= '/api/cart/';
                 var refreshCartMethod = "GET";
-                var data = {};
+                var data={};
 
                 $.ajax({
                     url : refreshCartUrl,
@@ -408,12 +408,14 @@
                     data : data,
                     success : function(data){
                         console.log("success");
-                        console.log(data.products);
+                        console.log(data);
                         if(data.length > 0){
                             productRows.html("");
                             i = 1;
-                            $.each(data.products, function (index, value) {
-                            cartBody.prepend("<tr><th scope=\"row\">" + i + "</th><td colspan='3'>" + value + "</td></tr>")
+                            $.each(data, function (index, value) {
+                                console.log(index);
+                                console.log(value);
+                            cartBody.prepend("<tr><th scope=\"row\">" + i + "</th><td>" + value + "</td></tr>");
                                 i++;
                             });
                             cartBody.find(".cart-subtotal").text(data.subtotal);
