@@ -69,6 +69,9 @@ def add_deliveryform(request):
         if form.is_valid():
             form.save()
             return redirect('dashboard')
+        else:
+            form = DeliveryForm(initial=init)
+            return render(request, 'delivery/add_delivery.html', {'form': form})
 
     else:
         form = DeliveryForm(initial=init)
