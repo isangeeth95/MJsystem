@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 
+
 class DeliveryForm(forms.ModelForm):
     class Meta:
         model = DeliveryInfo
@@ -13,10 +14,12 @@ class DeliveryForm(forms.ModelForm):
             self.fields['UserName'].widget.attrs['readonly'] = True
             self.fields['Order_No'].widget.attrs['readonly'] = True
 
+
 class DeliveyDistanceForm(forms.ModelForm):
     class Meta:
         model = DeliveryDistance
         fields = ('Destination', 'Distance', 'Price')
+
 
 class StaffDelivery(forms.ModelForm):
     class Meta:

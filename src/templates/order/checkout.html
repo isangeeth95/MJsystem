@@ -7,7 +7,7 @@
     <div class="container main content main-wrapper" style="margin-top: 150px">
 
 
-        {{ object.order_id }}--{{ object.cart }}
+        <!--{{ object.order_id }}&#45;&#45;{{ object.cart }}-->
 
         {% if not billing_profile %}
         <div class="row text-center">
@@ -25,13 +25,22 @@
 
         {% else %}
 
+        <!--{% if not object.delivering_address %}-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-6 mx-auto col-10">-->
+        <!--<p class="lead">Delivering address</p>-->
+        <!--<hr/>-->
+        <!--{% url "checkout_address_create" as checkout_address_create %}-->
+        <!--{% include 'addresses/form.html' with form=address_form next_url=request.build_absolute_uri action_url=checkout_address_create address_type='delivering'%}-->
+        <!--</div>-->
+        <!--</div>-->
+
         {% if not object.delivering_address %}
         <div class="row">
             <div class="col-md-6 mx-auto col-10">
                 <p class="lead">Delivering address</p>
-                <hr/>
-                {% url "checkout_address_create" as checkout_address_create %}
-                {% include 'addresses/form.html' with form=address_form next_url=request.build_absolute_uri action_url=checkout_address_create address_type='delivering'%}
+                <form method='post' action='{% url "add_delivery" %}'>{% csrf_token %}
+                    <button type="submit" class="btn btn-default">If you want to deliver click here</button></form>
             </div>
         </div>
 
@@ -52,6 +61,8 @@
         <p>Order total : {{ object.total }}</p>
         {% endif %}
         {% endif %}
+        {% endif %}
+
 
 
     </div>

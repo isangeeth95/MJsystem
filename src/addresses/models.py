@@ -5,12 +5,13 @@ from billing.models import BillingProfile
 
 ADDRESS_TYPES = (
     ('billing', 'Billing'),
-    ('delivering', 'Delivering'),
+    # ('delivering', 'Delivering'),
 )
 
 
 class Address(models.Model):
     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.PROTECT)
+    # address_type = models.CharField(max_length=120, choices=ADDRESS_TYPES)
     address_type = models.CharField(max_length=120, choices=ADDRESS_TYPES)
     address_line_1 = models.CharField(max_length=120)
     address_line_2 = models.CharField(max_length=120, null=True, blank=True)

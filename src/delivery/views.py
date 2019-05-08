@@ -55,7 +55,8 @@ def deliveryInfo(request):
     info = DeliveryInfo.objects.all()
     context = {'info': info,
                'dashboard_dir': 'DeliveryInfo'}
-    return render(request,'delivery/deliveryfrom.html',context)
+    return render(request, 'delivery/deliveryfrom.html',context)
+
 
 def add_deliveryform(request):
     haa = get_object_or_404(Customer, email=request.user.email)
@@ -72,6 +73,7 @@ def add_deliveryform(request):
     else:
         form = DeliveryForm(initial=init)
         return render(request, 'delivery/add_delivery.html', {'form': form})
+
 
 def edit_deliveryform(request, pk):
     item = get_object_or_404(DeliveryInfo, pk=pk)
