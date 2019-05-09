@@ -1,6 +1,6 @@
 import math
 from django.db import models
-from MJsystem.utils import unique_order_id_generator
+from MJsystem.utils import unique_order_id_generator, unique_slug_generator
 from django.db.models.signals import pre_save, post_save
 from carts.models import Cart
 from addresses.models import Address
@@ -89,7 +89,7 @@ class Order(models.Model):
 def pre_save_create_order_id(sender, instance, *args, **kwargs):
     if not instance.order_id:
         instance.order_id = unique_order_id_generator(instance)
-
+        # instance.order_id = unique_slug_generator(instance)
     qs = Order.objects.filter(cart=instance.cart).exclude(billing_profile=instance.billing_profile)
     if qs.exists():
         qs.update(active=False)

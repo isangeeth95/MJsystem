@@ -57,7 +57,7 @@
         <h1>Finalize Checkout</h1>
         <div style="border: 2px solid; box-shadow: 5px 10px 18px red; text-align: center">
 
-            <p>Cart items : {% for jewelry in object.cart.jewelries.all %}{{jewelry.category}}{% if not forloop.last %},{% endif %}{% endfor %}</p>
+            <p>Cart items : {% for jewelry in object.cart.jewelries.all %}{{jewelry.slug}}{% if not forloop.last %},{% endif %}{% endfor %}</p>
             <p>Billing address : {{ object.billing_address.get_address }}</p>
             <p>Delivering address : {% if object.delivering_address %}{{ object.delivering_address.get_address }}{% else %}No delivering{% endif %}</p>
             <p>Cart total : {{ object.cart.total }}</p>
