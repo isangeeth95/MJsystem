@@ -83,7 +83,7 @@ class Online_Customer(models.Model):
     address = models.TextField(max_length=512)
 
 
-#sangeeth added below lines
+# sangeeth added below lines
 class GuestEmail(models.Model):
     email = models.EmailField()
     active = models.BooleanField(default=True)
@@ -92,4 +92,14 @@ class GuestEmail(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class StaffAcc(models.Model):
+    User = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    im = models.BooleanField(default=False)  # inventory manager
+    hrm = models.BooleanField(default=False)  # hr manager
+    dm = models.BooleanField(default=False)  # delivery manager
+    cm = models.BooleanField(default=False)  # customer manager
+    sm = models.BooleanField(default=False)  # sales manager
+    supm = models.BooleanField(default=False)  # supplier manager
 

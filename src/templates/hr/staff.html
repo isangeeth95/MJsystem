@@ -46,6 +46,7 @@
                     <th>Admission_date</th>
                     <th>Job_title</th>
                     <th>Job_level</th>
+                      <th>NIC</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
@@ -68,7 +69,7 @@
                  {% for details in details %}
                     <tr>
 
-                    <td>{{ details.Emp_ID }}</td>
+                    <td>{{ details.pk }}</td>
                     <td>{{ details.First_Name }}</td>
                     <td>{{ details.Last_Name }}</td>
                     <td>{{ details.Email }}</td>
@@ -76,6 +77,7 @@
                     <td>{{ details.Admission_date}}</td>
                     <td>{{ details.Job_title }}</td>
                     <td>{{ details.Job_level }}</td>
+                    <td>{{ details.NIC }}</td>
                     <td><a href="{% url 'edit_staff' details.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
                     <td><a href="{% url 'delete_staff' details.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
 
