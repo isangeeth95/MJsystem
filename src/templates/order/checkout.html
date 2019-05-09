@@ -35,16 +35,16 @@
         <!--</div>-->
         <!--</div>-->
 
-        {% if not object.delivering_address %}
-        <div class="row">
-            <div class="col-md-6 mx-auto col-10">
-                <p class="lead">Delivering address</p>
-                <form method='post' action='{% url "add_delivery" %}'>{% csrf_token %}
-                    <button type="submit" class="btn btn-default">If you want to deliver click here</button></form>
-            </div>
-        </div>
+        <!--{% if not object.delivering_address %}-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-6 mx-auto col-10">-->
+        <!--<p class="lead">Delivering address</p>-->
+        <!--<form method='post' action='{% url "add_delivery" %}'>{% csrf_token %}-->
+        <!--<button type="submit" class="btn btn-default">If you want to deliver click here</button></form>-->
+        <!--</div>-->
+        <!--</div>-->
 
-        {% elif not object.billing_address %}
+        {% if not object.billing_address %}
         <div class="row">
             <div class="col-md-6 mx-auto col-10">
                 <p class="lead">Billing address</p>
@@ -55,13 +55,23 @@
         </div>
         {% else %}
         <h1>Finalize Checkout</h1>
+        <div style="border: 2px solid; box-shadow: 5px 10px 18px red; text-align: center">
 
-        <p>Cart total : {{ object.cart.total }}</p>
-        <p>Delivering total : {{ object.delivering_total }}</p>
-        <p>Order total : {{ object.total }}</p>
+            <p>Cart items : {% for jewelry in object.cart.jewelries.all %}{{jewelry.category}}{% if not forloop.last %},{% endif %}{% endfor %}</p>
+            <p>Billing address : {{ object.billing_address.get_address }}</p>
+            <p>Delivering address : {% if object.delivering_address %}{{ object.delivering_address.get_address }}{% else %}No delivering{% endif %}</p>
+            <p>Cart total : {{ object.cart.total }}</p>
+            <p>Delivering total : {{ object.delivering_total }}</p>
+            <p>Order total : {{ object.total }}</p>
+            <form class="form" method="POST" action="">{% csrf_token %}
+                <button type="submit">Checkout</button>
+            </form>
+        </div>
         {% endif %}
         {% endif %}
         {% endif %}
+        {% endif %}
+
 
 
 

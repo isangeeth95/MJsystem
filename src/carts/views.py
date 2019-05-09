@@ -85,6 +85,18 @@ def checkout_home(request):
         if billing_address_id:
             order_obj.save()
 
+    if request.method == "POST":
+        "Check that order is done"
+        is_done = order_obj.check_done()
+        if is_done:
+            order_obj.mark_paid()
+            request.session['cart_items'] = 0
+            del request.session['cart_id']
+            print(request.session.get("cart_items"))
+            return redirect("success")
+        else:
+            print("is done is returning False")
+
     context = {
         "object": order_obj,
         "billing_profile": billing_profile,
@@ -94,4 +106,7 @@ def checkout_home(request):
     }
     return render(request, "order/checkout.html", context)
 
+
+def checkout_done_view(request):
+    return render(request, 'cart/checkout-done.html', {})
 

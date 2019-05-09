@@ -16,11 +16,12 @@ ORDER_STATUS_CHOICES = (
 
 class OrderManager(models.Manager):
     def new_or_get(self, billing_profile, cart_obj):
-        created= False
+        created = False
         qs = self.get_queryset().filter(
             billing_profile=billing_profile,
             cart=cart_obj,
-            active=True
+            active=True,
+            # status=created,
         )
 
         if qs.count() == 1:
@@ -53,12 +54,36 @@ class Order(models.Model):
     objects = OrderManager()
 
     def update_total(self):
-        cart_total= self.cart.total
-        delivering_total= self.delivering_total
-        new_total= math.fsum([cart_total, delivering_total])
-        self.total= new_total
+        cart_total = self.cart.total
+        delivering_total = self.delivering_total
+        new_total = math.fsum([cart_total, delivering_total])
+        self.total = new_total
         self.save()
         return new_total
+
+    def check_done(self):
+        billing_profile = self.billing_profile
+        delivering_address = self.delivering_address
+        billing_address = self.billing_address
+        total = self.total
+        print("inside the check done function")
+        print(billing_profile)
+        print(billing_address)
+        print(total)
+        print(delivering_address)
+        if (billing_address and billing_profile and total > 0) or (billing_address and billing_profile and total > 0
+                                                                   and delivering_address):
+            print("returning check done true")
+            return True
+        else:
+            print("returning check done false")
+            return False
+
+    def mark_paid(self):
+        if self.check_done():
+            self.status = "paid"
+            self.save()
+        return self.status
 
 
 def pre_save_create_order_id(sender, instance, *args, **kwargs):
@@ -75,12 +100,12 @@ pre_save.connect(pre_save_create_order_id, sender=Order)
 
 def post_save_cart_total(sender, instance, created, *args, **kwargs):
     if not created:
-        cart_obj= instance
-        cart_total= cart_obj.total
-        cart_id= cart_obj.id
-        qs= Order.objects.filter(cart__id=cart_id)
+        cart_obj = instance
+        cart_total = cart_obj.total
+        cart_id = cart_obj.id
+        qs = Order.objects.filter(cart__id=cart_id)
         if qs.count() == 1:
-            order_obj= qs.first()
+            order_obj = qs.first()
             order_obj.update_total()
 
 
