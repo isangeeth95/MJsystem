@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from .forms import UserAdminCreationForm, UserAdminChangeForm
-from .models import Online_Customer, User, GuestEmail
+from .models import Online_Customer, User, GuestEmail, StaffAcc
 #from inventory.models import *
 
 
@@ -21,3 +21,4 @@ class UserAdmin(admin.ModelAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(Online_Customer)
 admin.site.register(GuestEmail)
+admin.site.register(StaffAcc)
