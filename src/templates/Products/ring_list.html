@@ -8,11 +8,12 @@
 <!--</center>-->
 <br/>
 <br/>
-<div class='container' style="margin-left: 400px;margin-top: 100px;">
-    <div class='row' style="display: flex;margin-left: 10%;">
+<center>
+<div class='container' style="margin-top: 100px;">
+    <div class='row' style="display: flex;margin-left: 10%">
         {% for obj in qs %}
         {% if obj.category_id is 2 %}
-        <div class='col' style="display: flex">
+        <div class='col' style="display: flex;margin-left: 15%">
             {{ forloop.counter}}
             {% include 'snippets/card.html' with instance=obj %}
             {% if forloop.counter|divisibleby:3 %}
@@ -24,7 +25,7 @@
     {% endif %}
     {% endfor %}
 </div>
-
+</center>
 {%endblock%}
 
 {% block title%}Products {% endblock %}
