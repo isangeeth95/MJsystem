@@ -26,7 +26,7 @@
 
                         {% include 'cart/update-cart.html' with product=product cart=cart in_cart=True%}
                     </td>
-                    <td>{{ product.charges }}</td>
+                    <td>{{ product.net_price }}</td>
                 </tr>
                 {% endfor %}
             <tr>

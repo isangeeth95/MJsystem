@@ -52,7 +52,7 @@ def m2m_changed_cart_receiver(sender, instance, action, *args, **kwargs):
         jewelries = instance.jewelries.all()
         total = 0
         for x in jewelries:
-            total += x.charges
+            total += x.net_price
 
         if instance.subtotal != total:
             instance.subtotal = total
