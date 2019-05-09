@@ -6,7 +6,7 @@
 
 <div class='container'>
     <div class="container main content main-wrapper" style="margin-top: 150px">
-        <h1>Bucket</h1>
+        <h1 style="float: left; font-style: normal; font-weight: bold; font-family: 'Arial Black'">Cart</h1>
 
         {% if cart.jewelries.exists %}
         <table class="table-light cart-table" >
@@ -21,7 +21,7 @@
                 {% for product in cart.jewelries.all %}
                 <tr class="cart-product">
                     <th scope="row">{{ forloop.counter}}</th>
-                    <td><a href='{{ product.get_absolute_url }}'>{{ product.category }}</a>
+                    <td><a  style="color: blue" href='{{ product.get_absolute_url }}'>{{ product.category }}</a>
 
 
                         {% include 'cart/update-cart.html' with product=product cart=cart in_cart=True%}
@@ -31,21 +31,22 @@
                 {% endfor %}
             <tr>
                 <td colspan="2"></td>
-                <td><b>Subtotal</b></td><td><span class="cart-subtotal">{{ cart.subtotal}}</span></td>
+                <td><b>Subtotal</b><span style="float: right" class="cart-subtotal">{{ cart.subtotal}}</span></td>
             </tr>
             <tr>
                 <td colspan="2"></td>
-                <td><b>Total</b></td><td><span class="cart-total">{{ cart.total}}</span></td>
+                <td><b>Total</b><span style="float: right" class="cart-total">{{ cart.total}}</span></td>
             </tr>
             <tr>
                 <td colspan="2"></td>
-                <td><a class="btn btn-success" href='{% url "checkout" %}'>Checkout</a> </td>
+                <td style="background-color:green;text-align: center;"><a class="btn"  style="color: white; font-size: x-large; font-weight: bold;
+                 border-radius: 10%" href='{% url "checkout" %}'>Checkout </a> </td>
             </tr>
             </tbody>
         </table>
 
         {% else %}
-        <p class="lead">Bucket is empty</p>
+        <h2 style="color: red ;margin-top: 100px; font-style: normal; font-weight: bold; font-family: 'Arial Black'">Cart is empty</h2>
 
         {% endif %}
 
