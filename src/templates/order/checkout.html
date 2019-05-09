@@ -54,17 +54,19 @@
             </div>
         </div>
         {% else %}
-        <h1>Finalize Checkout</h1>
+        <h1 style="font-style: normal; font-weight: bold; font-family: 'Arial Black'">Finalize Checkout</h1>
         <div style="border: 2px solid; box-shadow: 5px 10px 18px red; text-align: center">
 
-            <p>Cart items : {% for jewelry in object.cart.jewelries.all %}{{jewelry.category}}{% if not forloop.last %},{% endif %}{% endfor %}</p>
+            {% for jewelry in object.cart.jewelries.all %}</br>Item Code : {{jewelry.slug}}</br>
+            Item price : Rs {{jewelry.charges}}/=</br><img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 300px; max-width: 300px;" />
+            </br>{% if not forloop.last %}<br>{% endif %}{% endfor %}
             <p>Billing address : {{ object.billing_address.get_address }}</p>
             <p>Delivering address : {% if object.delivering_address %}{{ object.delivering_address.get_address }}{% else %}No delivering{% endif %}</p>
             <p>Cart total : {{ object.cart.total }}</p>
             <p>Delivering total : {{ object.delivering_total }}</p>
             <p>Order total : {{ object.total }}</p>
             <form class="form" method="POST" action="">{% csrf_token %}
-                <button type="submit">Checkout</button>
+                <button type="submit" style="background-color: green; border-radius: 7%">Checkout</button>
             </form>
         </div>
         {% endif %}
