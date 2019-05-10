@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_
 from .forms import LoginForm, SignUpForm, EditProfile, deleteProfile, GuestForm
 from .models import Online_Customer, User, GuestEmail
 from customer.models import Customer
+from billing.models import BillingProfile
+from order.models import Order
 from django.contrib.auth import authenticate, login, logout
 from django.utils.http import is_safe_url
 
@@ -141,12 +143,22 @@ def profile(request):
             email = c1.email
             fname = c1.first_name
             lname = c1.last_name
+
+        orderQS = None
+
+        try:
+            bp = BillingProfile.objects.get(user=request.user)
+        except BillingProfile.DoesNotExist:
+            bp = None
+        if bp is not None:
+            orderQS = Order.objects.filter(billing_profile=bp)
         context = {
             'username': fname + ' ' + lname,
             'email': email,
             'address': address,
             'tel': tel,
             'picture': pic,
+            'orderQS': orderQS,
         }
     return render(request, "accounts/profile.html", context)
 

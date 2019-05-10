@@ -37,7 +37,32 @@
   </div>
   <div id="oreder" class="card border-0 shadow my-5">
     <h4>Order History</h4>
-     <p>You haven't placed any orders yet.</p>
+    {% if orderQS %}
+    <table class="table-light cart-table" >
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Order ID</th>
+        <th>Price</th>
+        <th>States</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for order in orderQS %}
+          <tr>
+            <th>{{ forloop.counter}}</th>
+            <th>{{ order.order_id}}</th>
+            <th>{{ order.total}}</th>
+            <th>{{ order.status}}</th>
+          </tr>
+      {% endfor %}
+      </tbody>
+
+    </table>
+    {% else %}
+      <p>You haven't placed any orders yet.</p>
+    {% endif %}
+
   </div>
   <div id="delivery" class="card border-0 shadow my-5">
     <h4>Delivery History</h4>
