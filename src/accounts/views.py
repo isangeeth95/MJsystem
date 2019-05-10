@@ -120,29 +120,34 @@ def signup(request):
 
 
 def profile(request):
-    qs = Online_Customer.objects.filter(User=request.user)
-    qs1 = Customer.objects.filter(email=request.user.get_email())
-    email = ' '
-    fname = ' '
-    lname = ' '
-    address = ' '
-    tel = ' '
-    for c in qs:
-        address = c.address
-        tel = c.tel_number
-        pic = c.profile_pic.url
-    for c1 in qs1:
-        print(c1.email)
-        email = c1.email
-        fname = c1.first_name
-        lname = c1.last_name
     context = {
-        'username': fname + ' ' + lname,
-        'email': email,
-        'address': address,
-        'tel': tel,
-        'picture': pic,
+        'username': 'Admin',
+        'email': request.user.get_email,
     }
+    if request.user.is_customer:
+        qs = Online_Customer.objects.filter(User=request.user)
+        qs1 = Customer.objects.filter(email=request.user.get_email())
+        email = ' '
+        fname = ' '
+        lname = ' '
+        address = ' '
+        tel = ' '
+        for c in qs:
+            address = c.address
+            tel = c.tel_number
+            pic = c.profile_pic.url
+        for c1 in qs1:
+            print(c1.email)
+            email = c1.email
+            fname = c1.first_name
+            lname = c1.last_name
+        context = {
+            'username': fname + ' ' + lname,
+            'email': email,
+            'address': address,
+            'tel': tel,
+            'picture': pic,
+        }
     return render(request, "accounts/profile.html", context)
 
 
