@@ -45,11 +45,18 @@ ADDRESS_TYPES = (
 
 
 class Delivery_Address(models.Model):
+    deliveryProcess = (
+        ('Request', 'Request'),
+        ('OnProcess', 'Processing'),
+        ('onDelivery', 'on Delivery'),
+        ('Delivered', 'Delivered')
+    )
     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.PROTECT)
     address_type = models.CharField(max_length=120, choices=ADDRESS_TYPES)
     Receiver_Name = models.CharField(max_length=200)
     Receiver_Add = models.CharField(max_length=300)
     District = models.ForeignKey(DeliveryDistance, on_delete=models.CASCADE, null=True)
+    Delivery_Process = models.CharField(max_length=100, choices=deliveryProcess, default='Request')
 
     def __str__(self):
         return str(self.billing_profile)

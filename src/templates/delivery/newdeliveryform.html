@@ -32,27 +32,34 @@
                     <th>Receiver's Name</th>
                     <th>Receiver's Address</th>
                     <th>District</th>
-                    <th>Delivery Status</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
-
+                <tfoot>
+                  <tr>
+                    <!-- <th>No</th> -->
+                    <th>Billing Profile</th>
+                    <th>Receiver's Name</th>
+                    <th>Receiver's Address</th>
+                    <th>District</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </tfoot>
                 <tbody style="color: #000">
-                {% for item1 in info %}
+                {% for item in info %}
                     <tr>
 
-                    <!-- <td>{{ item1.pk }}</td> -->
-                    <td>{{ item1.billing_profile }}</td>
-                    <td>{{ item1.Receiver_Name}}</td>
-                    <td>{{ item1.Receiver_Add}}</td>
-                    <td>{{ item1.District }}</td>
-                    <td>{{ item1.Delivery_Process}}</td>
-                    <td><a href="{% url 'staffedit_delivery' item1.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
-                    <td><a href="{% url 'delete_delivery' item1.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                    <!-- <td>{{ item.pk }}</td> -->
+                    <td>{{ item.billing_profile }}</td>
+                    <td>{{ item.Receiver_Name }}</td>
+                    <td>{{ item.Receiver_Add }}</td>
+                    <td>{{ item.District}}</td>
+                    <td><a href="{% url 'edit_delivery' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                    <td><a href="{% url 'delete_delivery' item.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
                   </tr>
-
-                {% endfor %}
+                       {% endfor %}
 
                 </tbody>
               </table>

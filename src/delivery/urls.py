@@ -5,7 +5,7 @@ from django.conf.urls import url
 urlpatterns = [
 path('',views.mainstaffpage, name='mainstaffpage'),
 path('deliveryInfo/', views.deliveryInfo, name ='deliveryInfo'),
-path('deliveryform/', views.add_deliveryform, name='add_delivery'),
+
 path('deliprofile/', views.deliprofile, name='deliprofile-page'),
 path('staffdelivery/', views.staffdelivery, name='staffdelivery'),
 path('displayAreas/addarea/', views.addarea, name='addarea'),

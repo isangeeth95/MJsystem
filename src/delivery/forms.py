@@ -23,16 +23,8 @@ class DeliveyDistanceForm(forms.ModelForm):
 
 class StaffDelivery(forms.ModelForm):
     class Meta:
-        model = DeliveryInfo
-        fields = ('Order_No', 'UserName', 'Receiver_Name', 'Receiver_Add', 'District', 'Telephone_No', 'Deliver_date', 'Delivery_Process')
-
-    def __init__(self, *args, **kwargs):
-        super(StaffDelivery, self).__init__(*args, **kwargs)
-        instance = getattr(self, 'instance', None)
-        if instance and instance.id:
-            self.fields['UserName'].widget.attrs['readonly'] = True
-            self.fields['Order_No'].widget.attrs['readonly'] = True
-
+        model = Delivery_Address
+        fields = ('Receiver_Name', 'Receiver_Add', 'District', 'Delivery_Process')
 
 
 #---------sangeeth----------
