@@ -34,3 +34,17 @@ class StaffDelivery(forms.ModelForm):
             self.fields['Order_No'].widget.attrs['readonly'] = True
 
 
+
+#---------sangeeth----------
+class DeliveryAddressForm(forms.ModelForm):
+    class Meta:
+        model = Delivery_Address
+        fields = [
+        #     'billing_profile',
+        #     'address_type',
+                'Receiver_Name',
+                'Receiver_Add',
+                'District',
+        ]
+
+

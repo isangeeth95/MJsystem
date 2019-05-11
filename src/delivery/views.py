@@ -4,6 +4,8 @@ from .forms import *
 from customer.models import Customer
 from django.http import HttpResponse
 import csv
+from billing.models import BillingProfile
+from django.utils.http import is_safe_url
 
 def delivery(request):
     return render(request, 'delivery/delivery.html')
@@ -197,3 +199,44 @@ def deliveryanalysis(request):
     }
 
     return render(request, 'delivery/analyst.html', context)
+
+
+#------sangeeth-------
+def checkout_delivery_address_create_view(request):
+    form = DeliveryAddressForm(request.POST or None)
+    error = ' '
+    context = {
+        'form': form,
+        'error': error,
+    }
+    print(request.user.is_authenticated)
+    next_ = request.GET.get('next')
+    next_post = request.POST.get('next')
+    redirect_path = next_ or next_post or None
+    # redirect_path = "checkout"
+    district = None
+
+    if form.is_valid():
+        print(request.POST)
+        instance = form.save(commit=False)
+        billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
+        if billing_profile is not None:
+            address_type = request.POST.get('address_type', 'delivering')
+            # address_type = request.POST.get('address_type', 'billing')
+            instance.billing_profile = billing_profile
+            instance.address_type = address_type
+            instance.save()
+            print(instance.Receiver_Add)
+            print(instance.Receiver_Add + ", " + str(instance.District))
+            request.session[address_type + "_address_id"] = instance.id
+            request.session[address_type + "_address"] = instance.Receiver_Add + ", " + str(instance.District) + ", Sri Lanka"
+            print(address_type + "_address_id")
+        else:
+            print("Error checkout_address_create_view function")
+            return redirect("checkout")
+
+        if is_safe_url(redirect_path, request.get_host()):
+            return redirect(redirect_path)
+        else:
+            return redirect("checkout")
+    return redirect("checkout")

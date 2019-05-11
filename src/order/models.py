@@ -40,7 +40,7 @@ class OrderManager(models.Manager):
 class Order(models.Model):
     billing_profile = models.ForeignKey(BillingProfile, null=True, blank=True, on_delete=models.PROTECT)
     order_id = models.CharField(max_length=120, blank=True)
-    delivering_address = models.ForeignKey(Address, related_name="delivering_address", null=True, blank=True, on_delete=models.PROTECT)
+    delivering_address = models.CharField(max_length=200, null=True, blank=True)
     billing_address = models.ForeignKey(Address, related_name="billing_address", null=True, blank=True, on_delete=models.PROTECT)
     cart = models.ForeignKey(Cart, on_delete=models.PROTECT)
     status = models.CharField(max_length=120, default='created', choices=ORDER_STATUS_CHOICES)
@@ -84,6 +84,13 @@ class Order(models.Model):
             self.status = "paid"
             self.save()
         return self.status
+
+    def assign_delivering_address_to_none(self):
+        print("inside the assign_delivering_address_to_none function")
+        delivering_address = "None"
+        self.delivering_address = delivering_address
+        self.save()
+        return self.delivering_address
 
 
 def pre_save_create_order_id(sender, instance, *args, **kwargs):
