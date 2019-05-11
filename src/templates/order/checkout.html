@@ -34,7 +34,7 @@
                     {% url "checkout_delivery_address_create" as checkout_delivery_address_create %}
                     {% include 'delivery/test-add-delivery-form.html' with form=delivery_address_form next_url=request.build_absolute_uri action_url=checkout_delivery_address_create address_type='delivering'%}
                     <form class="form" method="POST" action="">{% csrf_token %}
-                        <button type="submit" style="background-color: green; border-radius: 7%">Skip</button>
+                        <button type="submit" style="background-color: green; border-radius: 7%">I don't want to deliver</button>
                     </form>
                 </div>
             </div>

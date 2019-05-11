@@ -42,10 +42,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/order/checkout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="57" column="102" selection-start-line="57" selection-start-column="102" selection-end-line="57" selection-end-column="102" />
+            <state relative-caret-position="306">
+              <caret line="36" column="120" selection-start-line="36" selection-start-column="120" selection-end-line="36" selection-end-column="120" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/order/order-done.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="234" lean-forward="true" selection-start-line="234" selection-end-line="244" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/cart/checkout-done.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/delivery/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="351">
@@ -144,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/inventory/forms.py" />
         <option value="$PROJECT_DIR$/src/inventory/admin.py" />
         <option value="$PROJECT_DIR$/src/addresses/models.py" />
-        <option value="$PROJECT_DIR$/src/templates/order/order-done.html" />
         <option value="$PROJECT_DIR$/src/order/urls.py" />
         <option value="$PROJECT_DIR$/src/carts/urls.py" />
         <option value="$PROJECT_DIR$/src/order/admin.py" />
@@ -152,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/templates/cart/update-cart.html" />
         <option value="$PROJECT_DIR$/src/templates/base1.html" />
         <option value="$PROJECT_DIR$/src/templates/snippets/card.html" />
-        <option value="$PROJECT_DIR$/src/templates/cart/checkout-done.html" />
         <option value="$PROJECT_DIR$/src/templates/Products/ring_list.html" />
         <option value="$PROJECT_DIR$/src/templates/Products/product_detail.html" />
         <option value="$PROJECT_DIR$/src/templates/cart/home.html" />
@@ -164,8 +184,10 @@
         <option value="$PROJECT_DIR$/src/delivery/admin.py" />
         <option value="$PROJECT_DIR$/src/templates/delivery/test-add-delivery-form.html" />
         <option value="$PROJECT_DIR$/src/carts/views.py" />
-        <option value="$PROJECT_DIR$/src/templates/order/checkout.html" />
         <option value="$PROJECT_DIR$/src/delivery/views.py" />
+        <option value="$PROJECT_DIR$/src/templates/order/checkout.html" />
+        <option value="$PROJECT_DIR$/src/templates/order/order-done.html" />
+        <option value="$PROJECT_DIR$/src/templates/cart/checkout-done.html" />
       </list>
     </option>
   </component>
@@ -255,6 +277,13 @@
               <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cart" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
@@ -412,7 +441,7 @@
       <workItem from="1557417758140" duration="1163000" />
       <workItem from="1557421778567" duration="1268000" />
       <workItem from="1557466226930" duration="569000" />
-      <workItem from="1557592160183" duration="3243000" />
+      <workItem from="1557592160183" duration="5844000" />
     </task>
     <task id="LOCAL-00001" summary="create password reset option&#10;-127.0.0.1:9000/accounts/password/reset/">
       <created>1556458135663</created>
@@ -425,13 +454,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212560000" />
+    <option name="totallyTimeSpent" value="215161000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17718121" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17718121" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -445,7 +474,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.407932" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" weight="0.23371105" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4986577" visible="true" weight="0.2181303" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4986577" visible="true" weight="0.2181303" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -740,13 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/order/order-done.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/base1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -781,13 +803,6 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#center#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#center#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/cart/checkout-done.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -918,16 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/order/checkout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="57" column="102" selection-start-line="57" selection-start-column="102" selection-end-line="57" selection-end-column="102" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/delivery/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -954,6 +959,34 @@
           <caret line="231" column="125" selection-start-line="231" selection-start-column="125" selection-end-line="231" selection-end-column="125" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/order/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="36" column="120" selection-start-line="36" selection-start-column="120" selection-end-line="36" selection-end-column="120" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/order/order-done.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="234" lean-forward="true" selection-start-line="234" selection-end-line="244" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/cart/checkout-done.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

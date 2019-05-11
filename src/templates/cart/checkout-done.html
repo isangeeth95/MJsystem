@@ -3,13 +3,117 @@
 {%block page_body%}
 {%load static%}
 
+<style type="text/css">
+    .html-2{
+        background: black;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: 500px;
+        height: 500px;
+        margin: auto;
+    }
+
+    .container-2{
+        height: 300px;
+        width: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -150px 0 0 -150px;
+    }
+
+    .square{
+        height: 94%;
+        width: 94%;
+        background: white;
+        position: absolute;
+        top: 70%;
+        left: 60%;
+        margin: -47% 0 0 -47%;
+    }
+
+    .black{
+        background: black;
+        animation: rotate 10s infinite linear;
+    }
+
+    @keyframes rotate{
+        0%{ transform: rotate(0deg); }
+        100%{ transform: rotate(360deg); }
+    }
+</style>
+
 <div class='container'>
     <div class="container main content main-wrapper" style="margin-top: 150px">
 
-    <div class="col-6 mx-auto py-5">
-        <h1 class="display-1">Thank You for shopping with us</h1>
-    </div>
+        <div class="col-6 mx-auto py-5">
+            <h1 class="display-1" style="font-family: 'Arial Rounded MT Bold'; font-weight: bold; color: royalblue">Thank You for shopping with us</h1>
+        </div>
 
+        <div class="html-2">
+            <div class="container-2">
+                <div class="square black">
+                    <div class="square">
+                        <div class="square black">
+                            <div class="square">
+                                <div class="square black">
+                                    <div class="square">
+                                        <div class="square black">
+                                            <div class="square">
+                                                <div class="square black">
+                                                    <div class="square">
+                                                        <div class="square black">
+                                                            <div class="square">
+                                                                <div class="square black">
+                                                                    <div class="square">
+                                                                        <div class="square black">
+                                                                            <div class="square">
+                                                                                <div class="square black">
+                                                                                    <div class="square">
+                                                                                        <div class="square black">
+                                                                                            <div class="square">
+                                                                                                <div class="square black">
+                                                                                                    <div class="square">
+                                                                                                        <div class="square black">
+                                                                                                            <div class="square">
+                                                                                                                <div class="square black">
+                                                                                                                    <div class="square">
+                                                                                                                        <div class="square black">
+                                                                                                                            <div class="square">
+                                                                                                                                <div class="square black">
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {%endblock%}
