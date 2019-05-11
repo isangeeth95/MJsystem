@@ -1,12 +1,18 @@
-{% extends "home_base.html"%}
+{% extends "base1.html"%}
 
 {%block page_body%}
 {%load static%}
+<div class="container main content main-wrapper" style="padding-top: 160px">
+  <div class="container">
+    <center>
+      <img style="width: 1200px; height: 700px;" alt="Image description" src="{% static 'images/main_image.jpg'%}"/>
+    </center>
 
-<center>
-  <img style="width: 1500px; height: 1000px;" alt="Image description" src="{% static 'images/main_image.jpg'%}"/>
-</center>
+    <form class="form" method="POST" action='{% url "order_list_view" %}'>{% csrf_token %}
+      <button type="submit" style="background-color: green; border-radius: 7%">View Orders List</button>
+    </form>
 
-
+  </div>
+</div>
 
 {%endblock%}
