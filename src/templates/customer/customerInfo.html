@@ -20,7 +20,7 @@
                     <th>Email</th>
                     <th>Address</th>
                     <th>Tel-Number</th>
-                    <th>Edit</th>
+                    <th>Details</th>
                     <th>Delete</th>
 
                   </tr>
@@ -38,7 +38,9 @@
                     <td>{{ cus1.email }}</td>
                     <td>address</td>
                     <td>{{ cus1.tel_number }}</td>
-                    <td><a href="#" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                    <td><button type="button"
+                                class="btn btn-warning btn-sm js-details-view"
+                                data-url="{% url 'customer-info' cus1.pk %}">view</button></td>
                     <td><a href="#" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
                   </tr>
 
@@ -56,42 +58,87 @@
 
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <!--<div class="modal fade" id="myModal" role="dialog">-->
+    <!--<div class="modal-dialog">-->
+
+      <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+      <!--<div class="modal-content">-->
+        <!--<div class="modal-header">-->
+          <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+          <!--<h4 class="modal-title">Customer Details</h4>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+          <!--<p>customer pk is :-<br/>-->
+          <!--<span class="cus-pk"></span>-->
+              <!--<table class="table-light cart-table" >-->
+      <!--<thead>-->
+      <!--<tr>-->
+        <!--<th>#</th>-->
+        <!--<th>Order ID</th>-->
+        <!--<th>Price</th>-->
+        <!--<th>States</th>-->
+      <!--</tr>-->
+      <!--</thead>-->
+      <!--<tbody>-->
+
+        <!--&lt;!&ndash;{% for order in orders %}&ndash;&gt;-->
+          <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+              <!--&lt;!&ndash;{% if order.billing_profile.user is &ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<th>{{ forloop.counter}}</th>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<th>{{ order.order_id}}</th>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<th>{{ order.total}}</th>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<th>{{ order.status}}</th>&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+      <!--&lt;!&ndash;{% endfor %}&ndash;&gt;-->
+      <!--</tbody>-->
+
+    <!--</table>-->
+          <!--</p>-->
+        <!--</div>-->
+        <!--<div class="modal-footer">-->
+          <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+        <!--</div>-->
+      <!--</div>-->
+
+    <!--</div>-->
+  <!--</div>-->
+
+ <div class="modal fade" id="modal-book">
     <div class="modal-dialog">
-
-      <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Customer Details</h4>
-        </div>
-        <div class="modal-body">
-          <p>customer pk is :-<br/>
-          <span class="cus-pk"></span>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
 
+      </div>
     </div>
   </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+
+
 <script>
-var cusPK;
+    $(function () {
+        /* functions */
+        var detailView = function(){
+            var btn = $(this);
+            $.ajax({
+                url: btn.attr("data-url"),
+                type: 'get',
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#modal-book .modal-content").html("");
+                    $("#modal-book").modal("show");
+                    },
+                success: function (data) {
+                    $("#modal-book .modal-content").html(data.details1);
+                }
+            })
+        }
 
-$('#customer-view tr td button').click(function() {
-   cusPK = $(this).attr('data-id');
-});
+        /* binding */
+        $('.js-details-view').click(detailView);
 
-$('#myModal').on('show.bs.modal', function (e) {
-    $(this).find('.cus-pk').text(cusPK);
-});
+    })
 </script>
 
 {% endblock %}
