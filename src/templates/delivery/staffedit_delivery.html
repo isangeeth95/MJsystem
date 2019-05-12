@@ -17,59 +17,11 @@
             <form method="POST">
             {% csrf_token %}
 <br>
-            {% for field in StaffDelivery %}
-
-                    <div class="form-group">
-                       <label>Order Number:</label>
-				       <input type="text" name="OderNumber" id="OderNumber" value=" {{ field.Order_No }} " size="10" readonly/>
-                    </div>
-
-                    <div class="form-group">
-                        <label>User Email:</label>
-                        <input type="text" name="UserName" id="UserName" value=" {{ field.UserName }} " size="20" readonly/>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Receiver's Name:</label>
-                        <input type="text" name="Receiver_Name" id="Receiver_Name" value=" {{ field.Receiver_Name }}" size="45"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Receiver's Address:</label>
-                        <input type="text" name="Receiver_Add" id="Receiver_Add" value=" {{ field.Receiver_Add }}" size="45"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label>District:</label>
-                        <select type="text" name="District" id="District" value=" {{ field.District }}"/>
-                          <option value="{{ field.District }}">Colombo</option>
-                          <option value="{{ field.District }}">Gampaha</option>
-                          <option value="{{ field.District }}">Kalutara</option>
-                          <option value="{{ field.District }}">Kandy</option>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Receiver's Phone Number:</label>
-                        <input type="text" name="Telephone_No" id="Telephone_No" value=" {{ field.Telephone_No }}" size="10"/>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <label>Delivery Date:</label>
-                        <input type="text" name="Deliver_date" id="Deliver_date" value=" {{ field.Deliver_date }}" size="25"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Current Delivery proccess:</label>
-                        <select type="text" name="Delivery_Process" id="Delivery_Process" value=" {{ field.Delivery_Process }}"/>
-                            <option value=" {{ field.Delivery_Process }}">Request</option>
-                            <option value=" {{ field.Delivery_Process }}">Processing</option>
-                            <option value=" {{ field.Delivery_Process }}">on Delivery</option>
-                            <option value=" {{ field.Delivery_Process }}">Delivered</option>
-                        </select>
-                    </div>
-
+            {% for field in form %}
+            <div class = "form-group row">
+                  <label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>
+                  <div class="col-10">{{ field }}</div>
+                </div>
             {% endfor %}
 
     <button type="submit" class="btn btn-primary" name="'button">Edit</button>

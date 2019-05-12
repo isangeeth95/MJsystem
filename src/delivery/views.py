@@ -4,6 +4,8 @@ from .forms import *
 from customer.models import Customer
 from django.http import HttpResponse
 import csv
+from billing.models import BillingProfile
+from django.utils.http import is_safe_url
 
 def delivery(request):
     return render(request, 'delivery/delivery.html')
@@ -52,75 +54,55 @@ def delete_deliveryArea(request, pk):
 
 
 def deliveryInfo(request):
-    info = DeliveryInfo.objects.all()
+    info = Delivery_Address.objects.all()
     context = {'info': info,
-               'dashboard_dir': 'DeliveryInfo'}
-    return render(request, 'delivery/deliveryfrom.html',context)
-
-
-def add_deliveryform(request):
-    haa = get_object_or_404(Customer, email=request.user.email)
-    init = {
-        'UserName': haa.email,
-    }
-    if request.method == "POST":
-        form = DeliveryForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return redirect('dashboard')
-        else:
-            form = DeliveryForm(initial=init)
-            return render(request, 'delivery/add_delivery.html', {'form': form})
-
-    else:
-        form = DeliveryForm(initial=init)
-        return render(request, 'delivery/add_delivery.html', {'form': form})
+               'dashboard_dir': 'Delivery_Address'}
+    return render(request, 'delivery/newdeliveryform.html',context)
 
 
 def edit_deliveryform(request, pk):
-    item = get_object_or_404(DeliveryInfo, pk=pk)
+    item = get_object_or_404(Delivery_Address, pk=pk)
 
     if request.method == "POST":
-        form = DeliveryForm(request.POST, instance=item)
+        form = DeliveryAddressForm(request.POST, instance=item)
 
         if form.is_valid():
             form.save()
             return redirect('dashboard')
 
     else:
-        form = DeliveryForm(instance=item)
+        form = DeliveryAddressForm(instance=item)
         return render(request,'delivery/edit_delivery.html',{'form': form})
 
 def edit_deliveryhistory(request, pk):
-    item = get_object_or_404(DeliveryInfo, pk=pk)
+    item = get_object_or_404(Delivery_Address, pk=pk)
 
     if request.method == "POST":
-        form = DeliveryForm(request.POST, instance=item)
+        form = DeliveryAddressForm(request.POST, instance=item)
 
         if form.is_valid():
             form.save()
             return redirect('dashboard')
 
     else:
-        form = DeliveryForm(instance=item)
+        form = DeliveryAddressForm(instance=item)
         return render(request,'delivery/edit_delhistory.html',{'form': form})
 
 def delete_deliveryform(request, pk):
-    DeliveryInfo.objects.filter(pk=pk).delete()
+    Delivery_Address.objects.filter(pk=pk).delete()
 
-    info = DeliveryInfo.objects.all()
+    info = Delivery_Address.objects.all()
     context = {'info': info}
-    return render(request,'delivery/deliveryfrom.html',context)
+    return render(request,'delivery/newdeliveryform.html',context)
 
 def staffdelivery(request):
-    info = DeliveryInfo.objects.all()
+    info = Delivery_Address.objects.all()
     context = {'info': info,
-               'dashboard_dir': 'DeliveryInfo'}
+               'dashboard_dir': 'Delivery_Address'}
     return render(request, 'delivery/staffdelivery.html',context)
 
 def staffedit_deliveryform(request, pk):
-    item1 = get_object_or_404(DeliveryInfo, pk=pk)
+    item1 = get_object_or_404(Delivery_Address, pk=pk)
 
     if request.method == "POST":
         form = StaffDelivery(request.POST, instance=item1)
@@ -146,41 +128,37 @@ def export_delivery_csv(request):
 
 def deliprofile(request):
     # qs = DeliveryInfo.objects.filter(UserName=request.user.get_email)
-    qs1 = DeliveryInfo.objects.filter(UserName=request.user.get_email())
-    Order_No = ' '
-    UserName = ' '
+    qs1 = Delivery_Address.objects.filter(billing_profile=request.user.get_email())
+
+    billing_profile = ' '
     Receiver_Name = ' '
     Receiver_Add = ' '
-    Telephone_No = ' '
-    Order_date = ' '
-    Deliver_date = ' '
+    District = ' '
+    Delivery_Process = ' '
 
     for d in qs1:
-        Order_No = d.Order_No
+        billing_profile = d.billing_profile
         Receiver_Name = d.Receiver_Name
         Receiver_Add = d.Receiver_Add
-        Telephone_No = d.Telephone_No
-        Order_date = d.Order_date
-        Deliver_date = d.Deliver_date
+        District = d.District
+        Delivery_Process = d.Delivery_Process
 
     context = {
         'qs1': qs1,
-        'UserName': UserName,
-        'Order_No': Order_No,
+        'billing_profile': billing_profile,
         'Receiver_Name': Receiver_Name,
         'Receiver_Add' : Receiver_Add,
-        'Telephone_No' : Telephone_No,
-        'Order_date' : Order_date,
-        'Deliver_date' : Deliver_date,
+        'District' : District,
+        'Delivery_Process' : Delivery_Process,
     }
     return render(request, "delivery/deliprofile.html", context)
 
 def deliveryanalysis(request):
-    qs1 = DeliveryInfo.objects.all()
-    qs2 = DeliveryInfo.objects.all().filter(Delivery_Process='Request')
-    qs3 = DeliveryInfo.objects.all().filter(Delivery_Process='OnProcess')
-    qs4 = DeliveryInfo.objects.all().filter(Delivery_Process='onDelivery')
-    qs5 = DeliveryInfo.objects.all().filter(Delivery_Process='Delivered')
+    qs1 = Delivery_Address.objects.all()
+    qs2 = Delivery_Address.objects.all().filter(Delivery_Process='Request')
+    qs3 = Delivery_Address.objects.all().filter(Delivery_Process='OnProcess')
+    qs4 = Delivery_Address.objects.all().filter(Delivery_Process='onDelivery')
+    qs5 = Delivery_Address.objects.all().filter(Delivery_Process='Delivered')
 
     numberOfRequest = qs1.count()
     numberOfDelRequest = qs2.count()
@@ -197,3 +175,44 @@ def deliveryanalysis(request):
     }
 
     return render(request, 'delivery/analyst.html', context)
+
+
+#------sangeeth-------
+def checkout_delivery_address_create_view(request):
+    form = DeliveryAddressForm(request.POST or None)
+    error = ' '
+    context = {
+        'form': form,
+        'error': error,
+    }
+    print(request.user.is_authenticated)
+    next_ = request.GET.get('next')
+    next_post = request.POST.get('next')
+    redirect_path = next_ or next_post or None
+    # redirect_path = "checkout"
+    district = None
+
+    if form.is_valid():
+        print(request.POST)
+        instance = form.save(commit=False)
+        billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
+        if billing_profile is not None:
+            address_type = request.POST.get('address_type', 'delivering')
+            # address_type = request.POST.get('address_type', 'billing')
+            instance.billing_profile = billing_profile
+            instance.address_type = address_type
+            instance.save()
+            print(instance.Receiver_Add)
+            print(instance.Receiver_Add + ", " + str(instance.District))
+            request.session[address_type + "_address_id"] = instance.id
+            request.session[address_type + "_address"] = instance.Receiver_Add + ", " + str(instance.District) + ", Sri Lanka"
+            print(address_type + "_address_id")
+        else:
+            print("Error checkout_address_create_view function")
+            return redirect("checkout")
+
+        if is_safe_url(redirect_path, request.get_host()):
+            return redirect(redirect_path)
+        else:
+            return redirect("checkout")
+    return redirect("checkout")

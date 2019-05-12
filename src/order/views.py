@@ -11,3 +11,13 @@ def order(request):
     }
     return render(request, 'order/order.html', context)
 
+
+def order_list_view(request):
+    if request.user.is_admin or request.user.is_staff:
+        print(request.user)
+        order_list = Order.objects.all()
+        context = {
+            'order_list': order_list,
+        }
+    return render(request, "order/admin-get-order-list.html", context)
+

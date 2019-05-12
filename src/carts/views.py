@@ -8,6 +8,8 @@ from addresses.models import Address
 from accounts.forms import LoginForm, GuestForm
 from accounts.models import GuestEmail
 from addresses.forms import AddressForm
+from delivery.forms import DeliveryAddressForm
+
 
 # Create your views here.
 
@@ -69,26 +71,34 @@ def checkout_home(request):
     login_form = LoginForm()
     guest_form = GuestForm()
     address_form = AddressForm()
+    delivery_address_form = DeliveryAddressForm()
     billing_address_id = request.session.get("billing_address_id", None)
-    # delivering_address_id = request.session.get("delivering_address_id", None)
+    delivering_address_id = request.session.get("delivering_address_id", None)
+    delivering_address = request.session.get("delivering_address")
 
     billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
     if billing_profile is not None:
         order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
-        # if delivering_address_id:
-        #     order_obj.delivering_address = Address.objects.get(id=delivering_address_id)
-        #     del request.session["delivering_address_id"]
+        if delivering_address_id:
+            order_obj.delivering_address = delivering_address
+            del request.session["delivering_address_id"]
+            order_obj.save()
         if billing_address_id:
             order_obj.billing_address = Address.objects.get(id=billing_address_id)
             del request.session["billing_address_id"]
-        # if billing_address_id or delivering_address_id:
-        if billing_address_id:
+        if billing_address_id or delivering_address_id:
             order_obj.save()
 
     if request.method == "POST":
+        if order_obj.delivering_address:
+            pass
+        else:
+            order_obj.assign_delivering_address_to_none()
         "Check that order is done"
         is_done = order_obj.check_done()
         if is_done:
+            # TODO: decrease inventory
+            # jewelry.objects.get().buy_item(value)
             order_obj.mark_paid()
             request.session['cart_items'] = 0
             del request.session['cart_id']
@@ -103,6 +113,7 @@ def checkout_home(request):
         "login_form": login_form,
         "guest_form": guest_form,
         "address_form": address_form,
+        "delivery_address_form": delivery_address_form,
     }
     return render(request, "order/checkout.html", context)
 
