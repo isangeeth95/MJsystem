@@ -89,6 +89,10 @@ class jewelry(models.Model):
     def get_absolute_url(self):
         return "/products/list/{slug}/".format(slug=self.slug)
 
+    def buy_item(self, q):
+        # decrease quantity
+        self.quantity -= q
+
 
     def __str__(self):
         return 'cat : {0} charges : {1}'.format(self.category, self.charges)
