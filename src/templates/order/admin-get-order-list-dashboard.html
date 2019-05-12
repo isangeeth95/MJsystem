@@ -1,11 +1,21 @@
-{% extends "base1.html"%}
+{%  extends 'base.html' %}
+<head xmlns="http://www.w3.org/1999/html">
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-{%block page_body%}
-{%load static%}
-<div class="container main content main-wrapper" style="padding-top: 160px">
-    <div class="container">
+{% block dashboard-body %}
 
-        <input type="text" name="search" id="search1" class="form-control form-control-sm" placeholder="Search">
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>Get Order History in Admin Dashboard</div>
+    <div class="container" style="margin-top: 50px">
+
+        <input type="text" name="search" id="search2" class="form-control form-control-sm" placeholder="Search">
         <div id="order" class="card border-0 shadow my-5">
             <h4>Order History</h4>
             {% if order_list %}
@@ -26,7 +36,7 @@
                 </thead>
                 <tbody>
                 {% for order in order_list %}
-                <tr>
+                <tr style="color: black">
                     <th>{{ forloop.counter}}</th>
                     <th>{{ order.order_id}}</th>
                     <th>{{ order.billing_profile}}</th>
@@ -50,10 +60,13 @@
 
     </div>
 </div>
+</div>
 
+</div>
+</div>
 <script>
     $(document).ready(function () {
-        $('#search1').keyup(function () {
+        $('#search2').keyup(function () {
             search_table($(this).val());
         });
 
@@ -79,3 +92,6 @@
 {%endblock%}
 
 {% block title%}order lists {% endblock %}
+
+
+

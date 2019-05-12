@@ -1,19 +1,33 @@
-{% extends "base1.html"%}
+{%  extends 'base.html' %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-{%block page_body%}
-{%load static%}
-<div class="container main content main-wrapper" style="padding-top: 160px">
-  <div class="container">
+{% block dashboard-body %}
+<div class="">
 
+
+  <center><br>
     <form class="form" method="POST" action='{% url "order_list_view" %}'>{% csrf_token %}
-      <button type="submit" style="background-color: green; border-radius: 7%">View Orders List</button>
+      <button type="submit" style="background-color: green; border-radius: 7%; color: white">Get Order History in Site Page</button>
     </form>
-
-    <center>
-      <img style="width: 1200px; height: 700px;" alt="Image description" src="{% static 'images/main_image.jpg'%}"/>
-    </center>
-
+    <a href='{% url "admin_view_orders" %}' class="btn  btn-success btn-lg " role="button" style="background: dodgerblue;border: none">Get Order History in Admin Dashboard</a></center>
+  <br><br>
+</div>
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fas fa-chart-area"></i>
+    Order Chart Example</div>
+  <div class="card-body">
+    <canvas id="myAreaChart" width="100%" height="30"></canvas>
   </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
 
-{%endblock%}
+{% endblock %}
+
