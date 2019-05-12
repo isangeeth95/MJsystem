@@ -97,6 +97,8 @@ def checkout_home(request):
         "Check that order is done"
         is_done = order_obj.check_done()
         if is_done:
+            # TODO: decrease inventory
+            # jewelry.objects.get().buy_item(value)
             order_obj.mark_paid()
             request.session['cart_items'] = 0
             del request.session['cart_id']
