@@ -52,7 +52,8 @@
             <h1 style="font-style: normal; font-weight: bold; font-family: 'Arial Black'">Finalize Checkout</h1>
             <div style="border: 2px solid; box-shadow: 5px 10px 18px red; text-align: center">
                 {% for jewelry in object.cart.jewelries.all %}</br>Item Code : {{jewelry.slug}}</br>
-                Item price : Rs {{jewelry.net_price}}/=</br><img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 300px; max-width: 300px;" />
+                Item price : Rs {{jewelry.net_price}}/=</br><a href='{{ jewelry.get_absolute_url }}'>
+                <img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 200px; max-width: 200px;" /></a>
                 </br>{% if not forloop.last %}<br>{% endif %}{% endfor %}
                 <p>Billing address : {{ object.billing_address.get_address }}</p>
                 <p>Delivering address : {% if object.delivering_address %}{{ object.delivering_address }}{% else %}No delivering{% endif %}</p>

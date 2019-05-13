@@ -65,7 +65,9 @@
                             {% for jewelry in order.cart.jewelries.all %}
                             </br>Item Code : {{jewelry.slug}}
                             </br>Item price : Rs {{jewelry.net_price}}/=
-                            </br><img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 200px; max-width: 200px;" />
+                            </br><a href='{{ jewelry.get_absolute_url }}'>
+                            <img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 200px; max-width: 200px;" />
+                            </a>
                             </br>{% if not forloop.last %}
                             <br>{% endif %}
                             {% endfor %}

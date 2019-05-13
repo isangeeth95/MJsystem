@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import *
 #from .forms import *
 from billing.models import BillingProfile
+from datetime import datetime
 
 # Create your views here.
 
@@ -38,6 +39,7 @@ def created_order_view(request):
     if request.user.is_authenticated:
         order_id = request.POST.get('order_id')
         order = Order.objects.get(order_id=order_id)
+        print("dt_object =", order.timestamp)
         print(order_id)
         print(order.cart.total)
         print(order.cart.jewelries.all())

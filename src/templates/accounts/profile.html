@@ -45,6 +45,7 @@
           <th>Order ID</th>
           <th>Price</th>
           <th>States</th>
+
         </tr>
         </thead>
         <tbody>
@@ -57,16 +58,17 @@
           <th>{{ order.status}}
             <form class="form" method="POST" action='{% url "created_order_view" %}'>{% csrf_token %}
               <input type="hidden" name="order_id" value="{{ order.order_id}}">
-            <button type="submit"style="background-color: green; border-radius: 7%; color: white">View order</button>
+              <button type="submit"style="background-color: green; border-radius: 7%; color: white">View order</button>
             </form>
           </th>
           {% else %}
-          <th>{{ order.status}}
-                      <form class="form" method="POST" action='{% url "created_order_view" %}'>{% csrf_token %}
+          <th>{{ order.status }}
+            <form class="form" method="POST" action='{% url "created_order_view" %}'>{% csrf_token %}
               <input type="hidden" name="order_id" value="{{ order.order_id}}">
-            <button type="submit"style="background-color: blue; border-radius: 7%; color: white">View order</button>
+              <button type="submit"style="background-color: blue; border-radius: 7%; color: white">View order</button>
             </form>
           </th>
+
           {% endif %}
         </tr>
         {% endfor %}
