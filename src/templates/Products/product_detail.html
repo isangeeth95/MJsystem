@@ -8,8 +8,14 @@
         <div class='container-fluid bg-grey'>
 
             <div class="col-12 col-md-6" style="float: right">
+                {% if object.quantity == 0 %}
+                <h6 style="font-weight: bold;  color: blue; font-style: normal">Not Available</h6>
+                {% else %}
                 <h6 style="font-weight: bold;  color: blue; font-style: normal">{{object.status}}</h6>
+                {% endif %}
+                {% if object.quantity > 0 %}
                 {% include 'cart/update-cart.html' with product=object cart=cart %}
+                {% endif %}
             </div>
 
 

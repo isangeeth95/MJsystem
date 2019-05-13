@@ -2,23 +2,26 @@
 
     {% if instance.image %}
 
-<img src="{{instance.image.url}}" class="card-img-top"  style="max-height: 250px;max-width: 250px; " alt="Card Image Cap">
+    <img src="{{instance.image.url}}" class="card-img-top"  style="max-height: 250px;max-width: 250px; " alt="Card Image Cap">
 
     {% endif %}
 
-  <div class="card-body">
+    <div class="card-body">
 
-    <h5 class="card-text">{{instance.category}}</h5>
+        <h5 class="card-text">{{instance.category}}</h5>
 
-    <p class="card-text">Description : {{instance.description}}</p>
+        <p class="card-text">Description : {{instance.description}}</p>
 
-    <p class="card-text">Qty : {{instance.quantity}}</p>
+        <p class="card-text">Qty : {{instance.quantity}}</p>
 
-    <p class="card-text" style="color: blue; font-weight: bold">{{instance.status}}</p>
+        {% if instance.quantity == 0 %}
+        <p class="card-text" style="color: blue; font-weight: bold">Not Available</p>
+        {% else %}
+        <p class="card-text" style="color: blue; font-weight: bold">{{instance.status}}</p>
+        {% endif %}
 
+        <a href='{{instance.get_absolute_url}}' class="btn btn-info" style="color: #fff;background: #0f6674;padding: 10px;border-radius: 10px;">View</a>
 
-    <a href='{{instance.get_absolute_url}}' class="btn btn-info" style="color: #fff;background: #0f6674;padding: 10px;border-radius: 10px;">View</a>
-
-  </div>
+    </div>
 
 </div>
