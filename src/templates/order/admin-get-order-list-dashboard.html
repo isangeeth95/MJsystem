@@ -8,6 +8,10 @@
     }
 </style>
 <div class="inventoryBody" style="background-color: gainsboro;">
+    <br>
+    <form class="form" method="POST" action='{% url "order_list_view" %}'>{% csrf_token %}
+        <button type="submit" style="background-color: green; border-radius: 7%; color: white">Get Order History in Site Page</button>
+    </form>
     <div class="invBody"><center>
         <div class="slideInLeft">
             <h2 style="margin-left: 50px;" >Order History</h2>

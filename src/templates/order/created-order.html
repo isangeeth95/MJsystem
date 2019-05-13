@@ -1,0 +1,79 @@
+{% extends "base1.html"%}
+
+{%block page_body%}
+{%load static%}
+
+<style type="text/css">
+    .html-2{
+        background: black;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: 500px;
+        height: 500px;
+        margin: auto;
+    }
+
+    .container-2{
+        height: 300px;
+        width: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -150px 0 0 -150px;
+    }
+
+    .square{
+        height: 94%;
+        width: 94%;
+        background: white;
+        position: absolute;
+        top: 70%;
+        left: 60%;
+        margin: -47% 0 0 -47%;
+    }
+
+    .black{
+        background: black;
+        animation: rotate 10s infinite linear;
+    }
+
+    @keyframes rotate{
+        0%{ transform: rotate(0deg); }
+        100%{ transform: rotate(360deg); }
+    }
+</style>
+
+<div class='container'>
+    <div class="container main content main-wrapper" style="margin-top: 150px">
+
+        {% if object.status == "created" %}
+        <h1 style="font-style: normal; font-weight: bold; font-family: 'Arial Black'">This is a previously created order</h1>
+        <p style="text-align: center; color: red">You can't edit or delete this order. This order is not completed by you</p>
+
+        {% else %}
+        <h1 style="font-style: normal; font-weight: bold; font-family: 'Arial Black'">This is a previously paid order</h1>
+                <p style="text-align: center; color: red">You can't edit or delete this order. This order is completed by you</p>
+
+        {% endif %}
+        <div style="border: 2px solid; box-shadow: 5px 10px 18px red; text-align: center">
+            {% for jewelry in object.cart.jewelries.all %}</br>Item Code : {{jewelry.slug}}</br>
+            Item price : Rs {{jewelry.net_price}}/=</br><img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 300px; max-width: 300px;" />
+            </br>{% if not forloop.last %}<br>{% endif %}{% endfor %}
+            <p>Billing address : {% if object.billing_address %}{{ object.billing_address }}{% else %}No billing address{% endif %}</p>
+            <p>Delivering address : {% if object.delivering_address %}{{ object.delivering_address }}{% else %}No delivering address{% endif %}</p>
+            <p>Cart total : {{ object.cart.total }}</p>
+            <p>Delivering total : {{ object.delivering_total }}</p>
+            <p>Order total : {{ object.total }}</p>
+            <form class="form" method="GET" action="/user/profile">{% csrf_token %}
+                <button type="submit" style="background-color: green; border-radius: 7%">Return to profile</button>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+{%endblock%}
+
+{% block title%}Checkout {% endblock %}

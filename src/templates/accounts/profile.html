@@ -2,93 +2,107 @@
 
 {%block page_body%}
 <div class="container main content main-wrapper" style="padding-top: 160px">
-<div class="container">
-  <div class="card border-0 shadow my-5">
-    <div class="section clearfix">
-          <div class="sixteen columns clearfix collection_nav">
-      <h1 class="center">Account Details</h1>
-      <div class="feature_divider"></div>
-    </div>
+  <div class="container">
+    <div class="card border-0 shadow my-5">
+      <div class="section clearfix">
+        <div class="sixteen columns clearfix collection_nav">
+          <h1 class="center">Account Details</h1>
+          <div class="feature_divider"></div>
+        </div>
 
-    </div> <!-- account details title-->
+      </div> <!-- account details title-->
 
-    <div class="section clearfix">
-      <div class="four columns">
-        <div class="group">
-          <img src="{{ picture }}" width="250px">
-          <!--<h4 class="name">pavithra weerapperuma</h4>-->
-          <!--<p class="email note">pavithra.blog@gmail.com</p>-->
-          <!--<div class="address note">-->
+      <div class="section clearfix">
+        <div class="four columns">
+          <div class="group">
+            <img src="{{ picture }}" width="250px">
+            <!--<h4 class="name">pavithra weerapperuma</h4>-->
+            <!--<p class="email note">pavithra.blog@gmail.com</p>-->
+            <!--<div class="address note">-->
 
-              <!--<p><a href="/account/addresses">View Addresses (0)</a></p>-->
-          <!--</div>-->
+            <!--<p><a href="/account/addresses">View Addresses (0)</a></p>-->
+            <!--</div>-->
+          </div>
+        </div>
+
+
+        <div class="twelve columns">
+          <p class="lead mb-0">Name : {{ username}}</p>
+          <p class="lead mb-0">E-mail : {{ email }}</p>
+          <p class="lead mb-0">Address : {{ address }}</p>
+          <p class="lead mb-0">Mobile : {{ tel }}</p>
         </div>
       </div>
-
-
-      <div class="twelve columns">
-        <p class="lead mb-0">Name : {{ username}}</p>
-        <p class="lead mb-0">E-mail : {{ email }}</p>
-        <p class="lead mb-0">Address : {{ address }}</p>
-        <p class="lead mb-0">Mobile : {{ tel }}</p>
-      </div>
+      <!-- details end-->
     </div>
-    <!-- details end-->
-  </div>
-  <div id="oreder" class="card border-0 shadow my-5">
-    <h4>Order History</h4>
-    {% if orderQS %}
-    <table class="table-light cart-table" >
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>Order ID</th>
-        <th>Price</th>
-        <th>States</th>
-      </tr>
-      </thead>
-      <tbody>
+    <div id="oreder" class="card border-0 shadow my-5">
+      <h4>Order History</h4>
+      {% if orderQS %}
+      <table class="table-light cart-table" >
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Order ID</th>
+          <th>Price</th>
+          <th>States</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for order in orderQS %}
-          <tr>
-            <th>{{ forloop.counter}}</th>
-            <th>{{ order.order_id}}</th>
-            <th>{{ order.total}}</th>
-            <th>{{ order.status}}</th>
-          </tr>
-      {% endfor %}
-      </tbody>
+        <tr>
+          <th>{{ forloop.counter}}</th>
+          <th>{{ order.order_id}}</th>
+          <th>{{ order.total}}</th>
+          {% if order.status == 'created' %}
+          <th>{{ order.status}}
+            <form class="form" method="POST" action='{% url "created_order_view" %}'>{% csrf_token %}
+              <input type="hidden" name="order_id" value="{{ order.order_id}}">
+            <button type="submit"style="background-color: green; border-radius: 7%; color: white">View order</button>
+            </form>
+          </th>
+          {% else %}
+          <th>{{ order.status}}
+                      <form class="form" method="POST" action='{% url "created_order_view" %}'>{% csrf_token %}
+              <input type="hidden" name="order_id" value="{{ order.order_id}}">
+            <button type="submit"style="background-color: blue; border-radius: 7%; color: white">View order</button>
+            </form>
+          </th>
+          {% endif %}
+        </tr>
+        {% endfor %}
+        </tbody>
 
-    </table>
-    {% else %}
+      </table>
+      {% else %}
       <p>You haven't placed any orders yet.</p>
-    {% endif %}
-
-  </div>
-  <div id="delivery" class="card border-0 shadow my-5">
-    <h4>Delivery History</h4>
-     <p>You haven't placed any orders yet.</p>
-  </div>
+      {% endif %}
 
     </div>
+    <div id="delivery" class="card border-0 shadow my-5">
+      <h4>Delivery History</h4>
+      <p>You haven't placed any orders yet.</p>
+    </div>
 
-
-
-
-
-    <!--<div class="card-body p-5">-->
-      <!--<h1 class="font-weight-light">User Profile</h1>-->
-      <!--<div class="four columns" style="width: 17rem; border: 1px solid goldenrod; box-shadow: 2px 2px 2px goldenrod; text-align: center; border-radius: 7%">-->
-        <!--<img src="{{ picture }}" width="250px">-->
-        <!--</div>-->
-      <!--<div class="twelve columns" style="width: 17rem; border: 1px solid goldenrod; box-shadow: 2px 2px 2px goldenrod; text-align: center; border-radius: 7%">-->
-      <!--<p class="lead mb-0">Name : {{ username}}</p>-->
-        <!--<p class="lead mb-0">E-mail : {{ email }}</p>-->
-        <!--<p class="lead mb-0">Address : {{ address }}</p>-->
-        <!--<p class="lead mb-0">Mobile : {{ tel }}</p>-->
-        <!--</div>-->
-
-    <!--</div>-->
   </div>
+
+
+
+
+
+  <!--<div class="card-body p-5">-->
+  <!--<h1 class="font-weight-light">User Profile</h1>-->
+  <!--<div class="four columns" style="width: 17rem; border: 1px solid goldenrod; box-shadow: 2px 2px 2px goldenrod; text-align: center; border-radius: 7%">-->
+  <!--<img src="{{ picture }}" width="250px">-->
+  <!--</div>-->
+  <!--<div class="twelve columns" style="width: 17rem; border: 1px solid goldenrod; box-shadow: 2px 2px 2px goldenrod; text-align: center; border-radius: 7%">-->
+  <!--<p class="lead mb-0">Name : {{ username}}</p>-->
+  <!--<p class="lead mb-0">E-mail : {{ email }}</p>-->
+  <!--<p class="lead mb-0">Address : {{ address }}</p>-->
+  <!--<p class="lead mb-0">Mobile : {{ tel }}</p>-->
+  <!--</div>-->
+
+  <!--</div>-->
+</div>
 
 
 {% endblock %}

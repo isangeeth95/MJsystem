@@ -23,12 +23,9 @@ def cart_detail_api_view(request):
 
 def cart_home(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
+    # request.session['cart_number']
+    print()
     return render(request, 'cart/home.html', {"cart": cart_obj})
-
-
-
-
-
 
 
 def cart_update(request):

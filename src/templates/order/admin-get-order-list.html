@@ -11,7 +11,9 @@
 
 <div class="container main content main-wrapper" style="padding-top: 160px">
     <div class="container">
-
+    <form class="form" method="POST" action='{% url "admin_view_orders" %}'>{% csrf_token %}
+      <button type="submit" style="background-color: green; border-radius: 7%; color: white"><- Get Order History in Admin Dashboard</button>
+    </form>
         <input type="text" name="search" id="search1" class="form-control form-control-sm" placeholder="Search">
         <div id="order" class="card border-0 shadow my-5">
             <h4>Order History</h4>
