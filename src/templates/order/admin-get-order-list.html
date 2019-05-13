@@ -2,6 +2,13 @@
 
 {%block page_body%}
 {%load static%}
+
+<style>
+    table tr th{
+        text-align: center;
+    }
+</style>
+
 <div class="container main content main-wrapper" style="padding-top: 160px">
     <div class="container">
 
@@ -9,7 +16,7 @@
         <div id="order" class="card border-0 shadow my-5">
             <h4>Order History</h4>
             {% if order_list %}
-            <table id="order_table" class="table table-striped table-bordered" style="width:100%">
+            <table id="order_table" class="" style="width:100%">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -17,7 +24,7 @@
                     <th>Billing profile:</th>
                     <th>Delivering address:</th>
                     <th>Billing address:</th>
-                    <th>Cart</th>
+                    <th>Products</th>
                     <th>Delivering total</th>
                     <th>Total</th>
                     <th>States</th>
@@ -26,13 +33,21 @@
                 </thead>
                 <tbody>
                 {% for order in order_list %}
-                <tr>
+                <tr style="color: darkblue; font-weight: bold; font-style: italic;">
                     <th>{{ forloop.counter}}</th>
                     <th>{{ order.order_id}}</th>
                     <th>{{ order.billing_profile}}</th>
                     <th>{{ order.delivering_address}}</th>
                     <th>{{ order.billing_address.get_address }}</th>
-                    <th>{{ order.cart}}</th>
+                    <th>
+                    {% for jewelry in order.cart.jewelries.all %}
+                    </br>Item Code : {{jewelry.slug}}
+                        </br>Item price : Rs {{jewelry.net_price}}/=
+                        </br><img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 200px; max-width: 200px;" />
+                        </br>{% if not forloop.last %}
+                        <br>{% endif %}
+                    {% endfor %}
+                    </th>
                     <th>{{ order.delivering_total}}</th>
                     <th>{{ order.total}}</th>
                     <th>{{ order.status}}</th>
