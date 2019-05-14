@@ -2,7 +2,7 @@
 
     {% if instance.image %}
 
-    <img src="{{instance.image.url}}" class="card-img-top"  style="max-height: 250px;max-width: 250px; " alt="Card Image Cap">
+    <a href='{{instance.get_absolute_url}}'><img src="{{instance.image.url}}" class="card-img-top"  style="max-height: 250px;max-width: 250px; " alt="Card Image Cap"></a>
 
     {% endif %}
 
@@ -15,7 +15,7 @@
         <p class="card-text">Qty : {{instance.quantity}}</p>
 
         {% if instance.quantity == 0 %}
-        <p class="card-text" style="color: blue; font-weight: bold">Not Available</p>
+        <p class="card-text" style="color: red; font-weight: bold">Not Available</p>
         {% else %}
         <p class="card-text" style="color: blue; font-weight: bold">{{instance.status}}</p>
         {% endif %}

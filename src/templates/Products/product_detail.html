@@ -9,7 +9,7 @@
 
             <div class="col-12 col-md-6" style="float: right">
                 {% if object.quantity == 0 %}
-                <h6 style="font-weight: bold;  color: blue; font-style: normal">Not Available</h6>
+                <h6 style="font-weight: bold;  color: red; font-style: normal">Not Available</h6>
                 {% else %}
                 <h6 style="font-weight: bold;  color: blue; font-style: normal">{{object.status}}</h6>
                 {% endif %}
@@ -17,12 +17,9 @@
                 {% include 'cart/update-cart.html' with product=object cart=cart %}
                 {% endif %}
             </div>
-
-
-            <img src="{{object.image.url}}" class="img-thumbnail" style="max-height: 300px; max-width: 300px;"  alt="Image detail view">
-            <div class="col-100" style="margin-bottom: 200px">
-
-                <table style="padding-left: 50px">
+            <img src="{{object.image.url}}" class="img-thumbnail" style="padding-left: 150px; max-height: 300px; max-width: 300px; margin-left: auto; margin-right: auto; display: block"  alt="Image detail view">
+            <div class="col-100" style="margin-bottom: 200px; margin-top: 10px">
+                <table style="width: 40%; margin: auto">
                     <tr>
                         <th>Category</th>
                         <th>: {{object.category}}</th>
