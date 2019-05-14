@@ -65,7 +65,7 @@
             </a>
 
             </br>{% if not forloop.last %}<br>{% endif %}{% endfor %}
-            <p>Billing address : {% if object.billing_address %}{{ object.billing_address }}{% else %}No billing address{% endif %}</p>
+            <p>Billing address : {% if object.billing_address.get_address %}{{ object.billing_address.get_address }}{% else %}No billing address{% endif %}</p>
             <p>Delivering address : {% if object.delivering_address %}{{ object.delivering_address }}{% else %}No delivering address{% endif %}</p>
             <p>Cart total : {{ object.cart.total }}</p>
             <p>Delivering total : {{ object.delivering_total }}</p>
