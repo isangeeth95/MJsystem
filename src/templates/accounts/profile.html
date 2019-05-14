@@ -42,7 +42,7 @@
         <thead>
         <tr>
           <th>#</th>
-          <th>Order ID</th>
+          <th>Order Items</th>
           <th>Price</th>
           <th>States</th>
 
@@ -52,7 +52,12 @@
         {% for order in orderQS %}
         <tr>
           <th>{{ forloop.counter}}</th>
-          <th>{{ order.order_id}}</th>
+          <!--<th>{{ order.order_id}}</th>-->
+          <th>
+            {% for j in order.cart.jewelries.all %}
+            {{ j.category.jtype }}
+            {% endfor %}
+          </th>
           <th>{{ order.total}}</th>
           {% if order.status == 'created' %}
           <th>{{ order.status}}

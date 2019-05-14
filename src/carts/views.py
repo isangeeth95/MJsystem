@@ -9,6 +9,8 @@ from accounts.forms import LoginForm, GuestForm
 from accounts.models import GuestEmail
 from addresses.forms import AddressForm
 from delivery.forms import DeliveryAddressForm
+from django.http.response import HttpResponse
+import csv
 
 
 # Create your views here.
@@ -122,3 +124,16 @@ def cart_list_view(request):
             'cart_list': cart_list,
         }
     return render(request, "cart/admin-get-cart-list.html", context)
+
+
+def export_cart_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="cart.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['cartID', 'user', 'jewelries', 'subtotal', 'total', 'updated', 'timestamp'])
+    cartInfo = Cart.objects.all().values_list('id', 'user', 'jewelries', 'subtotal', 'total', 'updated', 'timestamp')
+    for info in cartInfo:
+        writer.writerow(info)
+
+    return response
