@@ -14,40 +14,34 @@
         <form class="form" method="POST" action='{% url "admin_view_orders" %}'>{% csrf_token %}
             <button type="submit" style="background-color: green; border-radius: 7%; color: white"><- Get Order History in Admin Dashboard</button>
         </form>
-        <form style="float: right" class="form" method="POST" action='{% url "cart_list_view" %}'>{% csrf_token %}
-            <button type="submit" style="background-color: blue; border-radius: 7%; color: white">Get Cart History in Site Page -></button>
+        <form style="float: right" class="form" method="POST" action='{% url "order_list_view" %}'>{% csrf_token %}
+            <button type="submit" style="background-color: green; border-radius: 7%; color: white">Get Order History in Site Page -></button>
         </form>
         <input type="text" name="search" id="search1" class="form-control form-control-sm" placeholder="Search">
         <div id="order" class="card border-0 shadow my-5">
             <h4>Order History</h4>
-            {% if order_list %}
+            {% if cart_list %}
             <table id="order_table" class="" style="width:100%">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Order ID</th>
-                    <th>Billing profile:</th>
-                    <th>Delivering address:</th>
-                    <th>Billing address:</th>
-                    <th>Cart:</th>
+                    <th>Cart ID</th>
+                    <th>User:</th>
                     <th>Products</th>
-                    <th>Delivering total</th>
+                    <th>Sub total</th>
                     <th>Total</th>
-                    <th>States</th>
                     <th>Created</th>
+                    <th>Updated</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for order in order_list %}
+                {% for cart in cart_list %}
                 <tr style="color: darkblue; font-weight: bold; font-style: italic;">
                     <th>{{ forloop.counter}}</th>
-                    <th>{{ order.order_id}}</th>
-                    <th>{{ order.billing_profile}}</th>
-                    <th>{{ order.delivering_address}}</th>
-                    <th>{{ order.billing_address.get_address }}</th>
-                    <th>{{ order.cart }}</th>
+                    <th>{{ cart.id}}</th>
+                    <th>{{ cart.user}}</th>
                     <th>
-                        {% for jewelry in order.cart.jewelries.all %}
+                        {% for jewelry in cart.jewelries.all %}
                         Item Code : {{jewelry.slug}}
                         </br>Item price : Rs {{jewelry.net_price}}/=
                         </br><a href='{{ jewelry.get_absolute_url }}'><img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 150px; max-width: 150px;" /></a>
@@ -55,21 +49,17 @@
                         <br>{% endif %}
                         {% endfor %}
                     </th>
-                    <th>{{ order.delivering_total}}</th>
-                    <th>{{ order.total}}</th>
-                    {% if order.status == 'paid' %}
-                    <th style="color: red">{{ order.status}}</th>
-                    {% else %}
-                    <th style="color: green">{{ order.status}}</th>
-                    {% endif %}
-                    <th style="color: purple">{{ order.timestamp}}</th>
+                    <th>{{ cart.subtotal}}</th>
+                    <th>{{ cart.total}}</th>
+                    <th style="color: purple">{{ cart.timestamp}}</th>
+                    <th style="color: purple">{{ cart.updated}}</th>
                 </tr>
                 {% endfor %}
                 </tbody>
 
             </table>
             {% else %}
-            <p>You haven't placed any orders yet.</p>
+            <p>There aren't any carts created yet.</p>
             {% endif %}
 
         </div>

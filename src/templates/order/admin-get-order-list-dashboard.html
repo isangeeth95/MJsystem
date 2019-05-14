@@ -10,7 +10,10 @@
 <div class="inventoryBody" style="background-color: gainsboro;">
     <br>
     <form class="form" method="POST" action='{% url "order_list_view" %}'>{% csrf_token %}
-        <button type="submit" style="background-color: green; border-radius: 7%; color: white">Get Order History in Site Page</button>
+        <button type="submit" style="background-color: green; border-radius: 7%; color: white">Get Order History in Site Page -></button>
+    </form>
+    <form class="form" method="POST" action='{% url "cart_list_view" %}'>{% csrf_token %}
+        <button type="submit" style="background-color: blue; border-radius: 7%; color: white">Get Cart History in Site Page -></button>
     </form>
     <div class="invBody"><center>
         <div class="slideInLeft">
@@ -31,11 +34,12 @@
                         <th>Billing profile:</th>
                         <th>Delivering address:</th>
                         <th>Billing address:</th>
+                        <th>Cart:</th>
                         <th>Products</th>
                         <th>Delivering total</th>
                         <th>Total</th>
                         <th>States</th>
-                        <th></th>
+                        <th>Created</th>
                     </tr>
                     </thead>
                     <tfoot style="background-color: black; color: seagreen">
@@ -45,11 +49,12 @@
                         <th>Billing profile:</th>
                         <th>Delivering address:</th>
                         <th>Billing address:</th>
+                        <th>Cart:</th>
                         <th>Products</th>
                         <th>Delivering total</th>
                         <th>Total</th>
                         <th>States</th>
-                        <th></th>
+                        <th>Created</th>
                     </tr>
                     </tfoot>
 
@@ -61,20 +66,26 @@
                         <th>{{ order.billing_profile}}</th>
                         <th>{{ order.delivering_address}}</th>
                         <th>{{ order.billing_address.get_address }}</th>
+                        <th>{{ order.cart }}</th>
                         <th>
                             {% for jewelry in order.cart.jewelries.all %}
                             Item Code : {{jewelry.slug}}
                             </br>Item price : Rs {{jewelry.net_price}}/=
                             </br><a href='{{ jewelry.get_absolute_url }}'>
                             <img src='{{jewelry.image.url}}' class="img-thumbnail" style="max-height: 100px; max-width: 100px;" />
-                            </a>
+                        </a>
                             </br>{% if not forloop.last %}
                             <br>{% endif %}
                             {% endfor %}
                         </th>
                         <th>{{ order.delivering_total}}</th>
                         <th>{{ order.total}}</th>
-                        <th>{{ order.status}}</th>
+                        {% if order.status == 'paid' %}
+                        <th style="color: red">{{ order.status}}</th>
+                        {% else %}
+                        <th style="color: green">{{ order.status}}</th>
+                        {% endif %}
+                        <th style="color: purple">{{ order.timestamp}}</th>
                     </tr>
                     {% endfor %}
                     </tbody>

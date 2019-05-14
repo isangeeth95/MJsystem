@@ -55,11 +55,6 @@ def cart_update(request):
     return redirect("home")
 
 
-
-
-
-
-
 def checkout_home(request):
     cart_obj, cart_created = Cart.objects.new_or_get(request)
     order_obj = None
@@ -118,3 +113,12 @@ def checkout_home(request):
 def checkout_done_view(request):
     return render(request, 'cart/checkout-done.html', {})
 
+
+def cart_list_view(request):
+    if request.user.is_admin or request.user.is_staff:
+        print(request.user)
+        cart_list = Cart.objects.all()
+        context = {
+            'cart_list': cart_list,
+        }
+    return render(request, "cart/admin-get-cart-list.html", context)
