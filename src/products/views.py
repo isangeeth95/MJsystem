@@ -11,7 +11,7 @@ from carts.models import *
 def Product_List_View(request):
     querySet = jewelry.objects.all()
     context = {
-        'qs': querySet,
+        'object_list': querySet,
     }
     return render(request, "Products/product_list.html", context)
 

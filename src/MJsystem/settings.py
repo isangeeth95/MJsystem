@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'order',
     'customer',
     'products',
+    'search',
     'carts',
     'hrmanage',
     'supplier',
