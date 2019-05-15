@@ -40,7 +40,7 @@
                 </thead>
                 <tbody>
                 {% for order in order_list %}
-                <tr style="color: darkblue; font-weight: bold; font-style: italic;">
+                <tr style="color: darkblue; font-weight: bold; font-style: italic; border: 1px solid dimgrey">
                     <th>{{ forloop.counter}}</th>
                     <th>{{ order.order_id}}</th>
                     <th>{{ order.billing_profile}}</th>
@@ -59,10 +59,10 @@
                     <th>{{ order.delivering_total}}</th>
                     {% if order.status == 'paid' %}
                     <th>{{ order.total}} &
-                    <p style="color: red">{{ order.status}}</p></th>
+                        <p style="color: red">{{ order.status}}</p></th>
                     {% else %}
                     <th>{{ order.total}} &
-                    <p style="color: green">{{ order.status}}</p></th>
+                        <p style="color: green">{{ order.status}}</p></th>
                     {% endif %}
                     <th style="color: purple">{{ order.timestamp}}</th>
                 </tr>
@@ -74,8 +74,7 @@
             <p>You haven't placed any orders yet.</p>
             {% endif %}
             <p>
-                <input type="button" value="Create PDF"
-                       id="btPrint" onclick="createPDF()"/>
+                <button type="submit" style="background-color: mediumvioletred; border-radius: 7%; margin-left: 45%" onclick="PrintElem('order')">Create PDF</button>
             </p>
         </div>
 
@@ -108,34 +107,25 @@
     })
 </script>
 <script>
-    function createPDF() {
-        var sTable = document.getElementById('order_table').innerHTML;
+    function PrintElem(order)
+    {
+        var mywindow = window.open('', 'PRINT', 'height=700,width=700');
 
-        var style = "<style>";
-        style = style + "table {width: 100%;font: 17px Calibri;}";
-        style = style + "table tr th{border: solid 1px #DDD;";
-        style = style + "padding: 2px 3px; text-align: center;}";
-        style = style + "</style>";
+        mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write('');
+        mywindow.document.write('<h1 style="margin-left: 35%; color: gold">Majjestic Jeweler</h1>');
+        mywindow.document.write(document.getElementById(order).innerHTML);
+        mywindow.document.write('</body></html>');
 
-        // CREATE A WINDOW OBJECT.
-        var win = window.open('', '', 'height=700,width=700');
+        mywindow.document.close();
+        mywindow.focus();
 
-        win.document.write('<html><head>');
-        win.document.write('<title>Order History</title>');   // <title> FOR PDF HEADER.
-        win.document.write('<style>');          // ADD STYLE INSIDE THE HEAD TAG.
-        win.document.write("table tr th{text-align: center; border: solid 1px black;}");
-        win.document.write('</style>');          // ADD STYLE INSIDE THE HEAD TAG.
-        win.document.write('</head>');
-        win.document.write('<body>');
-        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
-        win.document.write('</body></html>');
+        mywindow.print();
+        mywindow.close();
 
-        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
-
-        win.print();    // PRINT THE CONTENTS.
-
+        return true;
     }
-
 </script>
 
 {%endblock%}
