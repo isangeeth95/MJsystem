@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.http import Http404
-from inventory.models import *
-from carts.models import *
+from inventory.models import jewelry
+from carts.models import Cart
 
 
 # Create your views here.
@@ -37,6 +37,7 @@ def ring_list(request):
 
 
 class ProductDetailSlugView(DetailView):
+    print("inside the ProductDetailSlugView class")
     queryset = jewelry.objects.all()
     template_name = "Products/product_detail.html"
 

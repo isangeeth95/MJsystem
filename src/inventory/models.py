@@ -93,14 +93,12 @@ class jewelry(models.Model):
         # decrease quantity
         self.quantity -= q
 
+
     def __str__(self):
         return 'cat : {0} charges : {1}'.format(self.category, self.charges)
-
 
 def jewelry_presave_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
-
-
 pre_save.connect(jewelry_presave_receiver, sender=jewelry)
 
