@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from.models import *
 from .forms import *
+from carts.models import Cart
+from order.models import Order
 from customer.models import Customer
 from django.http import HttpResponse
 import csv
@@ -195,11 +197,14 @@ def checkout_delivery_address_create_view(request):
     if form.is_valid():
         print(request.POST)
         instance = form.save(commit=False)
+        cart_obj, cart_created = Cart.objects.new_or_get(request)
         billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
         if billing_profile is not None:
+            order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
             address_type = request.POST.get('address_type', 'delivering')
             # address_type = request.POST.get('address_type', 'billing')
             instance.billing_profile = billing_profile
+            instance.order = order_obj
             instance.address_type = address_type
             instance.save()
             print(instance.Receiver_Add)
