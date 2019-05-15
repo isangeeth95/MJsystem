@@ -11,19 +11,19 @@
             <div style="margin: auto">
                 {% include 'search/search-form.html' %}
             </div>
-            <div class="col-12">
-                Results for <b>{{ query }}</b>
-                <hr/>
-            </div>
-            {% else %}
-            <div class="col-12 col-md-6 mx-auto py-5">
-                {% include 'search/search-form.html' %}
-            </div>
-            <div class="col-12">
-                <hr/>
-            </div>
-            {% endif %}
         </div>
+        <div class="col-12" style="text-align: left">
+            Results for <b>{{ query }}</b>
+            <hr/>
+        </div>
+        {% else %}
+        <div class="col-12 col-md-6 mx-auto py-5">
+            {% include 'search/search-form.html' %}
+        </div>
+        <div class="col-12">
+            <hr/>
+        </div>
+        {% endif %}
 
         <div class='row' style="display: flex;margin-left: 10%">
             {% for obj in object_list %}
