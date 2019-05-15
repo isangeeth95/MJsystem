@@ -70,6 +70,7 @@
             <p>Cart total : {{ object.cart.total }}</p>
             <p>Delivering total : {{ object.delivering_total }}</p>
             <p>Order total : {{ object.total }}</p>
+            <p>Date Time : {{ object.timestamp }}</p>
             <form class="form" method="GET" action="/user/profile">{% csrf_token %}
                 <button type="submit" style="background-color: green; border-radius: 7%">Return to profile</button>
             </form>
