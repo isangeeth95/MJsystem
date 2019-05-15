@@ -61,7 +61,7 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -81,7 +81,7 @@
     </thead>
     <tfoot>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -104,7 +104,7 @@
         {% for item in items %}
     {% if item.category_id is 2 %}  
      <tr>
-            <td>{{ item.pk }}</td>
+            <td>{{ item.slug }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
@@ -140,7 +140,7 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -160,7 +160,7 @@
     </thead>
     <tfoot>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -183,7 +183,7 @@
         {% for item in items %}
         {% if item.category_id is 1 %}  
      <tr>
-            <td>{{ item.pk }}</td>
+            <td>{{ item.slug }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
@@ -218,7 +218,7 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -238,7 +238,7 @@
     </thead>
     <tfoot>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -261,7 +261,7 @@
         {% for item in items %}
         {% if item.category_id is 3 %}  
      <tr>
-            <td>{{ item.pk }}</td>
+            <td>{{ item.slug }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
@@ -297,7 +297,7 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -317,7 +317,7 @@
     </thead>
     <tfoot>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -340,7 +340,7 @@
         {% for item in items %}
         {% if item.category_id is 5 %}
      <tr>
-            <td>{{ item.pk }}</td>
+            <td>{{ item.slug }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
@@ -376,7 +376,7 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -396,7 +396,7 @@
     </thead>
     <tfoot>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -419,7 +419,7 @@
         {% for item in items %}
         {% if item.category_id is 4 %}  
      <tr>
-            <td>{{ item.pk }}</td>
+            <td>{{ item.slug }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
@@ -455,7 +455,7 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -475,7 +475,7 @@
     </thead>
     <tfoot>
         <tr>
-            <th>Id</th>
+            <th>Code</th>
             <th>Category</th>
             <th>Date</th>
             <th>Description</th>
@@ -498,7 +498,7 @@
         {% for item in items %}
         {% if item.category_id > 5 %}
      <tr>
-            <td>{{ item.pk }}</td>
+            <td>{{ item.slug }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.date }}</td>
             <td>{{ item.description }}</td>
