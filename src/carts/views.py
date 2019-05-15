@@ -93,6 +93,15 @@ def checkout_home(request):
         if is_done:
             # TODO: decrease inventory
             # jewelry.objects.get().buy_item(value)
+
+            for f in cart_obj.jewelries.all():
+                for x in jewelry.objects.filter(id=f.id):
+                    print(f.id)
+                    print(f.quantity)
+                    qnt = x.quantity - 1
+                    print(qnt)
+                    jewelry.objects.filter(id=f.id).update(quantity=qnt)
+
             order_obj.mark_paid()
             request.session['cart_items'] = 0
             del request.session['cart_id']

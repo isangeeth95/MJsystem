@@ -61,9 +61,9 @@ class jewelry(models.Model):
     description = models.CharField(max_length=500, blank=True)
     charges = models.FloatField()
     stoneType = models.ForeignKey(stone, on_delete=models.CASCADE, null=True)
-    NoOfStones = models.IntegerField()
+    NoOfStones = models.PositiveIntegerField()
     weight = models.FloatField()
-    quantity = models.IntegerField()
+    quantity = models.PositiveIntegerField()
     craftsman_id = models.ForeignKey(craftsmen, on_delete=models.CASCADE, null=True)
 
     choices = (
