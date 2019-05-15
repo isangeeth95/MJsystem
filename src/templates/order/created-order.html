@@ -89,12 +89,16 @@
 
         mywindow.document.write('<html><head><title>' + document.title  + '</title>');
         mywindow.document.write('</head><body >');
-        mywindow.document.write('<h1>Majjestic Jeweler</h1>');
+        mywindow.document.write('');
+        mywindow.document.write('<h1 style="margin-left: 35%; color: gold">Majjestic Jeweler</h1>');
+        mywindow.document.write('<div style="border: 2px solid; box-shadow: 5px 8px 10px yellow; ' +
+            'text-align: center" id="order_view">');
         mywindow.document.write(document.getElementById(order_view).innerHTML);
         mywindow.document.write('</body></html>');
+        mywindow.document.write('</div>');
 
-        mywindow.document.close(); // necessary for IE >= 10
-        mywindow.focus(); // necessary for IE >= 10*/
+        mywindow.document.close();
+        mywindow.focus();
 
         mywindow.print();
         mywindow.close();
