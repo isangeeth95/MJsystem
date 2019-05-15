@@ -84,6 +84,7 @@ def checkout_home(request):
             order_obj.save()
 
     if request.method == "POST":
+        # update Delivery_Address.order = order_obj
         if order_obj.delivering_address:
             pass
         else:
