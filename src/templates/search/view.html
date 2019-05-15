@@ -25,13 +25,13 @@
         </div>
         {% endif %}
 
-        <div class='row' style="display: flex;margin-left: 10%">
+        <div class='row' style="display: flex;margin-left: 5%">
             {% for obj in object_list %}
             <div class='col' style="display: flex">
                 {{ forloop.counter}}
                 {% include 'snippets/card.html' with instance=obj %}
                 {% if forloop.counter|divisibleby:3 %}
-            </div></div> <div class='row' style="display: flex;;margin-left: 10%"><div class="col-12" style="display: flex;"><hr/></div>
+            </div></div> <div class='row' style="display: flex;;margin-left: 5%"><div class="col-12" style="display: flex;"><hr/></div>
 
         {% else %}
     </div>
