@@ -4,37 +4,41 @@
 {%load static%}
 
 <div class='container'>
-<div class="container main content main-wrapper" style="margin-top: 150px">
-    <div class="raw mb-3">
-        {% if query %}
-        <div class="col-12">
-            Results for <b>{{ query }}</b>
-            <hr/>
+    <div class="container main content main-wrapper" style="margin-top: 150px">
+
+        <div class="raw mb-3">
+            {% if query %}
+            <div style="margin: auto">
+                {% include 'search/search-form.html' %}
+            </div>
+            <div class="col-12">
+                Results for <b>{{ query }}</b>
+                <hr/>
+            </div>
+            {% else %}
+            <div class="col-12 col-md-6 mx-auto py-5">
+                {% include 'search/search-form.html' %}
+            </div>
+            <div class="col-12">
+                <hr/>
+            </div>
+            {% endif %}
         </div>
+
+        <div class='row' style="display: flex;margin-left: 10%">
+            {% for obj in object_list %}
+            <div class='col' style="display: flex">
+                {{ forloop.counter}}
+                {% include 'snippets/card.html' with instance=obj %}
+                {% if forloop.counter|divisibleby:3 %}
+            </div></div> <div class='row' style="display: flex;;margin-left: 10%"><div class="col-12" style="display: flex;"><hr/></div>
+
         {% else %}
-        <div class="col-12 col-md-6 mx-auto py-5">
-            {% include 'search/search-form.html' %}
-        </div>
-        <div class="col-12">
-            <hr/>
-        </div>
+    </div>
         {% endif %}
+        {% endfor %}
     </div>
 
-    <div class='row' style="display: flex;margin-left: 10%">
-        {% for obj in object_list %}
-        <div class='col' style="display: flex">
-            {{ forloop.counter}}
-            {% include 'snippets/card.html' with instance=obj %}
-            {% if forloop.counter|divisibleby:3 %}
-        </div></div> <div class='row' style="display: flex;;margin-left: 10%"><div class="col-12" style="display: flex;"><hr/></div>
+    {%endblock%}
 
-    {% else %}
-</div>
-    {% endif %}
-    {% endfor %}
-</div>
-
-{%endblock%}
-
-{% block title%}Products {% endblock %}
+    {% block title%}Products {% endblock %}

@@ -19,7 +19,7 @@ class SearchProductView(ListView):
         method_dict = request.GET
         query = method_dict.get('q', None)
         if query is not None:
-            lookups = Q(description__icontains=query)
+            lookups = Q(description__icontains=query) | Q(slug__icontains=query)
             return jewelry.objects.filter(lookups).distinct()
         return None
 
