@@ -327,11 +327,20 @@
     <div id="search" class="animated">
         <div class="container">
             <div class="ten columns offset-by-three center">
-                <form action="/search1">
-                    <input type="hidden" name="type" value="product" />
-                    <div class="search-close"><span class="icon-close"></span></div>
+                <!--<form action="/search1">-->
+                    <!--<input type="hidden" name="type" value="product" />-->
+
+                    <!--<div class="search-close"><span class="icon-close"></span></div>-->
+                    <!--<span class="icon-search search-submit"></span>-->
+                    <!--<input type="text" name="q" placeholder="Search Majjestic Jeweler ..." value="" autocapitalize="off" autocomplete="off" autocorrect="off" />-->
+                <!--</form>-->
+                <form method='GET' action='{% url "query" %}' class="from my-2 my-lg-0">
+                    <input style="width: 85%; float: left" class="form-control" type="text" placeholder="Search Jewellery " name='q' aria-lable="Search" value="{{ request.GET.q }}">
+                                        <div class="search-close"><span class="icon-close"></span></div>
+
+                    <button style="margin-left: 0.5%;" type="submit" class="btn btn-outline-success">Search</button>
                     <span class="icon-search search-submit"></span>
-                    <input type="text" name="q" placeholder="Search Majjestic Jeweler ..." value="" autocapitalize="off" autocomplete="off" autocorrect="off" />
+
                 </form>
             </div>
         </div>
