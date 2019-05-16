@@ -32,10 +32,10 @@
 
                 <tr>
 
-                    <td><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" data-id = "{{ cus1.pk }}">{{ cus1.pk }}</button></td>
+                    <td>{{ cus1.pk }}</td>
                     <td>{{ cus1.first_name }}</td>
                     <td>{{ cus1.last_name }}</td>
-                    <td>{{ cus1.email }}</td>
+                    <td><a href="{% url 'customer-mail' cus1.email %}">{{ cus1.email }}</a></td>
                     <td>address</td>
                     <td>{{ cus1.tel_number }}</td>
                     <td><button type="button"

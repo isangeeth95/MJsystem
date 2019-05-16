@@ -47,3 +47,11 @@ def customer_info(request, pk):
     }
     data['details1'] = render_to_string('customer/customerDetails.html',context)
     return JsonResponse(data)
+
+
+def customer_mailing(request, email):
+    return render(request,'customer/mailing.html',{'email':email})
+
+
+# def customer_mailing(request): # no email
+#     return render(request, 'customer/mailing.html', {'email': 'no email'})
