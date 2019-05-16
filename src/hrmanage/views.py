@@ -62,14 +62,14 @@ def edit_staff(request, pk):
     details = get_object_or_404(Staff, pk=pk)
 
     if request.method == "POST":
-        form = StaffForm(request.POST, instance=details)
+        form = StaffFormEdit(request.POST, instance=details)
 
         if form.is_valid():
             form.save()
             return redirect('dashboard')
 
     else:
-        form = StaffForm(instance=details)
+        form = StaffFormEdit(instance=details)
         return render(request,'hr/edit_staff.html',{'form': form})
 
 
