@@ -1,5 +1,6 @@
 from django.db import models
 from billing.models import BillingProfile
+from order.models import Order
 
 # Create your models here.
 class DeliveryDistance(models.Model):
@@ -51,7 +52,9 @@ class Delivery_Address(models.Model):
         ('onDelivery', 'on Delivery'),
         ('Delivered', 'Delivered')
     )
+    #order = models.OneToOneField(Order, on_delete=models.CASCADE, primary_key=True)
     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.PROTECT)
+    order = models.ForeignKey(Order, on_delete=models.PROTECT, null=True)
     address_type = models.CharField(max_length=120, choices=ADDRESS_TYPES)
     Receiver_Name = models.CharField(max_length=200)
     Receiver_Add = models.CharField(max_length=300)

@@ -29,6 +29,7 @@ urlpatterns = [
                   path('order/', include('order.urls')),
                   path('products/', include('products.urls')),
                   path('cart/', include('carts.urls')),
+                  url(r'^search/', include("search.urls")),
                   url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
                   url(r'^checkout/delivery/address/create/$', checkout_delivery_address_create_view, name='checkout_delivery_address_create'),
                   url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),

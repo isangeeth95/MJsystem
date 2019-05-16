@@ -54,10 +54,10 @@
 
         {% else %}
         <h1 style="font-style: normal; font-weight: bold; font-family: 'Arial Black'">This is a previously paid order</h1>
-                <p style="text-align: center; color: red">You can't edit or delete this order. This order is completed by you</p>
+        <p style="text-align: center; color: red">You can't edit or delete this order. This order is completed by you</p>
 
         {% endif %}
-        <div style="border: 2px solid; box-shadow: 5px 10px 18px red; text-align: center">
+        <div style="border: 2px solid; box-shadow: 5px 8px 10px purple; text-align: center" id="order_view">
             {% for jewelry in object.cart.jewelries.all %}</br>Item Code : {{jewelry.slug}}</br>
             Item price : Rs {{jewelry.net_price}}/=</br>
             <a href='{{ jewelry.get_absolute_url }}'>
@@ -70,14 +70,42 @@
             <p>Cart total : {{ object.cart.total }}</p>
             <p>Delivering total : {{ object.delivering_total }}</p>
             <p>Order total : {{ object.total }}</p>
-            <form class="form" method="GET" action="/user/profile">{% csrf_token %}
-                <button type="submit" style="background-color: green; border-radius: 7%">Return to profile</button>
-            </form>
+            <p>Date Time : {{ object.timestamp }}</p>
         </div>
+        <div style="box-sizing: border-box; width: 100%; margin-top: 2%">
+            <form style="" class="form" method="GET" action="/user/profile">{% csrf_token %}
+                <button type="submit" style="background-color: mediumpurple; border-radius: 0%; float: left"><- Return to profile</button>
+            </form>
+            <button type="submit" style="background-color: mediumvioletred; border-radius: 7%; margin-left: 28%" onclick="PrintElem('order_view')">Print</button>
 
+        </div>
 
     </div>
 </div>
+<script>
+    function PrintElem(order_view)
+    {
+        var mywindow = window.open('', 'PRINT', 'height=700,width=700');
+
+        mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write('');
+        mywindow.document.write('<h1 style="margin-left: 35%; color: gold">Majjestic Jeweler</h1>');
+        mywindow.document.write('<div style="border: 2px solid; box-shadow: 5px 8px 10px yellow; ' +
+            'text-align: center" id="order_view">');
+        mywindow.document.write(document.getElementById(order_view).innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.write('</div>');
+
+        mywindow.document.close();
+        mywindow.focus();
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+</script>
 {%endblock%}
 
 {% block title%}Checkout {% endblock %}

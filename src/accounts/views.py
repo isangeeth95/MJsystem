@@ -4,6 +4,7 @@ from .models import Online_Customer, User, GuestEmail
 from customer.models import Customer
 from billing.models import BillingProfile
 from order.models import Order
+from delivery.models import Delivery_Address
 from django.contrib.auth import authenticate, login, logout
 from django.utils.http import is_safe_url
 from datetime import datetime
@@ -146,13 +147,22 @@ def profile(request):
             lname = c1.last_name
 
         orderQS = None
+        deliverQS = None
 
         try:
             bp = BillingProfile.objects.get(user=request.user)
         except BillingProfile.DoesNotExist:
             bp = None
         if bp is not None:
-            orderQS = Order.objects.filter(billing_profile=bp)
+            try:
+                orderQS = Order.objects.filter(billing_profile=bp)
+            except Order.DoesNotExist:
+                orderQS = None
+            try:
+                deliverQS = Delivery_Address.objects.filter(billing_profile=bp)
+            except Delivery_Address.DoesNotExist:
+                deliverQS = None
+
         context = {
             'username': fname + ' ' + lname,
             'email': email,
@@ -160,6 +170,7 @@ def profile(request):
             'tel': tel,
             'picture': pic,
             'orderQS': orderQS,
+            'deliverQS': deliverQS,
         }
     return render(request, "accounts/profile.html", context)
 

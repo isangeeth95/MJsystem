@@ -20,7 +20,7 @@
             </form>
         </div>
         <input type="text" name="search" id="search1" class="form-control form-control-sm" placeholder="Search">
-        <div id="order" class="card border-0 shadow my-5">
+        <div id="cart_view" class="card border-0 shadow my-5">
             <h4>Cart History</h4>
             {% if cart_list %}
             <table id="cart_table" class="" style="width:100%">
@@ -38,7 +38,7 @@
                 </thead>
                 <tbody>
                 {% for cart in cart_list %}
-                <tr style="color: darkblue; font-weight: bold; font-style: italic;">
+                <tr style="color: darkblue; font-weight: bold; font-style: italic; border: 1px solid dimgrey">
                     <th>{{ forloop.counter}}</th>
                     <th>{{ cart.id}}</th>
                     <th>{{ cart.user}}</th>
@@ -63,13 +63,12 @@
             {% else %}
             <p>There aren't any carts created yet.</p>
             {% endif %}
-            <p>
-                <input type="button" value="Create PDF"
-                       id="btPrint" onclick="createPDF()"/>
-            </p>
+
             <a class="btn btn-info" role="button" href="{% url 'export_cart_csv' %}">Export Cart Info (csv)</a>
         </div>
-
+            <p>
+               <button type="submit" style="background-color: mediumvioletred; border-radius: 7%; margin-left: 45%" onclick="PrintElem('cart_view')">Create PDF</button>
+            </p>
 
     </div>
 </div>
@@ -99,32 +98,25 @@
     })
 </script>
 <script>
-    function createPDF() {
-        var sTable = document.getElementById('cart_table').innerHTML;
+    function PrintElem(cart_view)
+    {
+        var mywindow = window.open('', 'PRINT', 'height=700,width=700');
 
-        var style = "<style>";
-        style = style + "table {width: 100%;font: 17px Calibri;}";
-        style = style + "table tr th{border: solid 1px #DDD;";
-        style = style + "padding: 2px 3px; text-align: center;}";
-        style = style + "</style>";
+        mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write('');
+        mywindow.document.write('<h1 style="margin-left: 35%; color: gold">Majjestic Jeweler</h1>');
+        mywindow.document.write(document.getElementById(cart_view).innerHTML);
+        mywindow.document.write('</body></html>');
 
-        // CREATE A WINDOW OBJECT.
-        var win = window.open('', '', 'height=1000,width=1000');
+        mywindow.document.close();
+        mywindow.focus();
 
-        win.document.write('<html><head>');
-        win.document.write('<title>Cart History</title>');   // <title> FOR PDF HEADER.
-        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
-        win.document.write('</head>');
-        win.document.write('<body>');
-        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
-        win.document.write('</body></html>');
+        mywindow.print();
+        mywindow.close();
 
-        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
-
-        win.print();    // PRINT THE CONTENTS.
-
+        return true;
     }
-
 </script>
 
 

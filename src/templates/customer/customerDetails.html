@@ -1,2 +1,109 @@
-<p>Name - {{customer.first_name}}</p>
-<p>Email - {{ customer.email }}</p>
+
+
+<div class="modal-header">
+    <h5 class="modal-title">Customer Information</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-6">
+                <p>Name - {{customer.first_name}}</p>
+                <p>Email - {{ customer.email }}</p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="container-fluid">
+                <h6>Order History</h6>
+                  {% if orderQS %}
+                  <table class="table-dark cart-table" >
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Order Items</th>
+                      <th>Price</th>
+                      <th>States</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in orderQS %}
+                    <tr>
+                        <th><p>{{ forloop.counter}}</p></th>
+                      <!--<th>{{ order.order_id}}</th>-->
+                      <th>
+                        {% for j in order.cart.jewelries.all %}
+                        {{ j.category.jtype }}
+                        {% endfor %}
+                      </th>
+                      <th>{{ order.total}}</th>
+                      <th>{{ order.status}}
+                      </th>
+
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                  </table>
+                  {% else %}
+                  <p>You haven't placed any orders yet.</p>
+                  {% endif %}
+
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="container-fluid">
+                <h4>Delivery History</h4>
+                  {% if deliverQS %}
+                  <table class="table-info cart-table" >
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Deliver Items</th>
+                      <th>Price</th>
+                      <th>States</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for deliver in deliverQS %}
+                    <tr>
+                      <th>{{ forloop.counter}}</th>
+                      <!--<th>{{ order.order_id}}</th>-->
+                      <th>
+                        {% for j in deliver.order.cart.jewelries.all %}
+                        {{ j.category.jtype }}
+                        {% endfor %}
+                      </th>
+                      <th>
+                        {{ deliver.Receiver_Add }}
+                      </th>
+                      <th>
+                        {{ deliver.Delivery_Process}}
+                      </th>
+
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                  </table>
+                  {% else %}
+                  <p>You haven't placed any delivery yet.</p>
+                  {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

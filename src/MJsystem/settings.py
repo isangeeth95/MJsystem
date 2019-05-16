@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'order',
     'customer',
     'products',
+    'search',
     'carts',
     'hrmanage',
     'supplier',
@@ -123,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

@@ -87,8 +87,43 @@
     </div>
     <div id="delivery" class="card border-0 shadow my-5">
       <h4>Delivery History</h4>
-      <p>You haven't placed any orders yet.</p>
-    </div>
+      {% if deliverQS %}
+      <table class="table-light cart-table" >
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Deliver Items</th>
+          <th>Price</th>
+          <th>States</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for deliver in deliverQS %}
+        <tr>
+          <th>{{ forloop.counter}}</th>
+          <!--<th>{{ order.order_id}}</th>-->
+          <th>
+            {% for j in deliver.order.cart.jewelries.all %}
+            {{ j.category.jtype }}
+            {% endfor %}
+          </th>
+          <th>
+            {{ deliver.Receiver_Add }}
+          </th>
+          <th>
+            {{ deliver.Delivery_Process}}
+          </th>
+
+
+        </tr>
+        {% endfor %}
+        </tbody>
+
+      </table>
+      {% else %}
+      <p>You haven't placed any delivery yet.</p>
+      {% endif %}    </div>
 
   </div>
 

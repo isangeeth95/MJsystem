@@ -48,41 +48,41 @@
     <style media="all">.additional-checkout-button{border:0 !important;border-radius:5px !important;display:inline-block;margin:0 0 10px;padding:0 24px !important;max-width:100%;min-width:150px !important;line-height:44px !important;text-align:center !important}.additional-checkout-button+.additional-checkout-button{margin-left:10px}.additional-checkout-button:last-child{margin-bottom:0}.additional-checkout-button span{font-size:14px !important}.additional-checkout-button img{display:inline-block !important;height:1.3em !important;margin:0 !important;vertical-align:middle !important;width:auto !important}@media (max-width: 500px){.additional-checkout-button{display:block;margin-left:0 !important;padding:0 10px !important;width:100%}}.additional-checkout-button--apple-pay{background-color:#000 !important;color:#fff !important;display:none;font-family:-apple-system, Helvetica Neue, sans-serif !important;min-width:150px !important;white-space:nowrap !important}.additional-checkout-button--apple-pay:hover,.additional-checkout-button--apple-pay:active,.additional-checkout-button--apple-pay:visited{color:#fff !important;text-decoration:none !important}.additional-checkout-button--apple-pay .additional-checkout-button__logo{background:-webkit-named-image(apple-pay-logo-white) center center no-repeat !important;background-size:auto 100% !important;display:inline-block !important;vertical-align:middle !important;width:3em !important;height:1.3em !important}@media (max-width: 500px){.additional-checkout-button--apple-pay{display:none}}.additional-checkout-button--google-pay{line-height:0 !important;padding:0 !important;border-radius:unset !important;width:80px !important}@media (max-width: 500px){.additional-checkout-button--google-pay{width:100% !important}}.gpay-iframe{height:44px !important;width:100%  !important;cursor:pointer;vertical-align:middle !important}.additional-checkout-button--paypal-express{background-color:#ffc439 !important}.additional-checkout-button--paypal,.additional-checkout-button--venmo{vertical-align:top;line-height:0 !important;padding:0 !important}.additional-checkout-button--amazon{background-color:#fad676 !important;position:relative !important}.additional-checkout-button--amazon .additional-checkout-button__logo{-webkit-transform:translateY(4px) !important;transform:translateY(4px) !important}.additional-checkout-button--amazon .alt-payment-list-amazon-button-image{max-height:none !important;opacity:0 !important;position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important}.additional-checkout-button-visually-hidden{border:0 !important;clip:rect(0, 0, 0, 0) !important;clip:rect(0 0 0 0) !important;width:1px !important;height:1px !important;margin:-2px !important;overflow:hidden !important;padding:0 !important;position:absolute !important}
     </style>
     <style>
-      div.logo img {
-        width: 125px;
-        max-width: 100%;
-        max-height: 200px;
-        display: block;
-      }
-      .mm-title img {
-        max-width: 100%;
-        max-height: 60px;
-      }
-      .header div.logo a {
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
+        div.logo img {
+            width: 125px;
+            max-width: 100%;
+            max-height: 200px;
+            display: block;
+        }
+        .mm-title img {
+            max-width: 100%;
+            max-height: 60px;
+        }
+        .header div.logo a {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
 
         .nav ul.menu {
-          padding-top: 30px;
+            padding-top: 30px;
         }
 
-      div.content {
-        padding: 190px 0px 0px 0px;
-      }
-
-      @media only screen and (max-width: 767px) {
         div.content {
-          padding-top: 20px;
+            padding: 190px 0px 0px 0px;
         }
-      }
+
+        @media only screen and (max-width: 767px) {
+            div.content {
+                padding-top: 20px;
+            }
+        }
 
         .dropdown {
-          margin-top: -10px;
-          z-index: 100;
+            margin-top: -10px;
+            z-index: 100;
         }
         .dropdown-links {
-          margin-top: 10px;
+            margin-top: 10px;
         }
 
     </style>
@@ -91,21 +91,21 @@
     <!-- end styles -->
 
     <!-- All links here-->
-        <!-- Custom Fonts -->
-            <link href="//fonts.googleapis.com/css?family=.|Raleway:light,normal,bold|Raleway:light,normal,bold|Lato:light,normal,bold|Lato:light,normal,bold|" rel="stylesheet" type="text/css" />
-        <!-- Stylesheets for Parallax 3.3.1 -->
-            <link href="//cdn.shopify.com/s/files/1/0366/5377/t/24/assets/styles.scss.css?69" rel="stylesheet" type="text/css" media="all" />
-            <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo1.png'%}">
-            <link rel="canonical" href="https://majjesticjewelry.com/" />
-        <!--[if lte IE 8]-->
-            <link href="//cdn.shopify.com/s/files/1/0366/5377/t/24/assets/ie.css?69" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Fonts -->
+    <link href="//fonts.googleapis.com/css?family=.|Raleway:light,normal,bold|Raleway:light,normal,bold|Lato:light,normal,bold|Lato:light,normal,bold|" rel="stylesheet" type="text/css" />
+    <!-- Stylesheets for Parallax 3.3.1 -->
+    <link href="//cdn.shopify.com/s/files/1/0366/5377/t/24/assets/styles.scss.css?69" rel="stylesheet" type="text/css" media="all" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo1.png'%}">
+    <link rel="canonical" href="https://majjesticjewelry.com/" />
+    <!--[if lte IE 8]-->
+    <link href="//cdn.shopify.com/s/files/1/0366/5377/t/24/assets/ie.css?69" rel="stylesheet" type="text/css" media="all" />
 
 
     <!-- end links -->
 
 
 
-<title>Majjestic Jeweler - 10% off your first purchase</title>
+    <title>Majjestic Jeweler - 10% off your first purchase</title>
 </head>
 
 {% load staticfiles%}
@@ -150,10 +150,10 @@
                         <div class="dropdown animated fadeIn  ">
                             <div class="dropdown-links clearfix">
                                 <ul>
-                                  <li><a href="#">Seasonal Offers</a></li>
-                                  <li><a href="#">Valentine Offers</a></li>
-                                  <li><a href="#">Special Offers</a></li>
-                                  <li><a href="#">Regular Offers</a></li>
+                                    <li><a href="#">Seasonal Offers</a></li>
+                                    <li><a href="#">Valentine Offers</a></li>
+                                    <li><a href="#">Special Offers</a></li>
+                                    <li><a href="#">Regular Offers</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -193,12 +193,12 @@
                             <div class="dropdown animated fadeIn  ">
                                 <div class="dropdown-links clearfix">
                                     <ul>
-                                      <li><a href="/user/profile">Profile</a></li>
-                                      <li><a href="/user/profile">Orders</a></li>
-                                      <li><a href="/user/settings/">Setting</a></li>
-                                      <li><a href="/user/logout">Log out</a></li>
-                                      <li><a href="/delivery/deliprofile">Delivery History</a></li>
-                                      <li><a href="/delivery/deliveryform/">Delevery Request</a></li>
+                                        <li><a href="/user/profile">Profile</a></li>
+                                        <li><a href="/user/profile">Orders</a></li>
+                                        <li><a href="/user/settings/">Setting</a></li>
+                                        <li><a href="/user/logout">Log out</a></li>
+                                        <li><a href="/delivery/deliprofile">Delivery History</a></li>
+                                        <li><a href="/delivery/deliveryform/">Delevery Request</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -257,10 +257,10 @@
                             <div class="dropdown animated fadeIn  ">
                                 <div class="dropdown-links clearfix">
                                     <ul>
-                                      <li><a href="#">Seasonal Offers</a></li>
-                                      <li><a href="#">Valentine Offers</a></li>
-                                      <li><a href="#">Special Offers</a></li>
-                                      <li><a href="#">Regular Offers</a></li>
+                                        <li><a href="#">Seasonal Offers</a></li>
+                                        <li><a href="#">Valentine Offers</a></li>
+                                        <li><a href="#">Special Offers</a></li>
+                                        <li><a href="#">Regular Offers</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -270,7 +270,6 @@
             </div>
         </div>
     </div>
-
     <div class="global-wrapper">
         <div class='easylockdown-content' style='display:none;'>
             <div id="shopify-section-contact-template" class="shopify-section contact-template-section">
@@ -327,17 +326,26 @@
 
     <div id="search" class="animated">
         <div class="container">
-          <div class="ten columns offset-by-three center">
-            <form action="/search1">
-                <input type="hidden" name="type" value="product" />
-                <div class="search-close"><span class="icon-close"></span></div>
-                <span class="icon-search search-submit"></span>
-                <input type="text" name="q" placeholder="Search Majjestic Jeweler ..." value="" autocapitalize="off" autocomplete="off" autocorrect="off" />
-            </form>
-          </div>
+            <div class="ten columns offset-by-three center">
+                <!--<form action="/search1">-->
+                    <!--<input type="hidden" name="type" value="product" />-->
+
+                    <!--<div class="search-close"><span class="icon-close"></span></div>-->
+                    <!--<span class="icon-search search-submit"></span>-->
+                    <!--<input type="text" name="q" placeholder="Search Majjestic Jeweler ..." value="" autocapitalize="off" autocomplete="off" autocorrect="off" />-->
+                <!--</form>-->
+                <form method='GET' action='{% url "query" %}' class="from my-2 my-lg-0">
+                    <input style="width: 85%; float: left" class="form-control" type="text" placeholder="Search Jewellery " name='q' aria-lable="Search" value="{{ request.GET.q }}">
+                                        <div class="search-close"><span class="icon-close"></span></div>
+
+                    <button style="margin-left: 0.5%;" type="submit" class="btn btn-outline-success">Search</button>
+                    <span class="icon-search search-submit"></span>
+
+                </form>
+            </div>
         </div>
-      </div>
     </div>
+</div>
 <div class="smile-shopify-init"
      data-channel-key="channel_Ncil8GkG6fZSIBDL3R8RJpnT">
 
@@ -390,7 +398,7 @@
                     console.log(errorData);
                 }
             });
-            
+
             function refreshCart() {
                 console.log("in the current cart");
                 var cartTable = $(".cart-table");
@@ -416,7 +424,7 @@
                             $.each(data, function (index, value) {
                                 console.log(index);
                                 console.log(value);
-                            cartBody.prepend("<tr><th scope=\"row\">" + i + "</th><td>" + value + "</td></tr>");
+                                cartBody.prepend("<tr><th scope=\"row\">" + i + "</th><td>" + value + "</td></tr>");
                                 i++;
                             });
                             cartBody.find(".cart-subtotal").text(data.subtotal);

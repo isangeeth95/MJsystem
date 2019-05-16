@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c4e426b3-3b09-459f-9df1-41abbf92de16" name="server" url="http://localhost:8000">
+        <fileTransfer port="0" mountedRoot="C:\Users\housefull\Documents\GitHub\MJsystem" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
