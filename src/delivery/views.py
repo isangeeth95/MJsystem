@@ -209,6 +209,8 @@ def checkout_delivery_address_create_view(request):
             instance.save()
             print(instance.Receiver_Add)
             print(instance.Receiver_Add + ", " + str(instance.District))
+            delivery_obj = instance.District.net_price_district
+            print(delivery_obj)
             request.session[address_type + "_address_id"] = instance.id
             request.session[address_type + "_address"] = instance.Receiver_Add + ", " + str(instance.District) + ", Sri Lanka"
             print(address_type + "_address_id")
