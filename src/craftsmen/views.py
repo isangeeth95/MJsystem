@@ -18,7 +18,7 @@ def add_craftsmen(request):
 
     else:
         form = add_craftsmenForm
-        return render(request, 'supplier/addSup.html', {'form': form})
+        return render(request, 'craftsmen/add_craftsmen.html', {'form': form})
 
 
 def editcraftsmen(request, pk):
