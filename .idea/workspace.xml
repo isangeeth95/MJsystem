@@ -37,21 +37,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/craftsmen/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="68">
+              <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/craftsmen/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,11 +77,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/templates/delivery/add_delivery.html" />
-        <option value="$PROJECT_DIR$/src/inventory/utils.py" />
-        <option value="$PROJECT_DIR$/src/inventory/forms.py" />
-        <option value="$PROJECT_DIR$/src/inventory/admin.py" />
-        <option value="$PROJECT_DIR$/src/addresses/models.py" />
         <option value="$PROJECT_DIR$/src/carts/urls.py" />
         <option value="$PROJECT_DIR$/src/order/admin.py" />
         <option value="$PROJECT_DIR$/src/MJsystem/utils.py" />
@@ -138,6 +122,11 @@
         <option value="$PROJECT_DIR$/src/customer/views.py" />
         <option value="$PROJECT_DIR$/src/templates/customer/customerInfo.html" />
         <option value="$PROJECT_DIR$/src/templates/customer/mailing.html" />
+        <option value="$PROJECT_DIR$/src/templates/craftsmen/craftsmen.html" />
+        <option value="$PROJECT_DIR$/src/craftsmen/urls.py" />
+        <option value="$PROJECT_DIR$/src/supplier/views.py" />
+        <option value="$PROJECT_DIR$/src/supplier/urls.py" />
+        <option value="$PROJECT_DIR$/src/templates/supplier/supplier.html" />
         <option value="$PROJECT_DIR$/src/craftsmen/views.py" />
       </list>
     </option>
@@ -171,81 +160,19 @@
               <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="billing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="carts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="craftsmen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hrmanage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="supplier" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cart" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
@@ -253,48 +180,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="craftsmen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="hr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="Products" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="snippets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MJsystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="supplier" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -479,7 +364,10 @@
       <workItem from="1557937039495" duration="5231000" />
       <workItem from="1557992954704" duration="7482000" />
       <workItem from="1558028431042" duration="708000" />
-      <workItem from="1558086947110" duration="583000" />
+      <workItem from="1558086947110" duration="792000" />
+      <workItem from="1558322385748" duration="22000" />
+      <workItem from="1558322519804" duration="119000" />
+      <workItem from="1558322685445" duration="3348000" />
     </task>
     <task id="LOCAL-00001" summary="create password reset option&#10;-127.0.0.1:9000/accounts/password/reset/">
       <created>1556458135663</created>
@@ -506,12 +394,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252542000" />
+    <option name="totallyTimeSpent" value="256240000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20499243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21406959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -525,7 +414,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.12111293" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" weight="0.23371105" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4986577" visible="true" weight="0.44189852" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4986577" visible="true" weight="0.44189852" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -597,70 +486,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/order/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/order/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/delivery/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/delivery/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/delivery/edit_delivery.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/delivery/staffchoice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="3" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/order/admin-get-order-list-dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/craftsmen/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/craftsmen/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -799,15 +624,6 @@
           <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1008,15 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/craftsmen/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MJsystem/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1027,10 +834,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="25" column="6" selection-start-line="25" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/inventory/gold.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/supplier/addSup.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplier/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/craftsmen/craftsmen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="46" column="25" selection-start-line="46" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/craftsmen/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplier/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/supplier/supplier.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplier/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/craftsmen/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="68">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>

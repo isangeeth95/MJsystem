@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from .forms import *
+import csv
+from django.http.response import HttpResponse
 
 def craftsmenInfo(request):
     sup = craftsmen.objects.all()
@@ -42,3 +44,15 @@ def delete_craftsmen(request, pk):
     info = craftsmen.objects.all()
     context = {'info': info}
     return render(request, 'dashboard.html')
+
+def export_craftsmen_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="craftsmen.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['first_Name', 'last_Name', 'nic', 'address', 'phone_No', 'craftsmen_Item'])
+    craftsmenInfo = craftsmen.objects.all().values_list('first_Name', 'last_Name', 'nic', 'address', 'phone_No', 'craftsmen_Item')
+    for info in craftsmenInfo:
+        writer.writerow(info)
+
+    return response

@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import supplier
 from .forms import *
+import csv
+from django.http.response import HttpResponse
 
 def supplierInfo(request):
     sup = supplier.objects.all()
@@ -42,3 +44,16 @@ def delete_Sup(request, pk):
     info = supplier.objects.all()
     context = {'info': info}
     return render(request, 'dashboard.html')
+
+
+def export_supplier_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="supplier.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['first_Name', 'last_Name', 'nic', 'address', 'phone_No', 'supplier_item'])
+    supplierInfo = supplier.objects.all().values_list('first_Name', 'last_Name', 'nic', 'address', 'phone_No', 'supplier_item')
+    for info in supplierInfo:
+        writer.writerow(info)
+
+    return response
