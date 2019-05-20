@@ -1,4 +1,5 @@
 {%  extends 'base.html' %}
+
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -9,6 +10,7 @@
 </head>
 
 {% block dashboard-body %}
+<div style="background: linear-gradient(0deg, rgba(183,255,236,1) 0%, rgba(255,165,205,1) 100%);height: 100%"><br>
 <center><h3>Customer Delivery Order Report</h3></center><br>
 <hr>
 <ul><B>Total Number Of Delivery Orders : {{ numberOfRequest }}</B></ul>
@@ -17,6 +19,6 @@
 <ul>Number Of Delivery Orders in Process Status: {{ numberOfDelProcess }}</ul>
 <ul>Number Of Delivery Orders in On Delivery Status: {{ numberOfDelOndelivery }}</ul>
 <ul>Number Of Delivery Orders in Delivered Status: {{ numberOfDelDelivered }}</ul>
-
+</div>
 {% endblock %}
 
