@@ -4,7 +4,9 @@ from .models import Online_Customer, User, GuestEmail
 from customer.models import Customer
 from billing.models import BillingProfile
 from order.models import Order
+from carts.models import Cart
 from delivery.models import Delivery_Address
+from addresses.models import Address
 from django.contrib.auth import authenticate, login, logout
 from django.utils.http import is_safe_url
 from datetime import datetime
@@ -217,10 +219,30 @@ def settings(request):
                 user = authenticate(request, username=request.user.email, password=password)
                 if user is not None:
                     # delete all tuples related to user
+                    bp = BillingProfile.objects.get(user=user)
+                    print('done bp')
+                    for delivery in Delivery_Address.objects.filter(billing_profile=bp):
+                        delivery.delete()
+                    print('del delivery')
+                    for order in Order.objects.filter(billing_profile=bp):
+                        order.delete()
+                    print('del order')
+                    for add in Address.objects.filter(billing_profile=bp):
+                        add.delete()
+                    print('del address')
+                    for cart in Cart.objects.filter(user=user):
+                        cart.delete()
+                    print('del cart')
+                    bp.delete()
+                    print('del bp')
                     cus.delete()
+                    print('del cus')
                     online_cus.delete()
+                    print('del online cus')
                     user.delete()
-                    # logout
+                    print('del user')
+                    logout(request)
+                    print('logout')
                 else:
                     context = {
                         'editform': profile_form,

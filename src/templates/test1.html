@@ -1,51 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<a href="#emailModal" data-target="#emailModal" data-toggle="modal" data-email="34">click</a>
 
 
 
+<div class="modal fade" id="emailModal" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <input type="text" class="form-control" id="email">
+        </div>
+    </div>
+</div>
 
-<style type="text/css">
-    body {padding: 20px;}
-input {margin-bottom: 5px; padding: 2px 3px; width: 209px;}
-td {padding: 4px; border: 1px #CCC solid; width: 100px;}
-</style>
-
-<input  type="text" id="search" placeholder="Type to search">
-<table id="table">
-   <tr>
-      <td>Apple</td>
-      <td>Green</td>
-   </tr>
-   <tr>
-      <td>Grapes</td>
-      <td>Green</td>
-   </tr>
-   <tr>
-      <td>Orange</td>
-      <td>Orange</td>
-   </tr>
-</table>
 <script>
-var $rows = $('#table tr');
-$('#search').keyup(function() {
-    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-
-    $rows.show().filter(function() {
-        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-        return !~text.indexOf(val);
-    }).hide();
-});
+    $('#emailModal').on('show.bs.modal', function (event) {
+        var email = $(event.relatedTarget).data('email');
+        $(event.currentTarget).find("modal-content input #email").val(email);
+})
 </script>
-
-
-
-
-
-
-</body>
-</html>

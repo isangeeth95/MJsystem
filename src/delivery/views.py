@@ -209,9 +209,13 @@ def checkout_delivery_address_create_view(request):
             instance.save()
             print(instance.Receiver_Add)
             print(instance.Receiver_Add + ", " + str(instance.District))
+            delivery_price = instance.District.net_price_district
+            print(delivery_price)
+            request.session[address_type + "_price"] = delivery_price
             request.session[address_type + "_address_id"] = instance.id
             request.session[address_type + "_address"] = instance.Receiver_Add + ", " + str(instance.District) + ", Sri Lanka"
             print(address_type + "_address_id")
+            print(request.session.get("delivering_price"))
         else:
             print("Error checkout_address_create_view function")
             return redirect("checkout")
@@ -221,3 +225,4 @@ def checkout_delivery_address_create_view(request):
         else:
             return redirect("checkout")
     return redirect("checkout")
+

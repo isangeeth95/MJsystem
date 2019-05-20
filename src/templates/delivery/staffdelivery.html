@@ -28,6 +28,7 @@
                  <center><a class="btn btn-info" role="button" href="{% url 'export_delivery_csv' %}">Export Delivery Info (csv)</a></center>
                   <tr>
                     <!-- <th>No</th> -->
+                    <th>Order No</th>
                     <th>Billing Profile</th>
                     <th>Receiver's Name</th>
                     <th>Receiver's Address</th>
@@ -43,6 +44,7 @@
                     <tr>
 
                     <!-- <td>{{ item1.pk }}</td> -->
+                    <td>{{ item1.order}}</td>
                     <td>{{ item1.billing_profile }}</td>
                     <td>{{ item1.Receiver_Name}}</td>
                     <td>{{ item1.Receiver_Add}}</td>
