@@ -10,3 +10,8 @@ class edit_craftsmen(forms.ModelForm):
     class Meta:
         model = craftsmen
         fields = ('first_Name', 'last_Name', 'nic', 'address', 'phone_No', 'craftsmen_Item')
+
+class requestedJewelryForm(forms.ModelForm):
+    class Meta:
+        model = requestedJewelry
+        fields = ('jewelry', 'amountGold', 'noOfStone', 'image', 'description')

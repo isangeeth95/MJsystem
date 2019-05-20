@@ -16,3 +16,16 @@ class craftsmen(models.Model):
 
     def __str__(self):
         return self.first_Name
+
+class requestedJewelry(models.Model):
+    Item = (
+        ('Earings', 'Earings'),
+        ('Necklace', 'Necklace'),
+        ('Ring', 'Ring'),
+        ('Pendent', 'Pendent'),
+    )
+    jewelry = models.CharField(max_length=100, choices=Item ,blank=False)
+    amountGold = models.CharField(max_length=100)
+    noOfStone = models.PositiveIntegerField()
+    image = models.ImageField(upload_to='jewelry_requested_image/', null=True, blank=True)
+    description = models.TextField()

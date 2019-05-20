@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block dashboard-body %}
+
+<!--<div class="container">-->
+    <!--<form method="POST" >-->
+      <!--{% csrf_token %}-->
+
+      <!--<h4>{{ header }}</h4>-->
+      <!--<br>-->
+        <!--<h4><b>Requested Jewelry Form</b></h4><br>-->
+      <!--{% for field in form %}-->
+      <!--<div class="form-group row">-->
+        <!--<label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>-->
+        <!--<div class="col-10">-->
+          <!--{{ field }}-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--{% endfor %}-->
+
+      <!--<div class="form-group row">-->
+        <!--<div class="offset-sm-2 col-sm-6">-->
+
+          <!--<button type="submit" class="btn btn-primary">Add </button>-->
+
+        <!--</div>-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</div>-->
+
+{% load static %}
+<center>
+    <a style="float:right;margin-right:50px;width:200px;font-size:large;" href="{% url 'requested_jewelry' %}" class="btn btn-info" role="button">Request Jewelry</a>
+    <a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_craftsmen' %}" class="btn btn-warning btn-sm" role="button">+</a>
+</center>
+<br><br>
+
+<div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Craftsmen Information </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Jewelry Type</th>
+                    <th>Amount Of Gold</th>
+                    <th>Number Of Stones</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody style="color: #000">
+                {% for item in info %}
+                    <tr>
+
+                    <td>{{ item.pk }}</td>
+                    <td>{{ item.jewelry }}</td>
+                    <td>{{ item.amountGold }}</td>
+                    <td>{{ item.noOfStone }}</td>
+                    <td>{{ item.image }}</td>
+                    <td>{{item.description}}</td>
+                  </tr>
+                {% endfor %}
+
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+
+{% endblock %}

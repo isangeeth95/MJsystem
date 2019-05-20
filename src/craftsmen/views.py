@@ -56,3 +56,21 @@ def export_craftsmen_csv(request):
         writer.writerow(info)
 
     return response
+
+def requestJewelryForm(request):
+    if request.method == "POST":
+        form = requestedJewelryForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'craftsmen/requestedJewelry.html')
+
+    else:
+        form = requestedJewelryForm
+        return render(request, 'craftsmen/requestedJewelry.html', {'form': form})
+
+def requestJewelry(request):
+    sup = requestedJewelry.objects.all()
+    context = {'info': sup}
+    #print(sup.objects(1))
+    return render(request, 'craftsmen/requestedJewelry.html', context)
