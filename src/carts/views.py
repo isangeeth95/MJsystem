@@ -69,13 +69,17 @@ def checkout_home(request):
     billing_address_id = request.session.get("billing_address_id", None)
     delivering_address_id = request.session.get("delivering_address_id", None)
     delivering_address = request.session.get("delivering_address")
+    delivering_price = request.session.get("delivering_price", None)
 
     billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
     if billing_profile is not None:
         order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
         if delivering_address_id:
             order_obj.delivering_address = delivering_address
+            order_obj.delivering_total = delivering_price
             del request.session["delivering_address_id"]
+            del request.session["delivering_price"]
+            order_obj.update_total()
             order_obj.save()
         if billing_address_id:
             order_obj.billing_address = Address.objects.get(id=billing_address_id)

@@ -44,7 +44,7 @@ class Order(models.Model):
     billing_address = models.ForeignKey(Address, related_name="billing_address", null=True, blank=True, on_delete=models.PROTECT)
     cart = models.ForeignKey(Cart, on_delete=models.PROTECT)
     status = models.CharField(max_length=120, default='created', choices=ORDER_STATUS_CHOICES)
-    delivering_total = models.DecimalField(default=50.00, max_digits=100, decimal_places=2)
+    delivering_total = models.DecimalField(default=00.00, max_digits=100, decimal_places=2)
     total = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
     timestamp = models.DateTimeField(auto_now_add=True, null=True)
     active = models.BooleanField(default=True)

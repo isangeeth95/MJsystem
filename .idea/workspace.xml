@@ -34,10 +34,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/craftsmen/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="-697">
+              <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/supplier/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-468">
               <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
@@ -124,10 +136,10 @@
         <option value="$PROJECT_DIR$/src/templates/customer/mailing.html" />
         <option value="$PROJECT_DIR$/src/templates/craftsmen/craftsmen.html" />
         <option value="$PROJECT_DIR$/src/craftsmen/urls.py" />
-        <option value="$PROJECT_DIR$/src/supplier/views.py" />
         <option value="$PROJECT_DIR$/src/supplier/urls.py" />
         <option value="$PROJECT_DIR$/src/templates/supplier/supplier.html" />
         <option value="$PROJECT_DIR$/src/craftsmen/views.py" />
+        <option value="$PROJECT_DIR$/src/supplier/views.py" />
       </list>
     </option>
   </component>
@@ -367,7 +379,7 @@
       <workItem from="1558086947110" duration="792000" />
       <workItem from="1558322385748" duration="22000" />
       <workItem from="1558322519804" duration="119000" />
-      <workItem from="1558322685445" duration="3348000" />
+      <workItem from="1558322685445" duration="3685000" />
     </task>
     <task id="LOCAL-00001" summary="create password reset option&#10;-127.0.0.1:9000/accounts/password/reset/">
       <created>1556458135663</created>
@@ -394,11 +406,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256240000" />
+    <option name="totallyTimeSpent" value="256577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21406959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -893,16 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/supplier/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inventory/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -912,7 +913,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/craftsmen/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="-697">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplier/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
           <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
