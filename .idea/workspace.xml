@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51826328-1644-4df3-b1b4-a437f7ec6375" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/BussinessAccount/Trans.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/BussinessAccount/Trans.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/craftsmen/craftsmen.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/craftsmen/craftsmen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/delivery/analyst.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/delivery/analyst.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/delivery/staffdelivery.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/delivery/staffdelivery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/hr/add_staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/hr/add_staff.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/hr/edit_staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/hr/edit_staff.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/hr/staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/hr/staff.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/inventory/inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/inventory/inventory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/supplier/supplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/supplier/supplier.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,15 +30,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/templates/craftsmen/craftsmen.html">
+        <entry file="file://$PROJECT_DIR$/src/templates/inventory/inventory.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#center#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-445">
+              <caret line="488" column="25" selection-start-line="488" selection-start-column="25" selection-end-line="488" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -113,7 +98,6 @@
         <option value="$PROJECT_DIR$/src/templates/inventory/analyst.html" />
         <option value="$PROJECT_DIR$/src/templates/order/order.html" />
         <option value="$PROJECT_DIR$/src/templates/order/admin-get-order-list-dashboard.html" />
-        <option value="$PROJECT_DIR$/src/templates/inventory/inventory.html" />
         <option value="$PROJECT_DIR$/src/templates/delivery/analyst.html" />
         <option value="$PROJECT_DIR$/src/templates/delivery/add_delivery.html" />
         <option value="$PROJECT_DIR$/src/templates/delivery/add_delivery_areas.html" />
@@ -135,6 +119,7 @@
         <option value="$PROJECT_DIR$/src/templates/BussinessAccount/Trans.html" />
         <option value="$PROJECT_DIR$/src/templates/supplier/supplier.html" />
         <option value="$PROJECT_DIR$/src/templates/craftsmen/craftsmen.html" />
+        <option value="$PROJECT_DIR$/src/templates/inventory/inventory.html" />
       </list>
     </option>
   </component>
@@ -212,7 +197,7 @@
               <item name="MJsystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="craftsmen" type="462c0819:PsiDirectoryNode" />
+              <item name="inventory" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -368,7 +353,7 @@
       <workItem from="1558086947110" duration="583000" />
       <workItem from="1558305927499" duration="1855000" />
       <workItem from="1558340160355" duration="37000" />
-      <workItem from="1558347869683" duration="6326000" />
+      <workItem from="1558347869683" duration="6575000" />
     </task>
     <task id="LOCAL-00001" summary="create password reset option&#10;-127.0.0.1:9000/accounts/password/reset/">
       <created>1556458135663</created>
@@ -395,7 +380,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260760000" />
+    <option name="totallyTimeSpent" value="261009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -708,13 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/inventory/inventory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="60" column="81" selection-start-line="60" selection-start-column="81" selection-end-line="60" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/order/admin-get-order-list-dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -918,13 +896,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/craftsmen/craftsmen.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
+        <state relative-caret-position="935">
           <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#center#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/inventory/inventory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-445">
+          <caret line="488" column="25" selection-start-line="488" selection-start-column="25" selection-end-line="488" selection-end-column="25" />
         </state>
       </provider>
     </entry>
