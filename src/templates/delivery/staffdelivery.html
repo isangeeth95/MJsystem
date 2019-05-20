@@ -33,6 +33,7 @@
                     <th>Receiver's Name</th>
                     <th>Receiver's Address</th>
                     <th>District</th>
+                    <th>Order Date</th>
                     <th>Delivery Status</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -49,9 +50,10 @@
                     <td>{{ item1.Receiver_Name}}</td>
                     <td>{{ item1.Receiver_Add}}</td>
                     <td>{{ item1.District }}</td>
+                    <td>{{ item1.Order_date}}</td>
                     <td>{{ item1.Delivery_Process}}</td>
                     <td><a href="{% url 'staffedit_delivery' item1.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
-                    <td><a href="{% url 'delete_delivery' item1.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                    <td><a href="{% url 'delete_delivery' item1.pk %}" class="btn btn-danger btn-sm" role="button" onclick="return confirm('Are you sure you want to delete this?')">Delete</a> </td>
                   </tr>
 
                 {% endfor %}
