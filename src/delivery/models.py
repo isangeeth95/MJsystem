@@ -60,6 +60,7 @@ class Delivery_Address(models.Model):
     Receiver_Add = models.CharField(max_length=300)
     District = models.ForeignKey(DeliveryDistance, on_delete=models.CASCADE, null=True)
     Delivery_Process = models.CharField(max_length=100, choices=deliveryProcess, default='Request')
+    Order_date = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return str(self.billing_profile)
