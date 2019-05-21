@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from .models import *
 from .forms import *
 import csv
@@ -63,11 +63,11 @@ def requestJewelryForm(request):
 
         if form.is_valid():
             form.save()
-            return render(request, 'craftsmen/requestedJewelry.html')
+            return redirect("/dashboard")
 
     else:
         form = requestedJewelryForm
-        return render(request, 'craftsmen/requestedJewelry.html', {'form': form})
+        return render(request, 'craftsmen/requestedJewelryform.html', {'form': form})
 
 def requestJewelry(request):
     sup = requestedJewelry.objects.all()

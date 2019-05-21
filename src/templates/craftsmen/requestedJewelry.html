@@ -30,8 +30,8 @@
 
 {% load static %}
 <center>
-    <a style="float:right;margin-right:50px;width:200px;font-size:large;" href="{% url 'requested_jewelry' %}" class="btn btn-info" role="button">Request Jewelry</a>
-    <a style="float:right;margin-right:10px;width:50px;font-size:large;" href="{% url 'add_craftsmen' %}" class="btn btn-warning btn-sm" role="button">+</a>
+    <a style="float:right;margin-right:50px;width:200px;font-size:large;" href="{% url 'requestJewelryForm' %}" class="btn btn-info" role="button">Request Jewelry</a>
+
 </center>
 <br><br>
 
@@ -60,7 +60,7 @@
                     <td>{{ item.jewelry }}</td>
                     <td>{{ item.amountGold }}</td>
                     <td>{{ item.noOfStone }}</td>
-                    <td>{{ item.image }}</td>
+                    <td><img style="width: 100px; height: 100px;" alt="Image description" src="{{ item.image.url }}"/></td>
                     <td>{{item.description}}</td>
                   </tr>
                 {% endfor %}
